@@ -85,7 +85,7 @@ export default function About() {
           >
             <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
               Need Best Help For <br />
-              <span className="text-cyan-500">Digital Corporating!</span>
+              <span className="text-green-500">Digital Corporating!</span>
             </h2>
             <p className="text-gray-600 mb-10 leading-relaxed">
               We combine creativity and technology to help your business grow.
@@ -93,18 +93,18 @@ export default function About() {
               vision and goals.
             </p>
             <div className="flex flex-wrap gap-6">
-              <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-indigo-500 text-white font-semibold rounded-full hover:scale-105 transition transform duration-300">
+              <button className="px-6 py-3 bg-gradient-to-r from-green-500 to-red-500 text-white font-semibold rounded-full hover:scale-105 transition transform duration-300">
                 MAKE APPOINTMENT
               </button>
               <div className="flex items-center gap-4">
-                <div className="bg-cyan-500 text-white p-3 rounded-full">
+                <div className="bg-green-500 text-white p-3 rounded-full">
                   <FaPhoneAlt size={24} />
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">
                     GET A FREE CONSULTATION
                   </p>
-                  <p className="text-2xl font-bold text-indigo-600">
+                  <p className="text-2xl font-bold text-green-600">
                     987 233 0000
                   </p>
                 </div>

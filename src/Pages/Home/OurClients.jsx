@@ -81,8 +81,7 @@ export default function OurClients() {
           clients at Bangladeshi IT Solutions.
         </p>
       </div>
-
-      <div className="max-w-7xl mx-auto overflow-hidden">
+      <div className="max-w-7xl mx-auto overflow-hidden">       
         <div className="flex gap-4 transition-transform duration-1000 ease-in-out">
           {getVisibleClients().map((client) => (
             <div
