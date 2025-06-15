@@ -15,11 +15,13 @@ import GraphicsDesign from "../Pages/Services/GraphicsDesign";
 import SocialMediaMarketing from "../Pages/Services/SocialMediaMarketing";
 import SEOContentWriting from "../Pages/Services/SeoContentWriting";
 import ConsultingServices from "../Pages/Services/ConsultingServices";
+import ErrorPage from "../Shared/ErrorPage";
 
   export const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout></MainLayout>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
             path: "/",
