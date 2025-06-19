@@ -141,3 +141,6 @@
     @apply bg-background text-foreground;
   }
 }
+.fixed.bottom-8.right-8.z-50.flex.flex-col.items-end.space-y-3 {
+    top: 400px;
+}
