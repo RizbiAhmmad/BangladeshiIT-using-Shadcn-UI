@@ -141,7 +141,7 @@ export default function Contact() {
       {/* Map */}
       <div className="w-full max-w-6xl mt-12 rounded-xl overflow-hidden border border-green-500 shadow-xl">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3689.758242962747!2d91.77922247480542!3d22.36275554062969!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd99b4f71aeab%3A0x1af9c6fa0926fd05!2sA%20K%20Khan%20Bus%20Stand!5e0!3m2!1sen!2sbd!4v1749490718677!5m2!1sen!2sbd"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6136.249319004187!2d90.3797675895438!3d23.867067559826324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c41bd3575995%3A0x52ad89621386c4c4!2sSector%2014%2C%20Dhaka%201230!5e0!3m2!1sen!2sbd!4v1750355371999!5m2!1sen!2sbd"
           className="w-full h-[300px] md:h-[450px]"
           allowFullScreen=""
           loading="lazy"
