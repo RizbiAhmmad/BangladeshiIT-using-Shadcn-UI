@@ -16,6 +16,8 @@ import SocialMediaMarketing from "../Pages/Services/SocialMediaMarketing";
 import SEOContentWriting from "../Pages/Services/SeoContentWriting";
 import ConsultingServices from "../Pages/Services/ConsultingServices";
 import ErrorPage from "../Shared/ErrorPage";
+import Login from "../Authentication/Login";
+import SignUp from "../Authentication/SignUp";
 
   export const router = createBrowserRouter([
     {
@@ -26,6 +28,14 @@ import ErrorPage from "../Shared/ErrorPage";
         {
             path: "/",
             element: <Home></Home>
+        },
+        {
+          path:'login',
+          element: <Login></Login>
+        },
+        {
+          path:'signup',
+          element: <SignUp></SignUp>
         },
         {
           path: "/about",
