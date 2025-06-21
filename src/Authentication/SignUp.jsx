@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { AuthContext } from "../provider/AuthProvider";
 import SocialLogin from "./SocialLogin";
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const SignUp = () => {
@@ -60,7 +60,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-cover bg-center" style={{ backgroundImage: `url('https://img.freepik.com/free-vector/background-abstract-realistic-technology-particle_23-2148431264.jpg?semt=ais_hybrid')` }}>
+    <div className="min-h-screen flex justify-center items-center bg-cover bg-center" style={{ backgroundImage: `url('https://img.freepik.com/free-vector/gradient-geometric-shapes-dark-background_23-2148423542.jpg?ga=GA1.1.1331979436.1739300930&semt=ais_hybrid&w=740')` }}>
       <div className="bg-white/20 backdrop-blur-lg shadow-xl rounded-xl p-8 max-w-md w-full">
         <h2 className="text-3xl font-bold text-center text-white mb-6">Create an Account</h2>
 
