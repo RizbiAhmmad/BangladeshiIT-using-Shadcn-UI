@@ -18,6 +18,7 @@ import ConsultingServices from "../Pages/Services/ConsultingServices";
 import ErrorPage from "../Shared/ErrorPage";
 import Login from "../Authentication/Login";
 import SignUp from "../Authentication/SignUp";
+import Dashboard from "../Layouts/Dashboard";
 
   export const router = createBrowserRouter([
     {
@@ -84,5 +85,20 @@ import SignUp from "../Authentication/SignUp";
 
       ]
     },
+
+
+       {
+      path: 'dashboard',
+      element: <Dashboard></Dashboard>,
+      children: [
+
+        // ADMIN ROUTES
+        {
+          path: 'users',
+          element:<h1>hiii</h1>
+        },
+       
+      ]
+    }
 
   ]);
