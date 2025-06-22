@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
 import logo from "../assets/BangladeshiIT.jpg";
+import useAuth from "../Hooks/useAuth";
+import useAxiosPublic from "../Hooks/useAxiosPublic";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -20,16 +22,26 @@ const services = [
   { name: "Social Media Marketing", href: "/services/social-media-marketing" },
   { name: "SEO Content Writing", href: "/services/seo" },
   { name: "Consulting", href: "/services/consulting" },
- 
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [userRole, setUserRole] = useState(null);
   const location = useLocation();
+  const { user } = useAuth();
+  const axiosPublic = useAxiosPublic();
 
-  // Helper to detect if current route is under services
   const isServiceRoute = location.pathname.startsWith("/services");
+
+  useEffect(() => {
+    if (user?.email) {
+      axiosPublic
+        .get("/users/role", { params: { email: user.email } })
+        .then((res) => setUserRole(res.data.role))
+        .catch((err) => console.error("Role fetch error:", err));
+    }
+  }, [user, axiosPublic]);
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
@@ -79,7 +91,7 @@ export default function Navbar() {
                         <NavLink
                           key={service.name}
                           to={service.href}
-                          onClick={() => setShowDropdown(false)} 
+                          onClick={() => setShowDropdown(false)}
                           className={({ isActive }) =>
                             `block px-3 py-2 text-sm ${
                               isActive
@@ -111,6 +123,17 @@ export default function Navbar() {
               </NavLink>
             )
           )}
+
+          {/* Admin Dashboard Link */}
+          {user && userRole === "admin" && (
+            <NavLink
+              to="/dashboard"
+              className="font-medium text-black hover:text-green-600"
+            >
+              Dashboard
+            </NavLink>
+          )}
+
           <a
             href="/contact"
             className="ml-6 bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-700 transition font-semibold"
@@ -218,6 +241,24 @@ export default function Navbar() {
                     </NavLink>
                   </motion.li>
                 )
+              )}
+
+              {/* Admin Dashboard Link in Mobile */}
+              {user && userRole === "admin" && (
+                <motion.li
+                  variants={{
+                    open: { opacity: 1, y: 0 },
+                    closed: { opacity: 0, y: -20 },
+                  }}
+                >
+                  <NavLink
+                    to="/dashboard"
+                    onClick={() => setIsOpen(false)}
+                    className="block font-medium text-black hover:text-green-600"
+                  >
+                    Dashboard
+                  </NavLink>
+                </motion.li>
               )}
 
               <motion.li
