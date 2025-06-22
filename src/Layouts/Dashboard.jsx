@@ -75,6 +75,14 @@ const Dashboard = () => {
                     <FaUsers /> <span>Users</span>
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/addBlogs"
+                    className="flex py-2 space-x-3 items-center"
+                  >
+                    <FaUsers /> <span>AddBlogs</span>
+                  </NavLink>
+                </li>
                 
               </>
             )}
