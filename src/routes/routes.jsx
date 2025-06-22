@@ -19,6 +19,7 @@ import ErrorPage from "../Shared/ErrorPage";
 import Login from "../Authentication/Login";
 import SignUp from "../Authentication/SignUp";
 import Dashboard from "../Layouts/Dashboard";
+import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
 
   export const router = createBrowserRouter([
     {
@@ -95,7 +96,7 @@ import Dashboard from "../Layouts/Dashboard";
         // ADMIN ROUTES
         {
           path: 'users',
-          element:<h1>hiii</h1>
+          element:<AllUsers></AllUsers>
         },
        
       ]
