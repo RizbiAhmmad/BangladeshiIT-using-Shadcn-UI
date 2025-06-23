@@ -86,12 +86,14 @@ export default function AddBlogs() {
           className="w-full border p-2 rounded"
         />
 
-        <button
-          type="submit"
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-        >
-          Add Blog
-        </button>
+         <div className="text-center">
+          <button
+            type="submit"
+            className="bg-green-500 text-white px-6 py-2 rounded hover:bg-orange-600"
+          >
+            Add Blog
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -22,6 +22,7 @@ import Dashboard from "../Layouts/Dashboard";
 import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
 import AddBlogs from "../Pages/Dashboard/Admin/AddBlogs";
 import AllBlogs from "../Pages/Dashboard/Admin/AllBlogs";
+import AddReview from "../Pages/Dashboard/Admin/AddReview";
 
   export const router = createBrowserRouter([
     {
@@ -106,6 +107,14 @@ import AllBlogs from "../Pages/Dashboard/Admin/AllBlogs";
         },
         {
           path: 'allBlogs',
+          element: <AllBlogs></AllBlogs>
+        },
+        {
+          path: 'addReviews',
+          element: <AddReview></AddReview>
+        },
+        {
+          path: 'allReviews',
           element: <AllBlogs></AllBlogs>
         }
        
