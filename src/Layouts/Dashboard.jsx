@@ -93,6 +93,22 @@ const Dashboard = () => {
                     <FaBlogger /> <span>AllBlogs</span>
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/addReviews"
+                    className="flex py-2 space-x-3 items-center"
+                  >
+                    <FaRegEdit /> <span>AddReview</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/allBlogs"
+                    className="flex py-2 space-x-3 items-center"
+                  >
+                    <FaBlogger /> <span>AllReviews</span>
+                  </NavLink>
+                </li>
                 
               </>
             )}
