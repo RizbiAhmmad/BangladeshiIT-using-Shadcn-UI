@@ -1,43 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { AuroraText } from "../../components/magicui/aurora-text";
-
-const blogs = [
-  {
-    id: 1,
-    title: "Why Every Business Needs a Google Business Profile",
-    excerpt:
-      "Now, having an online presence is no longer optional. Google Business boosts visibility.",
-    image:
-      "https://st2.depositphotos.com/3591429/12244/i/450/depositphotos_122442772-stock-photo-people-with-digital-gadgets.jpg",
-    tag: "Best SEO service in Bangladesh",
-    link: "#",
-  },
-  {
-    id: 2,
-    title: "Which Should You Start with First: Sales or Branding?",
-    excerpt:
-      "When launching a new business or scaling an existing one, this is the million-dollar question.",
-    image:
-      "https://st2.depositphotos.com/3591429/12244/i/450/depositphotos_122442772-stock-photo-people-with-digital-gadgets.jpg",
-    tag: "Best Social Media Marketing Service in Bangladesh",
-    link: "#",
-  },
-  {
-    id: 3,
-    title: "The Importance of UI/UX Design in Website Development",
-    excerpt:
-      "In today’s digital-first world, a well-designed website can make or break your brand.",
-    image:
-      "https://st2.depositphotos.com/3591429/12244/i/450/depositphotos_122442772-stock-photo-people-with-digital-gadgets.jpg",
-    tag: "Best Website Design Service in Bangladesh",
-    link: "#",
-  },
-];
+import axios from "axios";
 
 export default function Blog() {
+  const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/blogs") // Or your hosted URL
+      .then(res => setBlogs(res.data))
+      .catch(err => console.error("Error fetching blogs:", err));
+  }, []);
+
+  // Show only first 3 blogs
+  const topBlogs = blogs.slice(0, 3);
 
   return (
     <section className="bg-white py-12 px-6" id="blogs">
@@ -51,9 +29,9 @@ export default function Blog() {
         </p>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {blogs.map(({ id, title, excerpt, image, tag, link }) => (
+          {topBlogs.map(({ _id, title, description, image, tag }) => (
             <div
-              key={id}
+              key={_id}
               className="bg-white shadow-md rounded-xl overflow-hidden border hover:shadow-orange-100 transition flex flex-col"
             >
               <img
@@ -65,15 +43,12 @@ export default function Blog() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
                   {title}
                 </h3>
-                <p className="text-sm text-gray-600 mb-4">{excerpt}</p>
+                <p className="text-sm text-gray-600 mb-4">{description}</p>
 
                 <div className="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
-                  <a
-                    href={link}
-                    className="text-orange-500 text-sm font-semibold flex items-center gap-1 hover:underline"
-                  >
+                  <span className="text-orange-500 text-sm font-semibold flex items-center gap-1 hover:underline cursor-pointer">
                     Learn more <ArrowRight size={14} />
-                  </a>
+                  </span>
                   <span className="text-xs text-gray-500 text-right max-w-[280px] truncate">
                     {tag}
                   </span>

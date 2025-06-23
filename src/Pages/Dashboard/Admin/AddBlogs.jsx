@@ -41,7 +41,7 @@ export default function AddBlogs() {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 mt-10 bg-white shadow rounded-lg">
+    <div className="max-w-xl mx-auto p-6 mt-10 bg-white border border-green-500 shadow rounded-lg">
       <h2 className="text-2xl font-bold mb-4 text-center text-green-700">
         Add a New Blog
       </h2>

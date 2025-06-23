@@ -21,6 +21,7 @@ import SignUp from "../Authentication/SignUp";
 import Dashboard from "../Layouts/Dashboard";
 import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
 import AddBlogs from "../Pages/Dashboard/Admin/AddBlogs";
+import AllBlogs from "../Pages/Dashboard/Admin/AllBlogs";
 
   export const router = createBrowserRouter([
     {
@@ -102,6 +103,10 @@ import AddBlogs from "../Pages/Dashboard/Admin/AddBlogs";
         {
           path: 'addBlogs',
           element: <AddBlogs></AddBlogs>
+        },
+        {
+          path: 'allBlogs',
+          element: <AllBlogs></AllBlogs>
         }
        
       ]
