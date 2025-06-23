@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {
+  FaBlogger,
   FaHome,
+  FaRegEdit,
   FaUsers,
 } from "react-icons/fa";
 import { LuLayoutDashboard } from "react-icons/lu";
@@ -80,7 +82,15 @@ const Dashboard = () => {
                     to="/dashboard/addBlogs"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <FaUsers /> <span>AddBlogs</span>
+                    <FaRegEdit /> <span>AddBlogs</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/allBlogs"
+                    className="flex py-2 space-x-3 items-center"
+                  >
+                    <FaBlogger /> <span>AllBlogs</span>
                   </NavLink>
                 </li>
                 
