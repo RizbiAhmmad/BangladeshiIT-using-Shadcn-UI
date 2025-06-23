@@ -23,6 +23,7 @@ import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
 import AddBlogs from "../Pages/Dashboard/Admin/AddBlogs";
 import AllBlogs from "../Pages/Dashboard/Admin/AllBlogs";
 import AddReview from "../Pages/Dashboard/Admin/AddReview";
+import AllReviews from "../Pages/Dashboard/Admin/AllReviews";
 
   export const router = createBrowserRouter([
     {
@@ -115,7 +116,7 @@ import AddReview from "../Pages/Dashboard/Admin/AddReview";
         },
         {
           path: 'allReviews',
-          element: <AllBlogs></AllBlogs>
+          element: <AllReviews></AllReviews>
         }
        
       ]

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import {
   FaBlogger,
+  FaComments,
   FaHome,
+  FaPlusCircle,
   FaRegEdit,
   FaUsers,
 } from "react-icons/fa";
@@ -98,15 +100,15 @@ const Dashboard = () => {
                     to="/dashboard/addReviews"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <FaRegEdit /> <span>AddReview</span>
+                    <FaPlusCircle /> <span>AddReview</span>
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
-                    to="/dashboard/allBlogs"
+                    to="/dashboard/allReviews"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <FaBlogger /> <span>AllReviews</span>
+                    <FaComments /> <span>AllReviews</span>
                   </NavLink>
                 </li>
                 
