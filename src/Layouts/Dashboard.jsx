@@ -5,10 +5,12 @@ import {
   FaHome,
   FaPlusCircle,
   FaRegEdit,
+  FaUserPlus,
   FaUsers,
 } from "react-icons/fa";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { FaUsersRectangle } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useAuth from "../Hooks/useAuth";
@@ -109,6 +111,22 @@ const Dashboard = () => {
                     className="flex py-2 space-x-3 items-center"
                   >
                     <FaComments /> <span>AllReviews</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/addMember"
+                    className="flex py-2 space-x-3 items-center"
+                  >
+                    <FaUserPlus /> <span>AddMember</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/allMembers"
+                    className="flex py-2 space-x-3 items-center"
+                  >
+                    <FaUsersRectangle /> <span>AllMembers</span>
                   </NavLink>
                 </li>
                 
