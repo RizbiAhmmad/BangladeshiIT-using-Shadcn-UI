@@ -115,6 +115,14 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink
+                    to="/dashboard/addReviewVideo"
+                    className="flex py-2 space-x-3 items-center"
+                  >
+                    <FaPlusCircle /> <span>AddReview Video</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
                     to="/dashboard/addMember"
                     className="flex py-2 space-x-3 items-center"
                   >
