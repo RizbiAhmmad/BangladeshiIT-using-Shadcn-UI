@@ -25,6 +25,7 @@ import AllBlogs from "../Pages/Dashboard/Admin/AllBlogs";
 import AddReview from "../Pages/Dashboard/Admin/AddReview";
 import AllReviews from "../Pages/Dashboard/Admin/AllReviews";
 import AddMember from "../Pages/Dashboard/Admin/AddMember";
+import AllMembers from "../Pages/Dashboard/Admin/AllMembers";
 
   export const router = createBrowserRouter([
     {
@@ -125,7 +126,7 @@ import AddMember from "../Pages/Dashboard/Admin/AddMember";
         },
         {
           path: 'allMembers',
-          element: <AllReviews></AllReviews>
+          element: <AllMembers></AllMembers>
         }
        
       ]

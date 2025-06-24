@@ -1,3 +1,4 @@
+import { MeetTheTeam } from '../About/MeetTheTeam';
 import Contact from '../Contact/Contact';
 import OurServices from '../Services/OurServices';
 import Banner from './Banner';
@@ -13,6 +14,7 @@ const Home = () => {
             <Banner></Banner>
             <OurServices></OurServices>
             <Technologies></Technologies>
+            <MeetTheTeam></MeetTheTeam>
             <Testimonial></Testimonial>
             <ReviewVideos></ReviewVideos>
             <OurClients></OurClients>
