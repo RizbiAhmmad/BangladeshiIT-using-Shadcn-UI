@@ -49,7 +49,7 @@ export function MeetTheTeam() {
   return (
     <section className="py-8 bg-white text-center">
       <motion.h2
-        className="text-4xl md:text-5xl font-bold mb-14"
+        className="text-4xl font-bold mb-14"
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
