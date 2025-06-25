@@ -9,7 +9,8 @@ export function MeetTheTeam() {
   const axiosPublic = useAxiosPublic();
 
   useEffect(() => {
-    axiosPublic.get("/team")
+    axiosPublic
+      .get("/team")
       .then((res) => {
         setMembers(res.data);
       })
@@ -41,7 +42,7 @@ export function MeetTheTeam() {
             <div className="relative flex justify-center">
               <div className="w-32 h-32 mb-4 overflow-hidden rounded-full border-4 border-gray-100">
                 <img
-                  src={member.image}
+                  src={`http://localhost:5000${member.image}`}
                   alt={member.name}
                   className="w-full h-full object-cover"
                 />
@@ -56,13 +57,25 @@ export function MeetTheTeam() {
               </p>
 
               <div className="flex justify-center gap-4 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <a href={member.facebook} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={member.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaFacebookF className="text-cyan-600 hover:text-indigo-600" />
                 </a>
-                <a href={member.github} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={member.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaGithub className="text-cyan-600 hover:text-indigo-600" />
                 </a>
-                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaLinkedinIn className="text-cyan-600 hover:text-indigo-600" />
                 </a>
               </div>

@@ -48,7 +48,29 @@ const AllMembers = () => {
 
   const handleUpdate = async () => {
     try {
-      const res = await axiosPublic.put(`/team/${selectedMember._id}`, selectedMember);
+      const formData = new FormData();
+      formData.append("name", selectedMember.name);
+      formData.append("position", selectedMember.position);
+      formData.append("facebook", selectedMember.facebook);
+      formData.append("github", selectedMember.github);
+      formData.append("linkedin", selectedMember.linkedin);
+
+      if (selectedMember.newImageFile) {
+        formData.append("image", selectedMember.newImageFile); // new uploaded image
+      } else {
+        formData.append("image", selectedMember.image); // keep old image path
+      }
+
+      const res = await axiosPublic.put(
+        `/team/${selectedMember._id}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
       if (res.data.modifiedCount > 0) {
         refetch();
         closeModal();
@@ -79,24 +101,32 @@ const AllMembers = () => {
           </thead>
           <tbody className="divide-y divide-gray-200">
             {members.map((member, index) => (
-              <tr key={member._id} className="hover:bg-gray-50 transition duration-200">
+              <tr
+                key={member._id}
+                className="hover:bg-gray-50 transition duration-200"
+              >
                 <td className="px-6 py-4">{index + 1}</td>
                 <td className="px-6 py-4">
                   <img
-                    src={member.image}
+                    src={`http://localhost:5000${member.image}`}
                     alt={member.name}
                     className="w-10 h-10 rounded-full border"
                   />
                 </td>
-                <td className="px-6 py-4 font-semibold text-gray-800">{member.name}</td>
+                <td className="px-6 py-4 font-semibold text-gray-800">
+                  {member.name}
+                </td>
                 <td className="px-6 py-4">{member.position}</td>
-                
-                <td className="px-6 py-4 flex gap-3">
+
+                <td className="px-6 py-4 flex gap-4">
                   <button onClick={() => openModal(member)} title="Edit">
-                    <FaEdit className="text-blue-500 hover:text-blue-700" />
+                    <FaEdit className="text-3xl text-blue-500 hover:text-blue-700 " />
                   </button>
-                  <button onClick={() => handleDelete(member._id)} title="Delete">
-                    <FaTrashAlt className="text-red-500 hover:text-red-700" />
+                  <button
+                    onClick={() => handleDelete(member._id)}
+                    title="Delete"
+                  >
+                    <FaTrashAlt className="text-3xl text-red-500 hover:text-red-700" />
                   </button>
                 </td>
               </tr>
@@ -148,42 +178,92 @@ const AllMembers = () => {
                       type="text"
                       className="w-full border px-3 py-2 rounded"
                       value={selectedMember?.name || ""}
-                      onChange={(e) => setSelectedMember({ ...selectedMember, name: e.target.value })}
+                      onChange={(e) =>
+                        setSelectedMember({
+                          ...selectedMember,
+                          name: e.target.value,
+                        })
+                      }
                       placeholder="Full Name"
                     />
                     <input
                       type="text"
                       className="w-full border px-3 py-2 rounded"
                       value={selectedMember?.position || ""}
-                      onChange={(e) => setSelectedMember({ ...selectedMember, position: e.target.value })}
+                      onChange={(e) =>
+                        setSelectedMember({
+                          ...selectedMember,
+                          position: e.target.value,
+                        })
+                      }
                       placeholder="Position"
                     />
-                    <input
-                      type="text"
-                      className="w-full border px-3 py-2 rounded"
-                      value={selectedMember?.image || ""}
-                      onChange={(e) => setSelectedMember({ ...selectedMember, image: e.target.value })}
-                      placeholder="Image URL"
-                    />
+                    <div>
+                      <label className="block mb-1 font-medium">
+                        Upload New Image
+                      </label>
+
+                      <div className="flex items-center gap-4">
+                        <label
+                          htmlFor="imageUpload"
+                          className="cursor-pointer bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
+                        >
+                          Choose File
+                        </label>
+                        <span className="text-sm text-gray-600">
+                          {selectedMember?.newImageFile?.name ||
+                            "No file chosen"}
+                        </span>
+                      </div>
+
+                      <input
+                        id="imageUpload"
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) =>
+                          setSelectedMember({
+                            ...selectedMember,
+                            newImageFile: e.target.files[0],
+                          })
+                        }
+                      />
+                    </div>
+
                     <input
                       type="text"
                       className="w-full border px-3 py-2 rounded"
                       value={selectedMember?.facebook || ""}
-                      onChange={(e) => setSelectedMember({ ...selectedMember, facebook: e.target.value })}
+                      onChange={(e) =>
+                        setSelectedMember({
+                          ...selectedMember,
+                          facebook: e.target.value,
+                        })
+                      }
                       placeholder="Facebook URL"
                     />
                     <input
                       type="text"
                       className="w-full border px-3 py-2 rounded"
                       value={selectedMember?.github || ""}
-                      onChange={(e) => setSelectedMember({ ...selectedMember, github: e.target.value })}
+                      onChange={(e) =>
+                        setSelectedMember({
+                          ...selectedMember,
+                          github: e.target.value,
+                        })
+                      }
                       placeholder="GitHub URL"
                     />
                     <input
                       type="text"
                       className="w-full border px-3 py-2 rounded"
                       value={selectedMember?.linkedin || ""}
-                      onChange={(e) => setSelectedMember({ ...selectedMember, linkedin: e.target.value })}
+                      onChange={(e) =>
+                        setSelectedMember({
+                          ...selectedMember,
+                          linkedin: e.target.value,
+                        })
+                      }
                       placeholder="LinkedIn URL"
                     />
                   </div>
