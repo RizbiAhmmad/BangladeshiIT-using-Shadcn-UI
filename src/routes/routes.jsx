@@ -28,6 +28,7 @@ import AddMember from "../Pages/Dashboard/Admin/AddMember";
 import AllMembers from "../Pages/Dashboard/Admin/AllMembers";
 import AddReviewVideo from "../Pages/Dashboard/Admin/AddReviewVideo";
 import AllReviewVideos from "../Pages/Dashboard/Admin/AllReviewVideos";
+import Profile from "../Pages/Dashboard/Admin/Profile";
 
   export const router = createBrowserRouter([
     {
@@ -139,6 +140,10 @@ import AllReviewVideos from "../Pages/Dashboard/Admin/AllReviewVideos";
         {
           path: 'allMembers',
           element: <AllMembers></AllMembers>
+        },
+        {
+          path: 'profile',
+          element: <Profile></Profile>
         }
        
       ]

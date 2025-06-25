@@ -8,36 +8,49 @@ const AddMember = () => {
   const [formData, setFormData] = useState({
     name: "",
     position: "",
-    image: "",
     facebook: "",
     github: "",
-    linkedin: ""
+    linkedin: "",
   });
+  const [imageFile, setImageFile] = useState(null);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async e => {
+  const handleImageChange = (e) => {
+    setImageFile(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const memberData = {
-      ...formData,
-      email: user?.email
-    };
+    const form = new FormData();
+    form.append("name", formData.name);
+    form.append("position", formData.position);
+    form.append("facebook", formData.facebook);
+    form.append("github", formData.github);
+    form.append("linkedin", formData.linkedin);
+    form.append("email", user?.email);
+    form.append("image", imageFile);
 
     try {
-      const res = await axios.post("http://localhost:5000/team", memberData);
+      const res = await axios.post("http://localhost:5000/team", form, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
       if (res.data.insertedId) {
         Swal.fire("Success", "Team member added successfully!", "success");
         setFormData({
           name: "",
           position: "",
-          image: "",
           facebook: "",
           github: "",
-          linkedin: ""
+          linkedin: "",
         });
+        setImageFile(null);
       }
     } catch (error) {
       Swal.fire("Error", "Failed to add member", "error");
@@ -47,15 +60,86 @@ const AddMember = () => {
   return (
     <section className="max-w-2xl mx-auto p-6 bg-white border border-green-500 shadow-md mt-10 rounded-xl">
       <h2 className="text-2xl font-bold mb-4 text-center">Add Team Member</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input type="text" name="name" required value={formData.name} onChange={handleChange} placeholder="Full Name" className="w-full border px-4 py-2 rounded" />
-        <input type="text" name="position" required value={formData.position} onChange={handleChange} placeholder="Position (e.g. Software Engineer)" className="w-full border px-4 py-2 rounded" />
-        <input type="text" name="image" required value={formData.image} onChange={handleChange} placeholder="Profile Image URL" className="w-full border px-4 py-2 rounded" />
-        <input type="text" name="facebook" value={formData.facebook} onChange={handleChange} placeholder="Facebook URL" className="w-full border px-4 py-2 rounded" />
-        <input type="text" name="github" value={formData.github} onChange={handleChange} placeholder="GitHub URL" className="w-full border px-4 py-2 rounded" />
-        <input type="text" name="linkedin" value={formData.linkedin} onChange={handleChange} placeholder="LinkedIn URL" className="w-full border px-4 py-2 rounded" />
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4"
+        encType="multipart/form-data"
+      >
+        <input
+          type="text"
+          name="name"
+          required
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Full Name"
+          className="w-full border px-4 py-2 rounded"
+        />
+        <input
+          type="text"
+          name="position"
+          required
+          value={formData.position}
+          onChange={handleChange}
+          placeholder="Position"
+          className="w-full border px-4 py-2 rounded"
+        />
+
+        <div>
+          <label className="block mb-1 font-medium">Profile Image</label>
+
+          <div className="flex items-center gap-4">
+            <label
+              htmlFor="image"
+              className="cursor-pointer bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
+            >
+              Choose File
+            </label>
+            <span className="text-sm text-gray-600">
+              {imageFile ? imageFile.name : "No file chosen"}
+            </span>
+          </div>
+
+          <input
+            type="file"
+            name="image"
+            id="image"
+            onChange={handleImageChange}
+            accept="image/*"
+            required
+            className="hidden"
+          />
+        </div>
+
+        <input
+          type="text"
+          name="facebook"
+          value={formData.facebook}
+          onChange={handleChange}
+          placeholder="Facebook URL"
+          className="w-full border px-4 py-2 rounded"
+        />
+        <input
+          type="text"
+          name="github"
+          value={formData.github}
+          onChange={handleChange}
+          placeholder="GitHub URL"
+          className="w-full border px-4 py-2 rounded"
+        />
+        <input
+          type="text"
+          name="linkedin"
+          value={formData.linkedin}
+          onChange={handleChange}
+          placeholder="LinkedIn URL"
+          className="w-full border px-4 py-2 rounded"
+        />
+
         <div className="text-center">
-          <button type="submit" className="bg-green-500 text-white px-6 py-2 rounded hover:bg-orange-600">
+          <button
+            type="submit"
+            className="bg-green-500 text-white px-6 py-2 rounded hover:bg-orange-600"
+          >
             Submit Member
           </button>
         </div>

@@ -12,6 +12,7 @@ import {
 import { LuLayoutDashboard } from "react-icons/lu";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { RiVideoAddLine } from "react-icons/ri";
+import { CgProfile } from "react-icons/cg";
 import { FaUsersRectangle } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
@@ -88,7 +89,7 @@ const Dashboard = () => {
                     to="/dashboard/addBlogs"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <FaRegEdit /> <span>AddBlogs</span>
+                    <FaRegEdit /> <span>Add Blogs</span>
                   </NavLink>
                 </li>
                 <li>
@@ -96,7 +97,7 @@ const Dashboard = () => {
                     to="/dashboard/allBlogs"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <FaBlogger /> <span>AllBlogs</span>
+                    <FaBlogger /> <span>All Blogs</span>
                   </NavLink>
                 </li>
                 <li>
@@ -104,7 +105,7 @@ const Dashboard = () => {
                     to="/dashboard/addReviews"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <FaPlusCircle /> <span>AddReview</span>
+                    <FaPlusCircle /> <span>Add Review</span>
                   </NavLink>
                 </li>
                 <li>
@@ -112,7 +113,7 @@ const Dashboard = () => {
                     to="/dashboard/allReviews"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <FaComments /> <span>AllReviews</span>
+                    <FaComments /> <span>All Reviews</span>
                   </NavLink>
                 </li>
                 <li>
@@ -120,7 +121,7 @@ const Dashboard = () => {
                     to="/dashboard/addReviewVideo"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <RiVideoAddLine /> <span>AddReview Video</span>
+                    <RiVideoAddLine /> <span>Add Review Video</span>
                   </NavLink>
                 </li>
                 <li>
@@ -128,7 +129,7 @@ const Dashboard = () => {
                     to="/dashboard/allReviewVideos"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <FaVideo /><span>AllReview Vodeos</span>
+                    <FaVideo /><span>All Review Vodeos</span>
                   </NavLink>
                 </li>
                 <li>
@@ -136,7 +137,7 @@ const Dashboard = () => {
                     to="/dashboard/addMember"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <FaUserPlus /> <span>AddMember</span>
+                    <FaUserPlus /> <span>Add Member</span>
                   </NavLink>
                 </li>
                 <li>
@@ -144,7 +145,15 @@ const Dashboard = () => {
                     to="/dashboard/allMembers"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <FaUsersRectangle /> <span>AllMembers</span>
+                    <FaUsersRectangle /> <span>All Members</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/profile"
+                    className="flex py-2 space-x-3 items-center"
+                  >
+                    <CgProfile /> <span>profile</span>
                   </NavLink>
                 </li>
                 
