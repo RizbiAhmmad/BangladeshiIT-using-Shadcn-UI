@@ -30,7 +30,7 @@ export default function Blogs() {
             {blogs.map(({ _id, title, description, image, tag, link }) => (
               <div
                 key={_id}
-                className="bg-white shadow-md rounded-xl overflow-hidden border hover:shadow-orange-100 transition flex flex-col"
+                className="bg-white shadow-md rounded-xl overflow-hidden border border-orange-500 hover:shadow-orange-200 transition flex flex-col"
               >
                 <img
                   src={image}

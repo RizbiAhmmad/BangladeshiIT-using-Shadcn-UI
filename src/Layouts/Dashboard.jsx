@@ -7,9 +7,11 @@ import {
   FaRegEdit,
   FaUserPlus,
   FaUsers,
+  FaVideo,
 } from "react-icons/fa";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
+import { RiVideoAddLine } from "react-icons/ri";
 import { FaUsersRectangle } from "react-icons/fa6";
 import { NavLink, Outlet } from "react-router-dom";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
@@ -118,7 +120,15 @@ const Dashboard = () => {
                     to="/dashboard/addReviewVideo"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <FaPlusCircle /> <span>AddReview Video</span>
+                    <RiVideoAddLine /> <span>AddReview Video</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/allReviewVideos"
+                    className="flex py-2 space-x-3 items-center"
+                  >
+                    <FaVideo /><span>AllReview Vodeos</span>
                   </NavLink>
                 </li>
                 <li>

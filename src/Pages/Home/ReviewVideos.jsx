@@ -1,40 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { AuroraText } from "../../components/magicui/aurora-text";
 
-const reviewVideos = [
-  {
-    id: 1,
-    title: "Client Review - Web Design Service",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  },
-  {
-    id: 2,
-    title: "Client Testimonial - SEO Boost Results",
-    videoUrl: "https://www.youtube.com/embed/3GwjfUFyY6M",
-  },
-  {
-    id: 3,
-    title: "Why They Chose BangladeshiIT",
-    videoUrl: "https://www.youtube.com/embed/oHg5SJYRHA0",
-  },
-  {
-    id: 4,
-    title: "Digital Marketing Success Story",
-    videoUrl: "https://www.youtube.com/embed/ZZ5LpwO-An4",
-  },
-  {
-    id: 5,
-    title: "Satisfied Customer - Mobile App Development",
-    videoUrl: "https://www.youtube.com/embed/tgbNymZ7vqY",
-  },
-  {
-    id: 6,
-    title: "UI/UX Client Review",
-    videoUrl: "https://www.youtube.com/embed/kJQP7kiw5Fk",
-  },
-];
-
 export default function ReviewVideos() {
+  const [reviewVideos, setReviewVideos] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/review-videos")
+      .then((res) => setReviewVideos(res.data))
+      .catch((err) => console.error("Error fetching videos:", err));
+  }, []);
+
   return (
     <section className="bg-white py-12 px-6" id="review-videos">
       <div className="max-w-7xl mx-auto text-center">
@@ -46,9 +23,9 @@ export default function ReviewVideos() {
         </p>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {reviewVideos.map(({ id, title, videoUrl }) => (
+          {reviewVideos.map(({ _id, title, videoUrl }) => (
             <div
-              key={id}
+              key={_id}
               className="bg-gray-100 shadow-md rounded-xl overflow-hidden border border-orange-500 hover:shadow-orange-100 transition"
             >
               <div className="aspect-w-16 aspect-h-9">
@@ -66,6 +43,9 @@ export default function ReviewVideos() {
               </div>
             </div>
           ))}
+          {reviewVideos.length === 0 && (
+            <p className="col-span-full text-gray-500 text-center">No review videos found.</p>
+          )}
         </div>
       </div>
     </section>
