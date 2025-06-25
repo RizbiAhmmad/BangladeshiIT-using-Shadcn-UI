@@ -18,7 +18,7 @@ export default function Blog() {
   const topBlogs = blogs.slice(0, 3);
 
   return (
-    <section className="bg-white py-12 px-6" id="blogs">
+    <section className="bg-white  py-12 px-6" id="blogs">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
           Our <AuroraText>Blogs</AuroraText>
@@ -32,7 +32,7 @@ export default function Blog() {
           {topBlogs.map(({ _id, title, description, image, tag }) => (
             <div
               key={_id}
-              className="bg-white shadow-md rounded-xl overflow-hidden border hover:shadow-orange-100 transition flex flex-col"
+              className="bg-white shadow-md rounded-xl overflow-hidden border border-orange-500 hover:shadow-orange-200 transition flex flex-col"
             >
               <img
                 src={image}
