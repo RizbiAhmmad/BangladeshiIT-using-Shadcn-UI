@@ -29,7 +29,7 @@ export default function AddBlogs() {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/blogs", blogWithEmail);
+      const res = await axios.post("https://bangladeshi-it-server.vercel.app/blogs", blogWithEmail);
       if (res.data.insertedId) {
         Swal.fire("Success", "Blog added successfully", "success");
         setBlog({ title: "", description: "", image: "", tag: "", link: "" });
