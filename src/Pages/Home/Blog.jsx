@@ -9,7 +9,7 @@ export default function Blog() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("http://localhost:5000/blogs") // Or your hosted URL
+    axios.get("https://bangladeshi-it-server.vercel.app/blogs") // Or your hosted URL
       .then(res => setBlogs(res.data))
       .catch(err => console.error("Error fetching blogs:", err));
   }, []);

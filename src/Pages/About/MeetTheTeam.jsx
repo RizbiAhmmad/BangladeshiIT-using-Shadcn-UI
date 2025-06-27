@@ -42,7 +42,7 @@ export function MeetTheTeam() {
             <div className="relative flex justify-center">
               <div className="w-32 h-32 mb-4 overflow-hidden rounded-full border-4 border-gray-100">
                 <img
-                  src={`http://localhost:5000${member.image}`}
+                  src={`https://bangladeshi-it-server.vercel.app${member.image}`}
                   alt={member.name}
                   className="w-full h-full object-cover"
                 />

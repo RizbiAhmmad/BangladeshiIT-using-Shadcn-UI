@@ -35,7 +35,7 @@ const AddMember = () => {
     form.append("image", imageFile);
 
     try {
-      const res = await axios.post("http://localhost:5000/team", form, {
+      const res = await axios.post("https://bangladeshi-it-server.vercel.app/team", form, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

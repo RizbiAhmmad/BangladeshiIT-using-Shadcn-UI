@@ -7,7 +7,7 @@ export default function Blogs() {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/blogs")
+    axios.get("https://bangladeshi-it-server.vercel.app/blogs")
       .then((res) => setBlogs(res.data))
       .catch((err) => console.error("Error fetching blogs:", err));
   }, []);

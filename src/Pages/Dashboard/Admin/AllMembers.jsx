@@ -108,7 +108,7 @@ const AllMembers = () => {
                 <td className="px-6 py-4">{index + 1}</td>
                 <td className="px-6 py-4">
                   <img
-                    src={`http://localhost:5000${member.image}`}
+                    src={`https://bangladeshi-it-server.vercel.app${member.image}`}
                     alt={member.name}
                     className="w-10 h-10 rounded-full border"
                   />

@@ -7,7 +7,7 @@ export default function ReviewVideos() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/review-videos")
+      .get("https://bangladeshi-it-server.vercel.app/review-videos")
       .then((res) => setReviewVideos(res.data))
       .catch((err) => console.error("Error fetching videos:", err));
   }, []);
