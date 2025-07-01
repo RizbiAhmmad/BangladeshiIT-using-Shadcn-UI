@@ -21,10 +21,10 @@ export default function Contact() {
 
     emailjs
       .send(
-        "service_t2njmdr", // EmailJS service ID
-        "template_fvwup37", // EmailJS template ID
+        "service_hxfi48t", // EmailJS service ID
+        "template_nog7mc4", // EmailJS template ID
         form,
-        "rT2q42PyPhpEJru44" // EmailJS user/public key
+        "bKTKgO_yAN1KTZBge" // EmailJS user/public key
       )
       .then(
         (response) => {
