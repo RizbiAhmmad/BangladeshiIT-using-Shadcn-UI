@@ -129,7 +129,7 @@ const Dashboard = () => {
                     to="/dashboard/allReviewVideos"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <FaVideo /><span>All Review Vodeos</span>
+                    <FaVideo /><span>All Review Videos</span>
                   </NavLink>
                 </li>
                 <li>
@@ -137,7 +137,7 @@ const Dashboard = () => {
                     to="/dashboard/addMember"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <FaUserPlus /> <span>Add Member</span>
+                    <FaUserPlus /> <span>Add Team Member</span>
                   </NavLink>
                 </li>
                 <li>
@@ -145,7 +145,7 @@ const Dashboard = () => {
                     to="/dashboard/allMembers"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <FaUsersRectangle /> <span>All Members</span>
+                    <FaUsersRectangle /> <span>All Team Members</span>
                   </NavLink>
                 </li>
                 <li>
@@ -153,7 +153,7 @@ const Dashboard = () => {
                     to="/dashboard/profile"
                     className="flex py-2 space-x-3 items-center"
                   >
-                    <CgProfile /> <span>profile</span>
+                    <CgProfile /> <span>Profile</span>
                   </NavLink>
                 </li>
                 

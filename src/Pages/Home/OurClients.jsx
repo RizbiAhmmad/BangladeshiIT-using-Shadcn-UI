@@ -1,75 +1,52 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { AuroraText } from "../../components/magicui/aurora-text";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import client1 from "../../assets/Nifaz.jpg";
+import client2 from "../../assets/Zobio.jpg";
+import client3 from "../../assets/Upokar.jpg";
+import client4 from "../../assets/Naitengle.jpg";
+import client5 from "../../assets/Zaka.jpg";
+import client6 from "../../assets/SishuBD.jpg";
 
 const clients = [
   {
     id: 1,
-    name: "R",
-    logo: "https://www.shutterstock.com/image-photo/young-handsome-man-beard-wearing-260nw-1768126784.jpg",
+    name: "Nifaz",
+    logo: client1,
   },
   {
     id: 2,
-    name: "Trendy Dhaka",
-    logo: "https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg",
+    name: "Zobio",
+    logo: client2,
   },
   {
     id: 3,
-    name: "7 Star Gallery",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfh1Obtj_zkHj4ZsQoAXxHy4SLwYgVDcsBmA&s",
+    name: "Upokar",
+    logo: client3,
   },
   {
     id: 4,
-    name: "Razzak Fashion",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLA994hpL3PMmq0scCuWOu0LGsjef49dyXVg&s",
+    name: "Naitengle",
+    logo: client4,
   },
   {
     id: 5,
-    name: "Aven Apparels",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbFHvhFFIj95nnFuJupvcWl7BhYhxQNk9fBXDN91umcPg-yyiiVqH5PGU&s",
+    name: "Zaka",
+    logo: client5,
   },
   {
     id: 6,
-    name: "FarmyCart",
-    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeIbzeEtpIKNt8ZMA11KuJnZN7ONgeEDK35A&s",
+    name: "SishuBD",
+    logo: client6,
   },
 ];
 
 export default function OurClients() {
-  const [visibleStart, setVisibleStart] = useState(0);
-  const [visibleCount, setVisibleCount] = useState(5);
-
-  useEffect(() => {
-    const updateCount = () => {
-      setVisibleCount(window.innerWidth < 768 ? 3 : 5);
-    };
-
-    updateCount();
-    window.addEventListener("resize", updateCount);
-    return () => window.removeEventListener("resize", updateCount);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setVisibleStart((prev) => (prev + 1) % clients.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [clients.length]);
-
-  const getVisibleClients = () => {
-    let result = [];
-    for (let i = 0; i < visibleCount; i++) {
-      result.push(clients[(visibleStart + i) % clients.length]);
-    }
-    return result;
-  };
-
-  // Calculate dynamic width string
-  const getCardWidth = () => {
-    const gapPx = 16; 
-    const totalGap = gapPx * (visibleCount - 1);
-    return `calc((100% - ${totalGap}px) / ${visibleCount})`;
-  };
-
   return (
     <section className="w-full px-6 py-12 bg-white" id="clients">
       <div className="text-center mb-12">
@@ -81,24 +58,38 @@ export default function OurClients() {
           clients at Bangladeshi IT Solutions.
         </p>
       </div>
-      <div className="max-w-7xl mx-auto overflow-hidden">       
-        <div className="flex gap-4 transition-transform duration-1000 ease-in-out">
-          {getVisibleClients().map((client) => (
-            <div
-              key={client.id}
-              className="bg-white border border-orange-500 hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 rounded-xl shrink-0"
-              style={{ width: getCardWidth() }}
-            >
-              <div className="w-30 h-20 rounded-lg overflow-hidden flex items-center justify-center bg-gray-100">
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          ))}
-        </div>
+
+      <div className="max-w-4xl mx-auto">
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 2500,
+              stopOnInteraction: false,
+            }),
+          ]}
+          className="w-full"
+        >
+          <CarouselContent className="-ml-4">
+            {clients.map((client, index) => (
+              <CarouselItem
+                key={client.id}
+                className="pl-4 basis-1/2 md:basis-1/4 lg:basis-1/6"
+              >
+                <div className="bg-white hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 rounded-xl h-28">
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="max-h-full object-contain"
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
     </section>
   );
