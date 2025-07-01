@@ -10,20 +10,20 @@ import {
 import logo from "../assets/BangladeshiIT.jpg";
 
 export default function Footer() {
-  useEffect(() => {
-    var Tawk_API = Tawk_API || {};
-    var Tawk_LoadStart = new Date();
-    const s1 = document.createElement("script");
-    s1.async = true;
-    s1.src = "https://embed.tawk.to/68526c32d55e2a190d82ad05/1iu0vd9s5";
-    s1.charset = "UTF-8";
-    s1.setAttribute("crossorigin", "*");
-    document.body.appendChild(s1);
+  // useEffect(() => {
+  //   var Tawk_API = Tawk_API || {};
+  //   var Tawk_LoadStart = new Date();
+  //   const s1 = document.createElement("script");
+  //   s1.async = true;
+  //   s1.src = "https://embed.tawk.to/68526c32d55e2a190d82ad05/1iu0vd9s5";
+  //   s1.charset = "UTF-8";
+  //   s1.setAttribute("crossorigin", "*");
+  //   document.body.appendChild(s1);
 
-    return () => {
-      document.body.removeChild(s1);
-    };
-  }, []);
+  //   return () => {
+  //     document.body.removeChild(s1);
+  //   };
+  // }, []);
 
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-8 px-6 md:px-12">

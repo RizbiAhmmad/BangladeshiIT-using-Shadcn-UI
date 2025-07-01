@@ -57,7 +57,7 @@ export default function Contact() {
             </div>
             <div className="flex items-center space-x-3">
               <FaPhoneAlt className="text-green-600 w-5 h-5" />
-              <span>+880 1621 741799</span>
+              <span>+8801560023160</span>
             </div>
             <div className="flex items-center space-x-3">
               <FaMapMarkerAlt className="text-green-600 w-5 h-5" />
