@@ -15,19 +15,19 @@ export default function FloatingChatMenu() {
       icon: <FaFacebookMessenger />,
       label: 'Messenger',
       bg: 'bg-blue-600',
-      link: 'https://m.me/yourpage',
+      link: 'https://www.facebook.com/bangladeshiitbd',
     },
     {
       icon: <FaWhatsapp />,
       label: 'WhatsApp',
       bg: 'bg-green-500',
-      link: 'https://wa.me/+8801621741799',
+      link: 'https://wa.me/+8801560023160',
     },
     {
       icon: <FaPhone />,
       label: 'Call Us',
       bg: 'bg-green-400',
-      link: 'tel:+8801621741799',
+      link: 'tel:+8801560023160',
     },
   ];
 

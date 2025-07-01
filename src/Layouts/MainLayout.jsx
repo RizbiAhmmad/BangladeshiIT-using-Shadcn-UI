@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
-// import FloatingChatMenu from '../Shared/FloatingChatMenu';
+import FloatingChatMenu from '../Shared/FloatingChatMenu';
 
 const MainLayout = () => {
   const location = useLocation();
@@ -13,7 +13,7 @@ const MainLayout = () => {
       {noHeaderFooter || <Navbar></Navbar>}
       <Outlet></Outlet>
       {noHeaderFooter || <Footer></Footer>}
-      {/* <FloatingChatMenu></FloatingChatMenu> */}
+      <FloatingChatMenu></FloatingChatMenu>
     </div>
   );
 };
