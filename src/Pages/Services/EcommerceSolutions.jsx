@@ -149,10 +149,17 @@ const EcommerceSolutions = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-white text-gray-800">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-orange-500 uppercase tracking-wide">
+        <h2 className="text-3xl font-bold text-red-500 uppercase tracking-wide">
           E-Commerce Solutions
         </h2>
-        <h3 className="text-4xl md:text-4xl font-extrabold text-blue-700 mt-2">
+        <p className="mt-4 max-w-3xl mx-auto text-base md:text-lg text-gray-700">
+          We create dynamic and conversion-optimized E-commerce websites that
+          deliver a smooth shopping experience. Whether you're selling 10
+          products or 50,000, our platforms are built to scale, perform, and
+          keep your customers engaged across all devices.
+        </p>
+
+        <h3 className="text-4xl md:text-4xl font-extrabold text-blue-700 mt-4">
           CHOOSE YOUR PLAN
         </h3>
       </div>
@@ -187,12 +194,13 @@ const EcommerceSolutions = () => {
               ))}
             </ul>
 
-            <div className="mt-auto text-center px-6 pb-8">            
-                <button onClick={() => navigate("/contact")}
-                  className={`${plan.buttonColor} text-white px-6 py-3 rounded-xl w-full font-semibold text-lg flex items-center justify-center gap-2 hover:opacity-90 transition`}
-                >
-                  Get Started <FaArrowRight />
-                </button>            
+            <div className="mt-auto text-center px-6 pb-8">
+              <button
+                onClick={() => navigate("/contact")}
+                className={`${plan.buttonColor} text-white px-6 py-3 rounded-xl w-full font-semibold text-lg flex items-center justify-center gap-2 hover:opacity-90 transition`}
+              >
+                Get Started <FaArrowRight />
+              </button>
             </div>
           </div>
         ))}
