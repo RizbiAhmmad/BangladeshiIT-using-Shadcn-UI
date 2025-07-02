@@ -17,7 +17,7 @@ const techStack = [
 
 const Technologies = () => {
   return (
-    <section className="py-16 px-4 bg-white text-center">
+    <section className="py-16 px-16 bg-white text-center">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
           We Use <AuroraText>Technologies</AuroraText>
@@ -28,7 +28,7 @@ const Technologies = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 place-items-center">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 place-items-center">
         {techStack.map((tech, index) => (
           <div
             key={index}
