@@ -13,6 +13,7 @@ const AddMember = () => {
     linkedin: "",
   });
   const [imageFile, setImageFile] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,21 +26,42 @@ const AddMember = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const form = new FormData();
-    form.append("name", formData.name);
-    form.append("position", formData.position);
-    form.append("facebook", formData.facebook);
-    form.append("github", formData.github);
-    form.append("linkedin", formData.linkedin);
-    form.append("email", user?.email);
-    form.append("image", imageFile);
+    if (!imageFile) {
+      return Swal.fire("Error", "Please select an image", "error");
+    }
+
+    setLoading(true);
 
     try {
-      const res = await axios.post("https://bangladeshi-it-server.vercel.app/team", form, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      // 1. Upload image to Cloudinary
+      const cloudinaryData = new FormData();
+      cloudinaryData.append("file", imageFile);
+      cloudinaryData.append("upload_preset", "Team_member"); // ✅ your unsigned preset
+
+      const cloudinaryRes = await axios.post(
+        "https://api.cloudinary.com/v1_1/ddqfq6irk/image/upload", // ✅ your cloud name
+        cloudinaryData
+      );
+
+      const imageUrl = cloudinaryRes.data.secure_url;
+
+      // 2. Submit data to backend
+      const memberData = {
+        ...formData,
+        email: user?.email,
+        image: imageUrl,
+      };
+      console.log("Member data:", memberData);
+
+      const res = await axios.post(
+        "https://bangladeshi-it-server.vercel.app/team",
+        memberData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (res.data.insertedId) {
         Swal.fire("Success", "Team member added successfully!", "success");
@@ -51,20 +73,21 @@ const AddMember = () => {
           linkedin: "",
         });
         setImageFile(null);
+      } else {
+        Swal.fire("Error", "Server error. Member not added.", "error");
       }
-    } catch (error) {
-      Swal.fire("Error", "Failed to add member", "error");
+    } catch (err) {
+      console.error("Add Member Error:", err);
+      Swal.fire("Error", "Something went wrong", "error");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <section className="max-w-2xl mx-auto p-6 bg-white border border-green-500 shadow-md mt-10 rounded-xl">
       <h2 className="text-2xl font-bold mb-4 text-center">Add Team Member</h2>
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-4"
-        encType="multipart/form-data"
-      >
+      <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
           name="name"
@@ -85,12 +108,11 @@ const AddMember = () => {
         />
 
         <div>
-          <label className="block mb-1 font-medium">Profile Image</label>
-
+          <label className="block font-medium mb-1 text-gray-700">Profile Image</label>
           <div className="flex items-center gap-4">
             <label
               htmlFor="image"
-              className="cursor-pointer bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
+              className="cursor-pointer bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg shadow transition"
             >
               Choose File
             </label>
@@ -98,11 +120,10 @@ const AddMember = () => {
               {imageFile ? imageFile.name : "No file chosen"}
             </span>
           </div>
-
           <input
             type="file"
-            name="image"
             id="image"
+            name="image"
             onChange={handleImageChange}
             accept="image/*"
             required
@@ -138,9 +159,10 @@ const AddMember = () => {
         <div className="text-center">
           <button
             type="submit"
-            className="bg-green-500 text-white px-6 py-2 rounded hover:bg-orange-600"
+            className="bg-green-500 text-white px-6 py-2 rounded hover:bg-orange-600 disabled:opacity-50"
+            disabled={loading}
           >
-            Submit Member
+            {loading ? "Submitting..." : "Submit Member"}
           </button>
         </div>
       </form>
