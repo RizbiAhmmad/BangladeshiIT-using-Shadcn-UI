@@ -159,30 +159,31 @@ const WebDevelopment = () => {
           development solutions for every niche.
         </p>
         {/* 💡 Add Services List Here */}
-        <div className="m-6 flex flex-wrap justify-center gap-3 px-32">
+        <div className="m-6 flex flex-wrap justify-center gap-3 px-4 sm:px-8 md:px-16 lg:px-32">
           {[
             "E-commerce Website",
             "Textile / Export Import Website",
             "Hospital Management Website",
-            "School/Madrasah Management Website",
+            "School Management Website",
             "Event Management Website",
-            "Travel Agency / Tour Booking Website",
+            "Travel Agency Website",
             "Restaurant Website",
             "Business Website",
             "Blog / News Portal",
             "Portfolio Website",
             "Doctor Appointment Website",
-            "Parlour Management",    
+            "Parlour Management",
             "Customized Website",
           ].map((item, idx) => (
             <span
               key={idx}
-              className="px-4 py-2 bg-gradient-to-r from-green-500 to-teal-600 text-white text-sm font-semibold rounded-full shadow-md hover:scale-105 transition"
+              className="w-full sm:w-auto text-center px-4 py-2 bg-gradient-to-r from-green-500 to-teal-600 text-white text-sm font-semibold rounded-full shadow-md hover:scale-105 transition"
             >
               {item}
             </span>
           ))}
         </div>
+
         <h3 className="text-4xl md:text-4xl font-extrabold text-blue-700 mt-2">
           CHOOSE YOUR PLAN
         </h3>
