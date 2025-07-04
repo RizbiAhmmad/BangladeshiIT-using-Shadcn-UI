@@ -24,65 +24,66 @@ const AddMember = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!imageFile) {
-      return Swal.fire("Error", "Please select an image", "error");
-    }
+  if (!imageFile) {
+    return Swal.fire("Error", "Please select an image", "error");
+  }
 
-    setLoading(true);
+  setLoading(true);
 
-    try {
-      // 1. Upload image to Cloudinary
-      const cloudinaryData = new FormData();
-      cloudinaryData.append("file", imageFile);
-      cloudinaryData.append("upload_preset", "Team_member"); // ✅ your unsigned preset
+  try {
+    // 1. Upload image to Cloudinary
+    const cloudinaryData = new FormData();
+    cloudinaryData.append("file", imageFile);
+    cloudinaryData.append("upload_preset", "Team_member");
 
-      const cloudinaryRes = await axios.post(
-        "https://api.cloudinary.com/v1_1/ddqfq6irk/image/upload", // ✅ your cloud name
-        cloudinaryData
-      );
+    const cloudinaryRes = await axios.post(
+      "https://api.cloudinary.com/v1_1/ddqfq6irk/image/upload",
+      cloudinaryData
+    );
 
-      const imageUrl = cloudinaryRes.data.secure_url;
+    const imageUrl = cloudinaryRes.data.secure_url;
+    console.log("🔗 Cloudinary Image URL:", imageUrl);
 
-      // 2. Submit data to backend
-      const memberData = {
-        ...formData,
-        email: user?.email,
-        image: imageUrl,
-      };
-      console.log("Member data:", memberData);
+    // 2. Submit data to backend
+    const memberData = {
+      ...formData,
+      email: user?.email,
+      image: imageUrl,
+    };
+    console.log("📤 Payload sent to backend:", JSON.stringify(memberData, null, 2));
 
-      const res = await axios.post(
-        "https://bangladeshi-it-server.vercel.app/team",
-        memberData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (res.data.insertedId) {
-        Swal.fire("Success", "Team member added successfully!", "success");
-        setFormData({
-          name: "",
-          position: "",
-          facebook: "",
-          github: "",
-          linkedin: "",
-        });
-        setImageFile(null);
-      } else {
-        Swal.fire("Error", "Server error. Member not added.", "error");
+    const res = await axios.post(
+      "https://bangladeshi-it-server.vercel.app/team",
+      JSON.stringify(memberData), // Explicitly stringify the payload
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
       }
-    } catch (err) {
-      console.error("Add Member Error:", err);
-      Swal.fire("Error", "Something went wrong", "error");
-    } finally {
-      setLoading(false);
+    );
+
+    if (res.data.insertedId) {
+      Swal.fire("Success", "Team member added successfully!", "success");
+      setFormData({
+        name: "",
+        position: "",
+        facebook: "",
+        github: "",
+        linkedin: "",
+      });
+      setImageFile(null);
+    } else {
+      Swal.fire("Error", "Server error. Member not added.", "error");
     }
-  };
+  } catch (err) {
+    console.error("❌ Add Member Error:", err.response?.data || err.message);
+    Swal.fire("Error", "Something went wrong", "error");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <section className="max-w-2xl mx-auto p-6 bg-white border border-green-500 shadow-md mt-10 rounded-xl">
