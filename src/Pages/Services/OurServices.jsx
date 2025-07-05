@@ -71,7 +71,7 @@ export default function OurServices() {
         💼 Our <AuroraText>Services</AuroraText>
       </h2>
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {demoServices.map((service, index) => (
           <motion.div
             key={service.id}
