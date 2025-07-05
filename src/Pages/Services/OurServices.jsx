@@ -48,7 +48,7 @@ const demoServices = [
   },
   {
     id: 7,
-    title: "SEO Content Writing",
+    title: "SEO & Content Writing",
     link: "/services/seo",
     description: "Improve your search rankings and drive traffic with proven SEO techniques.",
     image: "https://www.emproit.com/newimages/content-writing.png",
