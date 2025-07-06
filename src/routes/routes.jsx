@@ -1,7 +1,4 @@
-import {
-    createBrowserRouter,
-    
-  } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layouts/MainLayout";
 import Home from "../Pages/Home/Home";
 import About from "../Pages/About/About";
@@ -29,124 +26,124 @@ import AddReviewVideo from "../Pages/Dashboard/Admin/AddReviewVideo";
 import AllReviewVideos from "../Pages/Dashboard/Admin/AllReviewVideos";
 import Profile from "../Pages/Dashboard/Admin/Profile";
 import DigitalMarketing from "../Pages/Services/DigitalMArketing";
+import BlogDetails from "../Pages/Blogs/BlogDetails";
 
-  export const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayout></MainLayout>,
-      errorElement: <ErrorPage></ErrorPage>,
-      children: [
-        {
-            path: "/",
-            element: <Home></Home>
-        },
-        {
-          path:'login',
-          element: <Login></Login>
-        },
-        {
-          path:'signup',
-          element: <SignUp></SignUp>
-        },
-        {
-          path: "/about",
-          element: <About></About>
-        },
-        {
-          path: "/contact",
-          element: <Contact></Contact>
-        },
-        {
-          path: "services/web-development",
-          element: <WebDevelopment></WebDevelopment>
-        },
-        {
-          path: "services/ecommerce",
-          element: <EcommerceSolutions></EcommerceSolutions>
-        },
-        {
-          path: "services/apps-development",
-          element: <AppsDevelopment></AppsDevelopment>
-        },
-        {
-          path: "services/digital-marketing",
-          element: <DigitalMarketing></DigitalMarketing>
-        },
-        {
-          path: "services/graphic-design",
-          element: <GraphicsDesign></GraphicsDesign>
-        },
-        {
-          path: "services/social-media-marketing",
-          element: <SocialMediaMarketing></SocialMediaMarketing>
-        },
-        {
-          path: "services/seo",
-          element: <SEOContentWriting></SEOContentWriting>
-        },
-        {
-          path: "services/consulting",
-          element: <ConsultingServices></ConsultingServices>
-        },
-        {
-          path: "/blogs",
-          element: <Blogs></Blogs>
-        }
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "signup",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "services/web-development",
+        element: <WebDevelopment></WebDevelopment>,
+      },
+      {
+        path: "services/ecommerce",
+        element: <EcommerceSolutions></EcommerceSolutions>,
+      },
+      {
+        path: "services/apps-development",
+        element: <AppsDevelopment></AppsDevelopment>,
+      },
+      {
+        path: "services/digital-marketing",
+        element: <DigitalMarketing></DigitalMarketing>,
+      },
+      {
+        path: "services/graphic-design",
+        element: <GraphicsDesign></GraphicsDesign>,
+      },
+      {
+        path: "services/social-media-marketing",
+        element: <SocialMediaMarketing></SocialMediaMarketing>,
+      },
+      {
+        path: "services/seo",
+        element: <SEOContentWriting></SEOContentWriting>,
+      },
+      {
+        path: "services/consulting",
+        element: <ConsultingServices></ConsultingServices>,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>,
+      },
+      {
+        path: "/blogDetails/:id",
+        element: <BlogDetails></BlogDetails>
+      },
+    ],
+  },
 
-      ]
-    },
+  {
+    path: "dashboard",
+    element: <Dashboard></Dashboard>,
+    children: [
+      // ADMIN ROUTES
+      {
+        path: "users",
+        element: <AllUsers></AllUsers>,
+      },
+      {
+        path: "addBlogs",
+        element: <AddBlogs></AddBlogs>,
+      },
+      {
+        path: "allBlogs",
+        element: <AllBlogs></AllBlogs>,
+      },
+      {
+        path: "addReviews",
+        element: <AddReview></AddReview>,
+      },
+      {
+        path: "allReviews",
+        element: <AllReviews></AllReviews>,
+      },
+      {
+        path: "addReviewVideo",
+        element: <AddReviewVideo></AddReviewVideo>,
+      },
 
+      {
+        path: "allReviewVideos",
+        element: <AllReviewVideos></AllReviewVideos>,
+      },
 
-       {
-      path: 'dashboard',
-      element: <Dashboard></Dashboard>,
-      children: [
-
-        // ADMIN ROUTES
-        {
-          path: 'users',
-          element:<AllUsers></AllUsers>
-        },
-        {
-          path: 'addBlogs',
-          element: <AddBlogs></AddBlogs>
-        },
-        {
-          path: 'allBlogs',
-          element: <AllBlogs></AllBlogs>
-        },
-        {
-          path: 'addReviews',
-          element: <AddReview></AddReview>
-        },
-        {
-          path: 'allReviews',
-          element: <AllReviews></AllReviews>
-        },
-        {
-          path: 'addReviewVideo',
-          element: <AddReviewVideo></AddReviewVideo>
-        },
-        
-        {
-          path: 'allReviewVideos',
-          element: <AllReviewVideos></AllReviewVideos>
-        },
-
-        {
-          path: 'addMember',
-          element: <AddMember></AddMember>
-        },
-        {
-          path: 'allMembers',
-          element: <AllMembers></AllMembers>
-        },
-        {
-          path: 'profile',
-          element: <Profile></Profile>
-        }
-       
-      ]
-    }
-
-  ]);
+      {
+        path: "addMember",
+        element: <AddMember></AddMember>,
+      },
+      {
+        path: "allMembers",
+        element: <AllMembers></AllMembers>,
+      },
+      {
+        path: "profile",
+        element: <Profile></Profile>,
+      },
+    ],
+  },
+]);

@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ Add this
 import { ArrowRight } from "lucide-react";
 import { AuroraText } from "../../components/magicui/aurora-text";
 import axios from "axios";
 
 export default function Blogs() {
   const [blogs, setBlogs] = useState([]);
+  const navigate = useNavigate(); // ✅ Initialize it here
 
   useEffect(() => {
-    axios.get("https://bangladeshi-it-server.vercel.app/blogs")
+    axios
+      .get("https://bangladeshi-it-server.vercel.app/blogs")
       .then((res) => setBlogs(res.data))
       .catch((err) => console.error("Error fetching blogs:", err));
   }, []);
@@ -27,7 +30,7 @@ export default function Blogs() {
           <p className="text-gray-500">No blogs available yet.</p>
         ) : (
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {blogs.map(({ _id, title, description, image, tag, link }) => (
+            {blogs.map(({ _id, title, description, image, tag }) => (
               <div
                 key={_id}
                 className="bg-white shadow-md rounded-xl overflow-hidden border border-orange-500 hover:shadow-orange-200 transition flex flex-col"
@@ -41,15 +44,18 @@ export default function Blogs() {
                   <h3 className="text-lg font-semibold text-gray-800 mb-2">
                     {title}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-4">{description}</p>
+                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                    {description}
+                  </p>
 
                   <div className="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
-                    <a
-                      href={link}
-                      className="text-orange-500 text-sm font-semibold flex items-center gap-1 hover:underline"
+                    <span
+                      onClick={() => navigate(`/blogDetails/${_id}`)}
+                      className="text-orange-500 text-sm font-semibold flex items-center gap-1 hover:underline cursor-pointer"
                     >
                       Learn more <ArrowRight size={14} />
-                    </a>
+                    </span>
+
                     <span className="text-xs text-gray-500 text-right max-w-[280px] truncate">
                       {tag}
                     </span>
