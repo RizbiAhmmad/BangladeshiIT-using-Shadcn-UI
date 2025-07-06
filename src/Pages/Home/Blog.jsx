@@ -9,9 +9,10 @@ export default function Blog() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get("https://bangladeshi-it-server.vercel.app/blogs") // Or your hosted URL
-      .then(res => setBlogs(res.data))
-      .catch(err => console.error("Error fetching blogs:", err));
+    axios
+      .get("https://bangladeshi-it-server.vercel.app/blogs") // Or your hosted URL
+      .then((res) => setBlogs(res.data))
+      .catch((err) => console.error("Error fetching blogs:", err));
   }, []);
 
   // Show only first 3 blogs
@@ -43,12 +44,18 @@ export default function Blog() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
                   {title}
                 </h3>
-                <p className="text-sm text-gray-600 mb-4">{description}</p>
+                <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                  {description}
+                </p>
 
                 <div className="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
-                  <span className="text-orange-500 text-sm font-semibold flex items-center gap-1 hover:underline cursor-pointer">
+                  <span
+                    onClick={() => navigate(`/blogDetails/${_id}`)}
+                    className="text-orange-500 text-sm font-semibold flex items-center gap-1 hover:underline cursor-pointer"
+                  >
                     Learn more <ArrowRight size={14} />
                   </span>
+
                   <span className="text-xs text-gray-500 text-right max-w-[280px] truncate">
                     {tag}
                   </span>
