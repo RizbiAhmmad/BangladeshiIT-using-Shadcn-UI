@@ -1,73 +1,126 @@
-import { FaSearch, FaEnvelopeOpenText, FaCheckCircle } from "react-icons/fa";
-import { motion } from "framer-motion";
-import Contact from "../Contact/Contact";
+import React from "react";
+import {
+  FaSearch,
+  FaClipboardList,
+  FaChartLine,
+  FaSync,
+  FaClock,
+  FaCheck,
+  FaArrowRight,
+  FaGlobe,
+} from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
+const seoPlans = [
+  {
+    title: "Basic",
+    price: "৳20,000",
+    features: [
+      { text: "SEO Audit", icon: <FaSearch />, included: true },
+      { text: "5 Keywords", icon: <FaClipboardList />, included: true },
+      { text: "Competitor Analysis", icon: <FaChartLine />, included: true },
+      { text: "On-page Optimization (up to 3 pages)", icon: <FaCheck />, included: true },
+      { text: "Technical SEO (basic)", icon: <FaCheck />, included: true },
+      { text: "1 Guest Posting Strategy", icon: <FaCheck />, included: true },
+      { text: "Local SEO Focus", icon: <FaCheck />, included: true },
+      { text: "30+ Backlinks", icon: <FaChartLine />, included: true },
+      { text: "Delivery: 10 days", icon: <FaClock />, included: true },
+    ],
+    buttonColor: "bg-gradient-to-r from-green-500 to-teal-600",
+    headerColor: "bg-gradient-to-r from-green-600 to-emerald-700",
+  },
+  {
+    title: "Standard",
+    price: "৳35,000",
+    features: [
+      { text: "SEO Audit", icon: <FaSearch />, included: true },
+      { text: "10 Keywords", icon: <FaClipboardList />, included: true },
+      { text: "Competitor Analysis", icon: <FaChartLine />, included: true },
+      { text: "On-page Optimization (up to 5–7 pages)", icon: <FaCheck />, included: true },
+      { text: "Technical SEO", icon: <FaCheck />, included: true },
+      { text: "Google Search Console + Analytics Setup", icon: <FaCheck />, included: true },
+      { text: "Off-page Strategy (70+ backlinks)", icon: <FaChartLine />, included: true },
+      { text: "2 Guest Posts", icon: <FaCheck />, included: true },
+      { text: "National SEO Focus", icon: <FaCheck />, included: true },
+      { text: "Delivery: 14 days", icon: <FaClock />, included: true },
+    ],
+    buttonColor: "bg-gradient-to-r from-orange-500 to-pink-600",
+    headerColor: "bg-gradient-to-r from-orange-500 to-red-500",
+  },
+  {
+    title: "Premium",
+    price: "৳50,000",
+    features: [
+      { text: "SEO Audit", icon: <FaSearch />, included: true },
+      { text: "15 Keywords", icon: <FaClipboardList />, included: true },
+      { text: "Competitor Analysis", icon: <FaChartLine />, included: true },
+      { text: "Full On-page + Off-page Optimization", icon: <FaCheck />, included: true },
+      { text: "Advanced Technical SEO", icon: <FaCheck />, included: true },
+      { text: "Content Optimization & Internal Linking", icon: <FaCheck />, included: true },
+      { text: "High-Quality Backlinks (150+)", icon: <FaChartLine />, included: true },
+      { text: "3–5 Guest Posts", icon: <FaCheck />, included: true },
+      { text: "International/Global SEO Focus", icon: <FaGlobe />, included: true },
+      { text: "Priority Support", icon: <FaSync />, included: true },
+      { text: "Delivery: 21–30 days", icon: <FaClock />, included: true },
+    ],
+    buttonColor: "bg-gradient-to-r from-black to-gray-800",
+    headerColor: "bg-gradient-to-r from-purple-600 to-indigo-700",
+  },
+];
 
 const SEOContentWriting = () => {
+  const navigate = useNavigate();
   return (
-     <section className="py-20 bg-white text-gray-800">
+    <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-white text-gray-800">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold text-red-500 uppercase tracking-wide">
           SEO & Content Writing Services
         </h2>
-        <p className="mt-4 max-w-2xl mx-auto text-base md:text-lg text-gray-700">
-          We provide powerful SEO strategies and high-quality content writing to help your brand grow organically. From keyword-rich blog posts to technical site optimization, our approach boosts your visibility and delivers content that converts. Whether you're looking to rank higher on Google or engage your audience with meaningful stories — we've got you covered.
+        <p className="mt-4 max-w-3xl mx-auto text-base md:text-lg text-gray-700">
+          Boost your website visibility, rank higher in Google, and drive targeted traffic with our strategic SEO packages tailored for businesses in Bangladesh.
         </p>
+        <h3 className="text-4xl md:text-4xl font-extrabold text-blue-700 mt-4">
+          CHOOSE YOUR PLAN
+        </h3>
       </div>
 
-     <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6">
-        {/* SEO */}
-        <motion.div
-          className="p-6 bg-gray-50 shadow-xl rounded-xl border-l-4 border-green-500"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-xl font-bold flex items-center gap-2 text-green-600">
-            <FaSearch /> Search Engine Optimization (SEO)
-          </h3>
-          <ul className="mt-3 space-y-2 text-gray-700 list-disc list-inside">
-            <li>On-Page SEO: Keyword research, meta tags, content optimization</li>
-            <li>Off-Page SEO: Backlinks, guest posting, local SEO</li>
-            <li>Technical SEO: Speed, mobile responsiveness, structured data</li>
-            <li>E-commerce SEO: Product SEO, schema, review optimization</li>
-          </ul>
-          <div className="mt-4 bg-green-50 border-l-4 border-green-400 p-4 rounded">
-            <p className="font-semibold text-green-700 mb-2">Why We're the Right Fit?</p>
-            <ul className="text-gray-700 text-sm space-y-1">
-              <li><FaCheckCircle className="inline text-green-500 mr-1" /> We use white-hat techniques — no black-hat shortcuts.</li>
-              <li><FaCheckCircle className="inline text-green-500 mr-1" /> Data-driven strategies that deliver measurable growth.</li>
-              <li><FaCheckCircle className="inline text-green-500 mr-1" /> Transparent reports with clear KPIs and progress tracking.</li>
-            </ul>
-          </div>
-        </motion.div>
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
+        {seoPlans.map((plan, index) => (
+          <div
+            key={index}
+            className="flex flex-col justify-between rounded-2xl overflow-hidden shadow-2xl bg-white hover:scale-105 transform transition duration-300"
+          >
+            <div className={`${plan.headerColor} text-white text-center py-4 text-xl font-semibold`}>
+              {plan.title}
+            </div>
 
-        {/* Content Marketing */}
-        <motion.div
-          className="p-6 bg-gray-50 shadow-xl rounded-xl border-l-4 border-blue-500"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <h3 className="text-xl font-bold flex items-center gap-2 text-blue-600">
-            <FaEnvelopeOpenText /> Content Marketing & Copywriting
-          </h3>
-          <ul className="mt-3 space-y-2 text-gray-700 list-disc list-inside">
-            <li>SEO-optimized blog writing & website content</li>
-            <li>Product descriptions & engaging ad copies</li>
-            <li>Consistent content for social media & email marketing</li>
-          </ul>
-          <div className="mt-4 bg-blue-50 border-l-4 border-blue-400 p-4 rounded">
-            <p className="font-semibold text-blue-700 mb-2">Why We're the Right Fit?</p>
-            <ul className="text-gray-700 text-sm space-y-1">
-              <li><FaCheckCircle className="inline text-blue-500 mr-1" /> SEO-friendly, engaging content that ranks and converts.</li>
-              <li><FaCheckCircle className="inline text-blue-500 mr-1" /> Strategic content calendar for brand consistency.</li>
-              <li><FaCheckCircle className="inline text-blue-500 mr-1" /> Unique voice tailored to your audience and goals.</li>
+            <div className="text-center py-6 bg-white">
+              <p className="text-4xl font-bold text-gray-800">{plan.price}</p>
+            </div>
+
+            <ul className="px-8 space-y-4 text-sm mb-6">
+              {plan.features.map((feature, i) => (
+                <li
+                  key={i}
+                  className={`flex items-start gap-3 ${feature.included ? "text-gray-700" : "text-red-500"} font-medium`}
+                >
+                  <span className="text-xl">{feature.icon}</span>
+                  {feature.text}
+                </li>
+              ))}
             </ul>
+
+            <div className="mt-auto text-center px-6 pb-8">
+              <button
+                onClick={() => navigate("/contact")}
+                className={`${plan.buttonColor} text-white px-6 py-3 rounded-xl w-full font-semibold text-lg flex items-center justify-center gap-2 hover:opacity-90 transition`}
+              >
+                Get Started <FaArrowRight />
+              </button>
+            </div>
           </div>
-        </motion.div>
+        ))}
       </div>
-      <Contact></Contact>
     </section>
   );
 };
