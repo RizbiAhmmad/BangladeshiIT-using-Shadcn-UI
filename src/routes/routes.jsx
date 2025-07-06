@@ -10,7 +10,6 @@ import WebDevelopment from "../Pages/Services/WebDevelopment";
 import Blogs from "../Pages/Blogs/Blogs";
 import EcommerceSolutions from "../Pages/Services/EcommerceSolutions";
 import AppsDevelopment from "../Pages/Services/AppsDevelopment";
-import DigitalMarketing from "../Pages/Services/DigitalMarketing";
 import GraphicsDesign from "../Pages/Services/GraphicsDesign";
 import SocialMediaMarketing from "../Pages/Services/SocialMediaMarketing";
 import SEOContentWriting from "../Pages/Services/SeoContentWriting";
@@ -29,6 +28,7 @@ import AllMembers from "../Pages/Dashboard/Admin/AllMembers";
 import AddReviewVideo from "../Pages/Dashboard/Admin/AddReviewVideo";
 import AllReviewVideos from "../Pages/Dashboard/Admin/AllReviewVideos";
 import Profile from "../Pages/Dashboard/Admin/Profile";
+import DigitalMarketing from "../Pages/Services/DigitalMArketing";
 
   export const router = createBrowserRouter([
     {
