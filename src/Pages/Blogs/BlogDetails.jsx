@@ -21,7 +21,7 @@ const BlogDetails = () => {
         <img
           src={blog.image}
           alt={blog.title}
-          className="w-full h-[400px] object-cover transition-transform duration-300 hover:scale-105"
+          className="w-full h-[400px]  md:h-[550px] object-cover transition-transform duration-300 hover:scale-105"
         />
         <div className="p-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-3">{blog.title}</h1>
