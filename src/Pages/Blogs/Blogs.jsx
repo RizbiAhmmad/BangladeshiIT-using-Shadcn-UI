@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ Add this
+import { useNavigate } from "react-router-dom"; 
 import { ArrowRight } from "lucide-react";
 import { AuroraText } from "../../components/magicui/aurora-text";
 import axios from "axios";
 
 export default function Blogs() {
   const [blogs, setBlogs] = useState([]);
-  const navigate = useNavigate(); // ✅ Initialize it here
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     axios

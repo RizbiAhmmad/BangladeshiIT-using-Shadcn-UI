@@ -4,7 +4,7 @@ import OurServices from '../Services/OurServices';
 import Banner from './Banner';
 import Blog from './Blog';
 import OurClients from './OurClients';
-import ReviewVideos from './ReviewVideos';
+// import ReviewVideos from './ReviewVideos';
 import Technologies from './Technologies';
 import Testimonial from './Testimonial';
 
@@ -16,7 +16,7 @@ const Home = () => {
             <Technologies></Technologies>
             <MeetTheTeam></MeetTheTeam>
             <Testimonial></Testimonial>
-            <ReviewVideos></ReviewVideos>
+            {/* <ReviewVideos></ReviewVideos> */}
             <OurClients></OurClients>
             <Blog></Blog>
             <Contact></Contact>

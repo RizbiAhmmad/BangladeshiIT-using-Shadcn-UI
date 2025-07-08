@@ -8,7 +8,6 @@ import Member3 from "../../assets/Rizbi.jpg";
 import Member4 from "../../assets/Bakhtiar.jpg";
 import Member5 from "../../assets/Nasir.jpg";
 import Member6 from "../../assets/Shuvo.jpg";
-import Member7 from "../../assets/Tanvir.jpg";
 import Member8 from "../../assets/A.Samad.jpg";
 import Member9 from "../../assets/Torikul.jpg";
 
@@ -40,14 +39,6 @@ export function MeetTheTeam() {
     },
     {
       _id: "4",
-      name: "Ahmed Tanvir Shahariar",
-      position: "IT Business Consultant",
-      image: Member7,
-      facebook: "https://www.facebook.com/shahariar.ahmed.007",
-      linkedin: "",
-    },
-    {
-      _id: "5",
       name: "Rizbi Ahmmad",
       position: "MERN Stack Developer",
       image: Member3,
@@ -55,7 +46,7 @@ export function MeetTheTeam() {
       linkedin: "https://www.linkedin.com/in/rizbi2001/",
     },
     {
-      _id: "6",
+      _id: "5",
       name: "Md Bakhtear Uddin",
       position: "Graphics Designer",
       image: Member4,
@@ -63,7 +54,7 @@ export function MeetTheTeam() {
       linkedin: "",
     },
     {
-      _id: "7",
+      _id: "6",
       name: "Nasir Uddin",
       position: "Google Ads Specialist",
       image: Member5,
@@ -71,7 +62,7 @@ export function MeetTheTeam() {
       linkedin: "",
     },
     {
-      _id: "8",
+      _id: "7",
       name: "Mehedi Hasan Shuvo",
       position: "Digital Marketing Specialist",
       image: Member6,
@@ -79,7 +70,7 @@ export function MeetTheTeam() {
       linkedin: "",
     },
     {
-      _id: "9",
+      _id: "8",
       name: "Abdullah Al Samad",
       position: "PHP Laravel Developer",
       image: Member8,
