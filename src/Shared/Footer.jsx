@@ -45,10 +45,10 @@ export default function Footer() {
             in web development, branding, and marketing services.
           </p>
           <div className="flex gap-4 mt-4">
-            <a href="#" aria-label="Facebook">
+            <a href="https://www.facebook.com/bangladeshiitbd" aria-label="Facebook">
               <FaFacebookF className="hover:text-orange-500" />
             </a>
-            <a href="#" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/firoj-khan-liton/" aria-label="LinkedIn">
               <FaLinkedinIn className="hover:text-orange-500" />
             </a>
             <a href="mailto:info@bangladeshiit.com" aria-label="Email">
