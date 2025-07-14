@@ -43,6 +43,21 @@ export default function Navbar() {
     }
   }, [user, axiosPublic]);
 
+  const [isDarkMode, setIsDarkMode] = useState(
+    localStorage.getItem("theme") === "dark"
+  );
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDarkMode) {
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDarkMode]);
+
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
@@ -133,6 +148,14 @@ export default function Navbar() {
               Dashboard
             </NavLink>
           )}
+
+          {/* Dark/Light Toggle Button */}
+          <button
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="ml-3 px-3 py-1 border rounded-full bg-gray-200 text-black dark:bg-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 transition"
+          >
+            {isDarkMode ? "☀ Light" : "🌙 Dark"}
+          </button>
 
           <a
             href="/contact"
@@ -260,6 +283,23 @@ export default function Navbar() {
                   </NavLink>
                 </motion.li>
               )}
+
+              <motion.li
+                variants={{
+                  open: { opacity: 1, y: 0 },
+                  closed: { opacity: 0, y: -20 },
+                }}
+              >
+                <button
+                  onClick={() => {
+                    setIsDarkMode(!isDarkMode);
+                    setIsOpen(false);
+                  }}
+                  className="w-full text-left font-medium px-4 py-2 bg-gray-100 dark:bg-gray-800 text-black dark:text-white rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+                >
+                  {isDarkMode ? "☀ Switch to Light" : "🌙 Switch to Dark"}
+                </button>
+              </motion.li>
 
               <motion.li
                 variants={{
