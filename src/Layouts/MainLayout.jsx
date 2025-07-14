@@ -6,7 +6,6 @@ import FloatingChatMenu from "../Shared/FloatingChatMenu";
 import ScrollToTop from "../Shared/ScrollToTop";
 import SmokeyCursor from "../components/lightswind/smokey-cursor";
 
-
 const MainLayout = () => {
   const location = useLocation();
   const noHeaderFooter =
@@ -16,7 +15,7 @@ const MainLayout = () => {
   const [showCursor] = useState(true); // Set to false if you want to disable by default
 
   return (
-    <div className="relative">
+    <div className="relative min-h-screen text-black transition-colors duration-300 bg-white dark:bg-gray-900 dark:text-white">
       <ScrollToTop />
 
       {/* ✅ Smokey Cursor - Always behind all content */}
