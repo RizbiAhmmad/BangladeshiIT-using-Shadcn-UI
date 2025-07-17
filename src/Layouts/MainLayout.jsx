@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "../Shared/Navbar";
 import Footer from "../Shared/Footer";
 import FloatingChatMenu from "../Shared/FloatingChatMenu";
 import ScrollToTop from "../Shared/ScrollToTop";
 import SmokeyCursor from "../components/lightswind/smokey-cursor";
+import { ThemeContext } from "../provider/ThemeProvider";
 
 const MainLayout = () => {
   const location = useLocation();
   const noHeaderFooter =
     location.pathname.includes("login") || location.pathname.includes("signup");
 
+    const { isDarkMode } = useContext(ThemeContext);
   // Optional toggle (true means active)
   const [showCursor] = useState(true); // Set to false if you want to disable by default
 
   return (
-    <div className="relative min-h-screen text-black transition-colors duration-300 bg-white dark:bg-gray-900 dark:text-white">
+    <div className={`${isDarkMode ? "bg-black text-white" : "bg-white text-black"} relative min-h-screen`}>
+     {/* <div className="relative min-h-screen bg-background text-foreground"> */}
+
       <ScrollToTop />
 
       {/* ✅ Smokey Cursor - Always behind all content */}
