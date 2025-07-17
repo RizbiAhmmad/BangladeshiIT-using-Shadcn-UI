@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
 import logo from "../assets/BangladeshiIT.jpg";
 import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
+import { ThemeContext } from "../provider/ThemeProvider";
+// import { FaMoon, FaSun } from "react-icons/fa";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -43,38 +45,28 @@ export default function Navbar() {
     }
   }, [user, axiosPublic]);
 
-  const [isDarkMode, setIsDarkMode] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (isDarkMode) {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [isDarkMode]);
+  const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+    <header className="fixed top-0 left-0 z-50 w-full shadow-md">
+     {/* <header className={`fixed top-0 left-0 z-50 w-full ${
+       isDarkMode ? "bg-black text-blue-500" : "bg-gray-100 text-black"
+      } shadow-md`}> */}
+      <div className="flex items-center justify-between px-4 py-3 mx-auto max-w-7xl">
         {/* Logo */}
         <NavLink to="/" className="flex items-center">
-          <img src={logo} alt="Logo" className="h-10 w-10 rounded-full mr-2" />
-          <h1 className="text-2xl font-bold flex items-center">
+          <img src={logo} alt="Logo" className="w-10 h-10 mr-2 rounded-full" />
+          <h1 className="flex items-center text-2xl font-bold">
             <span className="flex">
               <span className="text-green-600">Bangla</span>
               <span className="text-red-600">deshi</span>
             </span>
-            <span className="text-green-600 ml-3">IT</span>
+            <span className="ml-3 text-green-600">IT</span>
           </h1>
         </NavLink>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-8 items-center relative">
+        <nav className="relative items-center hidden gap-8 md:flex">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div key={link.name} className="relative group">
@@ -100,7 +92,7 @@ export default function Navbar() {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="absolute bg-white shadow-lg mt-2 rounded-md p-3 w-56 z-50"
+                      className="absolute z-50 w-56 p-3 mt-2 bg-white rounded-md shadow-lg"
                     >
                       {services.map((service) => (
                         <NavLink
@@ -150,16 +142,13 @@ export default function Navbar() {
           )}
 
           {/* Dark/Light Toggle Button */}
-          <button
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            className="ml-3 px-3 py-1 border rounded-full bg-gray-200 text-black dark:bg-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-700 transition"
-          >
-            {isDarkMode ? "☀ Light" : "🌙 Dark"}
-          </button>
+          {/* <button onClick={toggleDarkMode} className="text-2xl cursor-pointer">
+            {isDarkMode ? <FaSun className="text-yellow-400" /> : <FaMoon />}
+          </button> */}
 
           <a
             href="/contact"
-            className="ml-6 bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-700 transition font-semibold"
+            className="px-4 py-2 ml-6 font-semibold text-white transition bg-orange-500 rounded-full hover:bg-orange-700"
           >
             Contact Us
           </a>
@@ -168,7 +157,7 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-black"
+          className="text-black md:hidden"
         >
           {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
         </button>
@@ -181,7 +170,7 @@ export default function Navbar() {
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
-            className="md:hidden bg-white shadow-md px-4"
+            className="px-4 bg-white shadow-md md:hidden"
           >
             <motion.ul
               initial="closed"
@@ -200,7 +189,7 @@ export default function Navbar() {
                   <div key={link.name}>
                     <div
                       onClick={() => setShowDropdown((prev) => !prev)}
-                      className="flex justify-between items-center font-medium text-black cursor-pointer hover:text-green-600"
+                      className="flex items-center justify-between font-medium text-black cursor-pointer hover:text-green-600"
                     >
                       <span>{link.name}</span>
                       <FiChevronDown
@@ -290,15 +279,9 @@ export default function Navbar() {
                   closed: { opacity: 0, y: -20 },
                 }}
               >
-                <button
-                  onClick={() => {
-                    setIsDarkMode(!isDarkMode);
-                    setIsOpen(false);
-                  }}
-                  className="w-full text-left font-medium px-4 py-2 bg-gray-100 dark:bg-gray-800 text-black dark:text-white rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-                >
-                  {isDarkMode ? "☀ Switch to Light" : "🌙 Switch to Dark"}
-                </button>
+                {/* <button onClick={toggleDarkMode} className="text-2xl cursor-pointer">
+            {isDarkMode ? <FaSun className="text-yellow-400" /> : <FaMoon />}
+          </button> */}
               </motion.li>
 
               <motion.li
@@ -310,7 +293,7 @@ export default function Navbar() {
                 <a
                   href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="inline-block mt-2 bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-700 transition font-semibold"
+                  className="inline-block px-4 py-2 mt-2 font-semibold text-white transition bg-orange-500 rounded-full hover:bg-orange-700"
                 >
                   Contact Us
                 </a>
