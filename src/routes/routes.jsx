@@ -27,6 +27,7 @@ import AllReviewVideos from "../Pages/Dashboard/Admin/AllReviewVideos";
 import Profile from "../Pages/Dashboard/Admin/Profile";
 import DigitalMarketing from "../Pages/Services/DigitalMArketing";
 import BlogDetails from "../Pages/Blogs/BlogDetails";
+import AddClient from "../Pages/Dashboard/Admin/AddClient";
 
 export const router = createBrowserRouter([
   {
@@ -138,6 +139,14 @@ export const router = createBrowserRouter([
       },
       {
         path: "allMembers",
+        element: <AllMembers></AllMembers>,
+      },
+      {
+        path: "addclient",
+        element: <AddClient></AddClient>,
+      },
+      {
+        path: "allClients",
         element: <AllMembers></AllMembers>,
       },
       {

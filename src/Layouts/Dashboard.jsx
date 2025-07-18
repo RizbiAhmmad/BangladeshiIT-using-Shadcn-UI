@@ -14,6 +14,7 @@ import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { RiVideoAddLine } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { FaUsersRectangle } from "react-icons/fa6";
+import { LiaUsersSolid } from "react-icons/lia";
 import { NavLink, Outlet } from "react-router-dom";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useAuth from "../Hooks/useAuth";
@@ -41,13 +42,13 @@ const Dashboard = () => {
   };
 
   if (!userRole) {
-    return <div className="text-center p-10">Loading dashboard...</div>;
+    return <div className="p-10 text-center">Loading dashboard...</div>;
   }
 
   return (
     <div>
       {/* Top Bar */}
-      <div className="flex justify-between items-center p-4">
+      <div className="flex items-center justify-between p-4">
         <button
           onClick={toggleSidebar}
           className="w-full text-4xl text-black focus:outline-none"
@@ -72,14 +73,14 @@ const Dashboard = () => {
             {userRole === "admin" && (
               <>
                 <li>
-                  <NavLink to="/" className="flex py-2 space-x-3 items-center">
+                  <NavLink to="/" className="flex items-center py-2 space-x-3">
                     <FaHome /> <span>Home</span>
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
                     to="/dashboard/users"
-                    className="flex py-2 space-x-3 items-center"
+                    className="flex items-center py-2 space-x-3"
                   >
                     <FaUsers /> <span>Users</span>
                   </NavLink>
@@ -87,7 +88,7 @@ const Dashboard = () => {
                 <li>
                   <NavLink
                     to="/dashboard/addBlogs"
-                    className="flex py-2 space-x-3 items-center"
+                    className="flex items-center py-2 space-x-3"
                   >
                     <FaRegEdit /> <span>Add Blogs</span>
                   </NavLink>
@@ -95,7 +96,7 @@ const Dashboard = () => {
                 <li>
                   <NavLink
                     to="/dashboard/allBlogs"
-                    className="flex py-2 space-x-3 items-center"
+                    className="flex items-center py-2 space-x-3"
                   >
                     <FaBlogger /> <span>All Blogs</span>
                   </NavLink>
@@ -103,7 +104,7 @@ const Dashboard = () => {
                 <li>
                   <NavLink
                     to="/dashboard/addReviews"
-                    className="flex py-2 space-x-3 items-center"
+                    className="flex items-center py-2 space-x-3"
                   >
                     <FaPlusCircle /> <span>Add Review</span>
                   </NavLink>
@@ -111,7 +112,7 @@ const Dashboard = () => {
                 <li>
                   <NavLink
                     to="/dashboard/allReviews"
-                    className="flex py-2 space-x-3 items-center"
+                    className="flex items-center py-2 space-x-3"
                   >
                     <FaComments /> <span>All Reviews</span>
                   </NavLink>
@@ -119,7 +120,7 @@ const Dashboard = () => {
                 <li>
                   <NavLink
                     to="/dashboard/addReviewVideo"
-                    className="flex py-2 space-x-3 items-center"
+                    className="flex items-center py-2 space-x-3"
                   >
                     <RiVideoAddLine /> <span>Add Review Video</span>
                   </NavLink>
@@ -127,7 +128,7 @@ const Dashboard = () => {
                 <li>
                   <NavLink
                     to="/dashboard/allReviewVideos"
-                    className="flex py-2 space-x-3 items-center"
+                    className="flex items-center py-2 space-x-3"
                   >
                     <FaVideo /><span>All Review Videos</span>
                   </NavLink>
@@ -135,7 +136,7 @@ const Dashboard = () => {
                 <li>
                   <NavLink
                     to="/dashboard/addMember"
-                    className="flex py-2 space-x-3 items-center"
+                    className="flex items-center py-2 space-x-3"
                   >
                     <FaUserPlus /> <span>Add Team Member</span>
                   </NavLink>
@@ -143,15 +144,23 @@ const Dashboard = () => {
                 <li>
                   <NavLink
                     to="/dashboard/allMembers"
-                    className="flex py-2 space-x-3 items-center"
+                    className="flex items-center py-2 space-x-3"
                   >
                     <FaUsersRectangle /> <span>All Team Members</span>
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
+                    to="/dashboard/allClients"
+                    className="flex items-center py-2 space-x-3"
+                  >
+                  <LiaUsersSolid /> <span>All Clients</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
                     to="/dashboard/profile"
-                    className="flex py-2 space-x-3 items-center"
+                    className="flex items-center py-2 space-x-3"
                   >
                     <CgProfile /> <span>Profile</span>
                   </NavLink>
@@ -163,14 +172,14 @@ const Dashboard = () => {
             {/* {userRole === "user" && (
               <>
                 <li>
-                  <NavLink to="/" className="flex py-2 space-x-3 items-center">
+                  <NavLink to="/" className="flex items-center py-2 space-x-3">
                     <FaHome /> <span>Home</span>
                   </NavLink>
                 </li>
                 <li>
                   <NavLink
                     to="/dashboard/profile"
-                    className="flex py-2 space-x-3 items-center"
+                    className="flex items-center py-2 space-x-3"
                   >
                     <CgProfile /> <span>Profile</span>
                   </NavLink>
@@ -183,7 +192,7 @@ const Dashboard = () => {
         {/* Dashboard Content */}
         <div className="flex-1 p-4">
           {user && (
-            <div className="mb-4 p-4 bg-blue-100 text-blue-800 rounded-lg text-center shadow">
+            <div className="p-4 mb-4 text-center text-blue-800 bg-blue-100 rounded-lg shadow">
               <h1 className="text-xl font-semibold">
                 Hey, {user.displayName || "User"}! Welcome to your Dashboard.
               </h1>
