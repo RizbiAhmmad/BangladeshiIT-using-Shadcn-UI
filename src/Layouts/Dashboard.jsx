@@ -85,14 +85,7 @@ const Dashboard = () => {
                     <FaUsers /> <span>Users</span>
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink
-                    to="/dashboard/addBlogs"
-                    className="flex items-center py-2 space-x-3"
-                  >
-                    <FaRegEdit /> <span>Add Blogs</span>
-                  </NavLink>
-                </li>
+                
                 <li>
                   <NavLink
                     to="/dashboard/allBlogs"
@@ -101,14 +94,7 @@ const Dashboard = () => {
                     <FaBlogger /> <span>All Blogs</span>
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink
-                    to="/dashboard/addReviews"
-                    className="flex items-center py-2 space-x-3"
-                  >
-                    <FaPlusCircle /> <span>Add Review</span>
-                  </NavLink>
-                </li>
+                
                 <li>
                   <NavLink
                     to="/dashboard/allReviews"
@@ -117,28 +103,13 @@ const Dashboard = () => {
                     <FaComments /> <span>All Reviews</span>
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink
-                    to="/dashboard/addReviewVideo"
-                    className="flex items-center py-2 space-x-3"
-                  >
-                    <RiVideoAddLine /> <span>Add Review Video</span>
-                  </NavLink>
-                </li>
+                
                 <li>
                   <NavLink
                     to="/dashboard/allReviewVideos"
                     className="flex items-center py-2 space-x-3"
                   >
                     <FaVideo /><span>All Review Videos</span>
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
-                    to="/dashboard/addMember"
-                    className="flex items-center py-2 space-x-3"
-                  >
-                    <FaUserPlus /> <span>Add Team Member</span>
                   </NavLink>
                 </li>
                 <li>

@@ -34,8 +34,8 @@ const AddReviewVideo = () => {
   };
 
   return (
-    <section className="max-w-2xl mx-auto p-6 bg-white border border-green-500 shadow-md mt-10 rounded-xl">
-      <h2 className="text-2xl font-bold mb-4 text-center">Add Client Review Video</h2>
+    <section className="max-w-2xl p-6 mx-auto mt-10 bg-white border border-green-500 shadow-md rounded-xl">
+      <h2 className="mb-4 text-2xl font-bold text-center">Add Client Review Video</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -44,7 +44,7 @@ const AddReviewVideo = () => {
           value={formData.title}
           onChange={handleChange}
           placeholder="Video Title"
-          className="w-full border px-4 py-2 rounded"
+          className="w-full px-4 py-2 border rounded"
         />
         <input
           type="text"
@@ -52,13 +52,13 @@ const AddReviewVideo = () => {
           required
           value={formData.videoUrl}
           onChange={handleChange}
-          placeholder="YouTube Video Embed URL"
-          className="w-full border px-4 py-2 rounded"
+          placeholder="YouTube Video URL"
+          className="w-full px-4 py-2 border rounded"
         />
         <div className="text-center">
           <button
             type="submit"
-            className="bg-green-500 text-white px-6 py-2 rounded hover:bg-orange-600"
+            className="px-6 py-2 text-white bg-green-500 rounded hover:bg-orange-600"
           >
             Submit Video
           </button>
