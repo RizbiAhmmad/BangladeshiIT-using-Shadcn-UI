@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { FaPlus } from "react-icons/fa";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const AddClient = () => {
   const [clientData, setClientData] = useState({
     name: "",
     email: "",
     mobile: "",
-    password: "",
     gender: "Male",
+    company: "",
     category: "",
     address: "",
     description: "",
@@ -17,11 +18,31 @@ const AddClient = () => {
     setClientData({ ...clientData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Client Info:", clientData);
-    // TODO: Send to backend
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await axios.post("http://localhost:5000/clients", clientData);
+    if (res.data.insertedId) {
+      Swal.fire("Success", "Client added successfully!", "success");
+      setClientData({
+        name: "",
+        email: "",
+        mobile: "",
+        gender: "Male",
+        company: "",
+        category: "",
+        address: "",
+        description: "",
+      });
+    } else {
+      Swal.fire("Oops!", "Client not added.", "error");
+    }
+  } catch (error) {
+    console.error("Add client error:", error);
+    Swal.fire("Error", "Something went wrong!", "error");
+  }
+};
 
   return (
     <form
@@ -48,12 +69,12 @@ const AddClient = () => {
         {/* Mobile */}
         <div>
           <label className="block mb-1 text-sm font-semibold text-gray-600">
-            CLIENT MOBILE <span className="text-red-500">*</span>
+            CLIENT MOBILE NO<span className="text-red-500">*</span>
           </label>
           <input
-            type="text"
+            type="number"
             name="mobile"
-            placeholder="CLIENT MOBILE"
+            placeholder="CLIENT MOBILE NO"
             value={clientData.mobile}
             onChange={handleChange}
             required
@@ -91,6 +112,21 @@ const AddClient = () => {
             <option>Female</option>
             <option>Other</option>
           </select>
+        </div>
+
+        {/* Company */}
+        <div>
+          <label className="block mb-1 text-sm font-semibold text-gray-600">
+            CLIENT COMPANY
+          </label>
+          <input
+            type="text"
+            name="company"
+            placeholder="CLIENT COMPANY"
+            value={clientData.company}
+            onChange={handleChange}
+            className="w-full px-4 py-2 text-sm border rounded-full"
+          />
         </div>
 
         {/* Category */}
@@ -133,7 +169,7 @@ const AddClient = () => {
             placeholder="Client Description"
             value={clientData.description}
             onChange={handleChange}
-            rows={3}
+            rows={2}
             className="w-full px-4 py-2 text-sm border rounded-md"
           />
         </div>

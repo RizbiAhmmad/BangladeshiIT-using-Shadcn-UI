@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaPlus, FaTrashAlt } from "react-icons/fa";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AllMembers = () => {
   const axiosPublic = useAxiosPublic();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState(null);
+  const navigate = useNavigate();
 
   const { data: members = [], refetch } = useQuery({
     queryKey: ["team"],
@@ -83,14 +85,22 @@ const AllMembers = () => {
   };
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <h2 className="text-4xl font-bold text-center mb-8 border-b-2 border-gray-200 pb-4">
+    <div className="max-w-6xl p-6 mx-auto">
+      <h2 className="pb-4 mb-8 text-4xl font-bold text-center border-b-2 border-gray-200">
         All Team Members
       </h2>
+      <div className="flex justify-end mb-4">
+              <button
+                onClick={() => navigate("/dashboard/addMember")}
+                className="flex items-center gap-2 px-4 py-2 text-white bg-green-500 rounded hover:bg-orange-600"
+              >
+                <FaPlus /> Add member
+              </button>
+            </div>
 
-      <div className="overflow-x-auto rounded-lg shadow-lg bg-white">
+      <div className="overflow-x-auto bg-white rounded-lg shadow-lg">
         <table className="w-full text-sm text-left table-auto">
-          <thead className="bg-gray-100 text-gray-700 uppercase tracking-wider">
+          <thead className="tracking-wider text-gray-700 uppercase bg-gray-100">
             <tr>
               <th className="px-6 py-3">#</th>
               <th className="px-6 py-3">Image</th>
@@ -103,14 +113,14 @@ const AllMembers = () => {
             {members.map((member, index) => (
               <tr
                 key={member._id}
-                className="hover:bg-gray-50 transition duration-200"
+                className="transition duration-200 hover:bg-gray-50"
               >
                 <td className="px-6 py-4">{index + 1}</td>
                 <td className="px-6 py-4">
                   <img
                     src={`https://bangladeshi-it-server.vercel.app${member.image}`}
                     alt={member.name}
-                    className="w-10 h-10 rounded-full border"
+                    className="w-10 h-10 border rounded-full"
                   />
                 </td>
                 <td className="px-6 py-4 font-semibold text-gray-800">
@@ -118,7 +128,7 @@ const AllMembers = () => {
                 </td>
                 <td className="px-6 py-4">{member.position}</td>
 
-                <td className="px-6 py-4 flex gap-4">
+                <td className="flex gap-4 px-6 py-4">
                   <button onClick={() => openModal(member)} title="Edit">
                     <FaEdit className="text-3xl text-blue-500 hover:text-blue-700 " />
                   </button>
@@ -133,7 +143,7 @@ const AllMembers = () => {
             ))}
             {members.length === 0 && (
               <tr>
-                <td colSpan="5" className="text-center py-6 text-gray-500">
+                <td colSpan="5" className="py-6 text-center text-gray-500">
                   No members found.
                 </td>
               </tr>
@@ -158,7 +168,7 @@ const AllMembers = () => {
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center">
+            <div className="flex items-center justify-center min-h-full p-4 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -168,15 +178,15 @@ const AllMembers = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title className="text-lg font-bold mb-4 text-center">
+                <Dialog.Panel className="w-full max-w-md p-6 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
+                  <Dialog.Title className="mb-4 text-lg font-bold text-center">
                     Edit Team Member
                   </Dialog.Title>
 
                   <div className="space-y-3">
                     <input
                       type="text"
-                      className="w-full border px-3 py-2 rounded"
+                      className="w-full px-3 py-2 border rounded"
                       value={selectedMember?.name || ""}
                       onChange={(e) =>
                         setSelectedMember({
@@ -188,7 +198,7 @@ const AllMembers = () => {
                     />
                     <input
                       type="text"
-                      className="w-full border px-3 py-2 rounded"
+                      className="w-full px-3 py-2 border rounded"
                       value={selectedMember?.position || ""}
                       onChange={(e) =>
                         setSelectedMember({
@@ -206,7 +216,7 @@ const AllMembers = () => {
                       <div className="flex items-center gap-4">
                         <label
                           htmlFor="imageUpload"
-                          className="cursor-pointer bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
+                          className="px-4 py-2 text-white transition bg-green-500 rounded cursor-pointer hover:bg-green-600"
                         >
                           Choose File
                         </label>
@@ -232,7 +242,7 @@ const AllMembers = () => {
 
                     <input
                       type="text"
-                      className="w-full border px-3 py-2 rounded"
+                      className="w-full px-3 py-2 border rounded"
                       value={selectedMember?.facebook || ""}
                       onChange={(e) =>
                         setSelectedMember({
@@ -244,7 +254,7 @@ const AllMembers = () => {
                     />
                     <input
                       type="text"
-                      className="w-full border px-3 py-2 rounded"
+                      className="w-full px-3 py-2 border rounded"
                       value={selectedMember?.github || ""}
                       onChange={(e) =>
                         setSelectedMember({
@@ -256,7 +266,7 @@ const AllMembers = () => {
                     />
                     <input
                       type="text"
-                      className="w-full border px-3 py-2 rounded"
+                      className="w-full px-3 py-2 border rounded"
                       value={selectedMember?.linkedin || ""}
                       onChange={(e) =>
                         setSelectedMember({
@@ -271,7 +281,7 @@ const AllMembers = () => {
                   <div className="mt-6 text-center">
                     <button
                       onClick={handleUpdate}
-                      className="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600"
+                      className="px-6 py-2 text-white bg-green-500 rounded hover:bg-green-600"
                     >
                       Update Member
                     </button>

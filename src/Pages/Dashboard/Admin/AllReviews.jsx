@@ -1,10 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaPlus, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import { useNavigate } from "react-router-dom";
 
 const AllReviews = () => {
   const axiosPublic = useAxiosPublic();
+  const navigate = useNavigate();
 
   const { data: reviews = [], refetch } = useQuery({
     queryKey: ["reviews"],
@@ -36,13 +38,21 @@ const AllReviews = () => {
   };
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <h2 className="text-4xl font-bold text-center mb-8 border-b-2 border-gray-200 pb-4">
+    <div className="max-w-6xl p-6 mx-auto">
+      <h2 className="pb-4 mb-8 text-4xl font-bold text-center border-b-2 border-gray-200">
         All Reviews
       </h2>
-      <div className="overflow-x-auto rounded-lg shadow-lg bg-white">
+      <div className="flex justify-end mb-4">
+        <button
+          onClick={() => navigate("/dashboard/addReviewVideo")}
+          className="flex items-center gap-2 px-4 py-2 text-white bg-green-500 rounded hover:bg-orange-600"
+        >
+          <FaPlus /> Add Review Video
+        </button>
+      </div>
+      <div className="overflow-x-auto bg-white rounded-lg shadow-lg">
         <table className="w-full text-sm text-left table-auto">
-          <thead className="bg-gray-100 text-gray-700 uppercase tracking-wider">
+          <thead className="tracking-wider text-gray-700 uppercase bg-gray-100">
             <tr>
               <th className="px-6 py-3">#</th>
               <th className="px-6 py-3">Reviewer</th>
@@ -52,14 +62,14 @@ const AllReviews = () => {
           </thead>
           <tbody className="divide-y divide-gray-200">
             {reviews.map((review, index) => (
-              <tr key={review._id} className="hover:bg-gray-50 transition duration-200">
+              <tr key={review._id} className="transition duration-200 hover:bg-gray-50">
                 <td className="px-6 py-4">{index + 1}</td>
 
-                <td className="px-6 py-4 flex items-center gap-3">
+                <td className="flex items-center gap-3 px-6 py-4">
                   <img
                     src={review.image}
                     alt={review.name}
-                    className="w-10 h-10 rounded-full border border-orange-300 object-cover"
+                    className="object-cover w-10 h-10 border border-orange-300 rounded-full"
                   />
                   <div>
                     <div className="font-semibold text-gray-800">{review.name}</div>
@@ -74,7 +84,7 @@ const AllReviews = () => {
                 <td className="px-6 py-4">
                   <button
                     onClick={() => handleDeleteReview(review)}
-                    className="text-red-600 hover:text-red-800 transition"
+                    className="text-red-600 transition hover:text-red-800"
                     title="Delete Review"
                   >
                     <FaTrashAlt className="text-lg" />
@@ -84,7 +94,7 @@ const AllReviews = () => {
             ))}
             {reviews.length === 0 && (
               <tr>
-                <td colSpan="4" className="text-center py-6 text-gray-500">
+                <td colSpan="4" className="py-6 text-center text-gray-500">
                   No reviews found.
                 </td>
               </tr>

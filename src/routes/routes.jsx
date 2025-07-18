@@ -28,6 +28,7 @@ import Profile from "../Pages/Dashboard/Admin/Profile";
 import DigitalMarketing from "../Pages/Services/DigitalMArketing";
 import BlogDetails from "../Pages/Blogs/BlogDetails";
 import AddClient from "../Pages/Dashboard/Admin/AddClient";
+import AllClients from "../Pages/Dashboard/Admin/AllClients";
 
 export const router = createBrowserRouter([
   {
@@ -147,7 +148,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "allClients",
-        element: <AllMembers></AllMembers>,
+        element: <AllClients></AllClients>,
       },
       {
         path: "profile",
