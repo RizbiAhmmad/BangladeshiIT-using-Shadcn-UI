@@ -66,16 +66,16 @@ export default function OurServices() {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full px-6 py-12 bg-white text-black" id="services">
-      <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
+    <section className="w-full px-6 py-12 text-black bg-white dark:bg-black dark:text-white" id="services">
+      <h2 className="mb-12 text-4xl font-bold text-center text-black bg-white dark:bg-black dark:text-white">
         💼 Our <AuroraText>Services</AuroraText>
       </h2>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid max-w-6xl grid-cols-1 gap-10 mx-auto md:grid-cols-2 lg:grid-cols-3">
         {demoServices.map((service, index) => (
           <motion.div
             key={service.id}
-            className="rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300 bg-gradient-to-r from-green-500 to-red-600 text-white"
+            className="overflow-hidden text-white transition duration-300 transform shadow-lg rounded-2xl hover:scale-105 bg-gradient-to-r from-green-500 to-red-600"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -84,15 +84,15 @@ export default function OurServices() {
             <img
               src={service.image}
               alt={service.title}
-              className="w-full h-56 object-cover"
+              className="object-cover w-full h-56"
             />
             <div className="p-6">
-              <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
+              <h3 className="mb-2 text-2xl font-bold">{service.title}</h3>
               <p className="text-sm text-gray-200 line-clamp-2">{service.description}</p>
 
               <motion.button
                 onClick={() => navigate(service.link)}
-                className="w-full mt-5 py-3 rounded-lg font-semibold bg-white text-blue-600 hover:bg-gray-200 transition duration-300"
+                className="w-full py-3 mt-5 font-semibold text-blue-600 transition duration-300 bg-white rounded-lg hover:bg-gray-200"
                 whileTap={{ scale: 0.95 }}
               >
                 Learn More 🚀

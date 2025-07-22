@@ -147,28 +147,28 @@ const ecommercePlans = [
 const EcommerceSolutions = () => {
   const navigate = useNavigate();
   return (
-    <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-white text-gray-800">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-red-500 uppercase tracking-wide">
+    <section className="py-20 text-gray-800 bg--white dark:bg-black">
+      <div className="mb-12 text-center">
+        <h2 className="text-3xl font-bold tracking-wide text-red-500 uppercase">
           E-Commerce Solutions
         </h2>
-        <p className="mt-4 max-w-3xl mx-auto text-base md:text-lg text-gray-700">
+        <p className="max-w-3xl mx-auto mt-4 text-base text-gray-700 md:text-lg dark:text-white">
           We create dynamic and conversion-optimized E-commerce websites that
           deliver a smooth shopping experience. Whether you're selling 10
           products or 50,000, our platforms are built to scale, perform, and
           keep your customers engaged across all devices.
         </p>
 
-        <h3 className="text-4xl md:text-4xl font-extrabold text-blue-700 mt-4">
+        <h3 className="mt-4 text-4xl font-extrabold text-blue-700 md:text-4xl">
           CHOOSE YOUR PLAN
         </h3>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 gap-10 px-4 mx-auto max-w-7xl md:grid-cols-3">
         {ecommercePlans.map((plan, index) => (
           <div
             key={index}
-            className="flex flex-col justify-between rounded-2xl overflow-hidden shadow-2xl bg-white hover:scale-105 transform transition duration-300"
+            className="flex flex-col justify-between overflow-hidden transition duration-300 transform bg-white shadow-2xl rounded-2xl hover:scale-105"
           >
             <div
               className={`${plan.headerColor} text-white text-center py-4 text-xl font-semibold`}
@@ -176,11 +176,11 @@ const EcommerceSolutions = () => {
               {plan.title}
             </div>
 
-            <div className="text-center py-6 bg-white">
+            <div className="py-6 text-center bg-white">
               <p className="text-4xl font-bold text-gray-800">{plan.price}</p>
             </div>
 
-            <ul className="px-8 space-y-4 text-sm mb-6">
+            <ul className="px-8 mb-6 space-y-4 text-sm">
               {plan.features.map((feature, i) => (
                 <li
                   key={i}
@@ -194,7 +194,7 @@ const EcommerceSolutions = () => {
               ))}
             </ul>
 
-            <div className="mt-auto text-center px-6 pb-8">
+            <div className="px-6 pb-8 mt-auto text-center">
               <button
                 onClick={() => navigate("/contact")}
                 className={`${plan.buttonColor} text-white px-6 py-3 rounded-xl w-full font-semibold text-lg flex items-center justify-center gap-2 hover:opacity-90 transition`}

@@ -5,15 +5,15 @@ import { AuroraText } from "../../components/magicui/aurora-text";
 
 export default function About() {
   return (
-    <section className="bg-white text-black py-20 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto space-y-20 relative z-10">
+    <section className="px-6 py-20 overflow-hidden text-black bg-white dark:bg-black">
+      <div className="relative z-10 mx-auto space-y-20 max-w-7xl">
         <motion.div
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="max-w-3xl mx-auto mb-16 text-center"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-         <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
+         <h2 className="mb-4 text-4xl font-extrabold text-black dark:text-white">
           About <AuroraText>Bangladeshi IT</AuroraText>
         </h2>
           <p className="mt-4 text-lg text-gray-600">
@@ -23,15 +23,15 @@ export default function About() {
         </motion.div>
 
         {/* Mission, Vision, Why Us */}
-        <div className="grid md:grid-cols-3 gap-10 text-center">
+        <div className="grid gap-10 text-center md:grid-cols-3">
           <motion.div
-            className="p-8 rounded-xl bg-gradient-to-b from-white to-gray-50 shadow-xl hover:shadow-2xl transition"
+            className="p-8 transition shadow-xl rounded-xl bg-gradient-to-b from-white to-gray-50 hover:shadow-2xl"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <FaRocket className="text-5xl text-indigo-600 mb-4 mx-auto" />
-            <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+            <FaRocket className="mx-auto mb-4 text-5xl text-indigo-600" />
+            <h3 className="mb-2 text-2xl font-semibold text-gray-900">
               Our Mission
             </h3>
             <p className="text-gray-600">
@@ -41,13 +41,13 @@ export default function About() {
           </motion.div>
 
           <motion.div
-            className="p-8 rounded-xl bg-gradient-to-b from-white to-gray-50 shadow-xl hover:shadow-2xl transition"
+            className="p-8 transition shadow-xl rounded-xl bg-gradient-to-b from-white to-gray-50 hover:shadow-2xl"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <FaBullseye className="text-5xl text-pink-600 mb-4 mx-auto" />
-            <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+            <FaBullseye className="mx-auto mb-4 text-5xl text-pink-600" />
+            <h3 className="mb-2 text-2xl font-semibold text-gray-900">
               Our Vision
             </h3>
             <p className="text-gray-600">
@@ -57,13 +57,13 @@ export default function About() {
           </motion.div>
 
           <motion.div
-            className="p-8 rounded-xl bg-gradient-to-b from-white to-gray-50 shadow-xl hover:shadow-2xl transition"
+            className="p-8 transition shadow-xl rounded-xl bg-gradient-to-b from-white to-gray-50 hover:shadow-2xl"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <FaUsers className="text-5xl text-yellow-500 mb-4 mx-auto" />
-            <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+            <FaUsers className="mx-auto mb-4 text-5xl text-yellow-500" />
+            <h3 className="mb-2 text-2xl font-semibold text-gray-900">
               Why Us
             </h3>
             <p className="text-gray-600">
@@ -76,28 +76,28 @@ export default function About() {
         <MeetTheTeam></MeetTheTeam>
 
         {/* Top CTA Section */}
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="grid items-center gap-10 md:grid-cols-2">
           {/* Left */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+            <h2 className="mb-6 text-4xl font-bold leading-tight md:text-5xl">
               Need Best Help For <br />
               <span className="text-green-500">Digital Corporating!</span>
             </h2>
-            <p className="text-gray-600 mb-10 leading-relaxed">
+            <p className="mb-10 leading-relaxed text-gray-600">
               We combine creativity and technology to help your business grow.
               Our expert team delivers custom digital solutions that match your
               vision and goals.
             </p>
             <div className="flex flex-wrap gap-6">
-              <button className="px-6 py-3 bg-gradient-to-r from-green-500 to-red-500 text-white font-semibold rounded-full hover:scale-105 transition transform duration-300">
+              <button className="px-6 py-3 font-semibold text-white transition duration-300 transform rounded-full bg-gradient-to-r from-green-500 to-red-500 hover:scale-105">
                 MAKE APPOINTMENT
               </button>
               <div className="flex items-center gap-4">
-                <div className="bg-green-500 text-white p-3 rounded-full">
+                <div className="p-3 text-white bg-green-500 rounded-full">
                   <FaPhoneAlt size={24} />
                 </div>
                 <div>
@@ -119,21 +119,21 @@ export default function About() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
-            <div className="border-r border-gray-300 pr-4">
-              <h3 className="text-4xl font-bold text-cyan-600">4k+</h3>
-              <p className="text-gray-600 mt-1">Happy Customers</p>
+            <div className="pr-4 border-r border-gray-300">
+              <h3 className="text-4xl font-bold text-cyan-600">1k+</h3>
+              <p className="mt-1 text-gray-600">Happy Customers</p>
             </div>
             <div>
               <h3 className="text-4xl font-bold text-cyan-600">13+</h3>
-              <p className="text-gray-600 mt-1">Award Winning</p>
+              <p className="mt-1 text-gray-600">Award Winning</p>
             </div>
-            <div className="border-r border-gray-300 pr-4">
+            <div className="pr-4 border-r border-gray-300">
               <h3 className="text-4xl font-bold text-cyan-600">98%</h3>
-              <p className="text-gray-600 mt-1">Satisfaction Rate</p>
+              <p className="mt-1 text-gray-600">Satisfaction Rate</p>
             </div>
             <div>
               <h3 className="text-4xl font-bold text-cyan-600">250+</h3>
-              <p className="text-gray-600 mt-1">Completed Projects</p>
+              <p className="mt-1 text-gray-600">Completed Projects</p>
             </div>
           </motion.div>
         </div>

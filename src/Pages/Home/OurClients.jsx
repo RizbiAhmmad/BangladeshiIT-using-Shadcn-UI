@@ -48,9 +48,9 @@ const clients = [
 
 export default function OurClients() {
   return (
-    <section className="w-full px-6 py-12 bg-white" id="clients">
+    <section className="w-full px-6 py-12 bg-white dark:bg-black" id="clients">
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
+        <h2 className="text-4xl font-extrabold text-black dark:text-white mb-4">
           Our <AuroraText>Clients</AuroraText>
         </h2>
         <p className="text-gray-600 mt-4 max-w-xl mx-auto">

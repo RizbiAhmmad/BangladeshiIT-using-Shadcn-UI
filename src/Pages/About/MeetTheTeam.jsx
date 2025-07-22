@@ -80,7 +80,7 @@ export function MeetTheTeam() {
   ];
 
   return (
-    <section className="py-8 bg-white text-center">
+    <section className="py-8 text-center text-black bg-white dark:bg-black dark:text-white">
       <motion.h2
         className="text-4xl font-bold mb-14"
         initial={{ opacity: 0, y: -30 }}
@@ -90,26 +90,26 @@ export function MeetTheTeam() {
         Meet Our <AuroraText>Team</AuroraText>
       </motion.h2>
 
-      <div className="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-8">
+      <div className="grid max-w-5xl gap-8 px-8 mx-auto md:grid-cols-2 lg:grid-cols-3">
         {members.map((member, i) => (
           <motion.div
             key={member._id}
-            className="group bg-white rounded-xl border border-orange-500 p-4 shadow-lg hover:shadow-2xl transition duration-300"
+            className="p-4 transition duration-300 bg-white border border-orange-500 shadow-lg group rounded-xl hover:shadow-2xl"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 + i * 0.2 }}
           >
             <div className="relative flex justify-center">
-              <div className="w-32 h-32 mb-4 overflow-hidden rounded-full border-4 border-gray-100">
+              <div className="w-32 h-32 mb-4 overflow-hidden border-4 border-gray-100 rounded-full">
                 <img
                   src={member.image}
                   alt={`${member.name}'s profile`}
-                  className="w-full h-full object-cover"
+                  className="object-cover w-full h-full"
                 />
               </div>
             </div>
             <div className="relative">
-              <h3 className="text-lg font-bold text-gray-800 group-hover:text-cyan-600 transition">
+              <h3 className="text-lg font-bold text-gray-800 transition group-hover:text-cyan-600">
                 {member.name}
               </h3>
               <p className="text-sm text-gray-600 group-hover:text-gray-800">
@@ -141,7 +141,7 @@ export function MeetTheTeam() {
                     <FaLinkedinIn />
                   </a>
                 ) : (
-                  <span className="text-cyan-600 hover:text-indigo-600 cursor-not-allowed" title="No LinkedIn profile available">
+                  <span className="cursor-not-allowed text-cyan-600 hover:text-indigo-600" title="No LinkedIn profile available">
                     <FaLinkedinIn />
                   </span>
                 )}
