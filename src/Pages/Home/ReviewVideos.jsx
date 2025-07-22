@@ -13,12 +13,12 @@ export default function ReviewVideos() {
   }, []);
 
   return (
-    <section className="bg-white py-12 px-6" id="review-videos">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
+    <section className="px-6 py-12 bg-white dark:bg-black" id="review-videos">
+      <div className="mx-auto text-center max-w-7xl">
+        <h2 className="mb-4 text-4xl font-extrabold text-black dark:text-white">
           Client <AuroraText>Review Videos</AuroraText>
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto mb-12">
+        <p className="max-w-2xl mx-auto mb-12 text-gray-600">
           Hear directly from our clients about their experiences with BangladeshiIT. Real stories, real impact.
         </p>
 
@@ -26,7 +26,7 @@ export default function ReviewVideos() {
           {reviewVideos.map(({ _id, title, videoUrl }) => (
             <div
               key={_id}
-              className="bg-gray-100 shadow-md rounded-xl overflow-hidden border border-orange-500 hover:shadow-orange-100 transition"
+              className="overflow-hidden transition bg-gray-100 border border-orange-500 shadow-md rounded-xl hover:shadow-orange-100"
             >
               <div className="aspect-w-16 aspect-h-9">
                 <iframe
@@ -39,12 +39,12 @@ export default function ReviewVideos() {
                 ></iframe>
               </div>
               <div className="p-4 text-left">
-                <h3 className="text-md font-semibold text-gray-800">{title}</h3>
+                <h3 className="font-semibold text-gray-800 text-md">{title}</h3>
               </div>
             </div>
           ))}
           {reviewVideos.length === 0 && (
-            <p className="col-span-full text-gray-500 text-center">No review videos found.</p>
+            <p className="text-center text-gray-500 col-span-full">No review videos found.</p>
           )}
         </div>
       </div>

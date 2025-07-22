@@ -12,27 +12,27 @@ import Contact from "../Contact/Contact";
 
 const GraphicsDesign = () => {
   return (
-    <section className="py-20 bg-white text-gray-800">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-red-500 uppercase tracking-wide">
+    <section className="py-20 text-gray-800 bg-white dark:bg-black ">
+      <div className="mb-12 text-center">
+        <h2 className="text-3xl font-bold tracking-wide text-red-500 uppercase">
           Graphics Design Services
         </h2>
-        <p className="mt-4 max-w-2xl mx-auto text-base md:text-lg text-gray-700">
+        <p className="max-w-2xl mx-auto mt-4 text-base text-gray-700 dark:text-white md:text-lg">
           From striking logos to engaging social media creatives,<br /> we design
           everything you need to build a powerful brand presence.
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6">
+      <div className="grid max-w-6xl gap-12 px-6 mx-auto md:grid-cols-2">
 
         {/* Logos & Branding */}
         <motion.div
-          className="p-6 bg-gray-50 shadow-xl rounded-xl border-l-4 border-yellow-500"
+          className="p-6 border-l-4 border-yellow-500 shadow-xl bg-gray-50 rounded-xl"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-xl font-bold flex items-center gap-2 text-yellow-600">
+          <h3 className="flex items-center gap-2 text-xl font-bold text-yellow-600">
             <FaPaintBrush /> 1. Logos & Branding
           </h3>
           <ul className="mt-3 space-y-2 text-gray-700 list-disc list-inside">
@@ -44,12 +44,12 @@ const GraphicsDesign = () => {
 
         {/* Social Media Designs */}
         <motion.div
-          className="p-6 bg-gray-50 shadow-xl rounded-xl border-l-4 border-blue-500"
+          className="p-6 border-l-4 border-blue-500 shadow-xl bg-gray-50 rounded-xl"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h3 className="text-xl font-bold flex items-center gap-2 text-blue-600">
+          <h3 className="flex items-center gap-2 text-xl font-bold text-blue-600">
             <FaImages /> 2. Social Media Designs
           </h3>
           <ul className="mt-3 space-y-2 text-gray-700 list-disc list-inside">
@@ -61,12 +61,12 @@ const GraphicsDesign = () => {
 
         {/* Digital Marketing Design */}
         <motion.div
-          className="p-6 bg-gray-50 shadow-xl rounded-xl border-l-4 border-red-500"
+          className="p-6 border-l-4 border-red-500 shadow-xl bg-gray-50 rounded-xl"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <h3 className="text-xl font-bold flex items-center gap-2 text-red-600">
+          <h3 className="flex items-center gap-2 text-xl font-bold text-red-600">
             <FaAd /> 3. Digital Marketing Design
           </h3>
           <ul className="mt-3 space-y-2 text-gray-700 list-disc list-inside">
@@ -78,12 +78,12 @@ const GraphicsDesign = () => {
 
         {/* Print Design */}
         <motion.div
-          className="p-6 bg-gray-50 shadow-xl rounded-xl border-l-4 border-green-500"
+          className="p-6 border-l-4 border-green-500 shadow-xl bg-gray-50 rounded-xl"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <h3 className="text-xl font-bold flex items-center gap-2 text-green-600">
+          <h3 className="flex items-center gap-2 text-xl font-bold text-green-600">
             <FaPrint /> 4. Print Design
           </h3>
           <ul className="mt-3 space-y-2 text-gray-700 list-disc list-inside">
@@ -96,12 +96,12 @@ const GraphicsDesign = () => {
 
         {/* Apparel & Packaging Design */}
         <motion.div
-          className="p-6 bg-gray-50 shadow-xl rounded-xl border-l-4 border-purple-500 md:col-span-2"
+          className="p-6 border-l-4 border-purple-500 shadow-xl bg-gray-50 rounded-xl md:col-span-2"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <h3 className="text-xl font-bold flex items-center gap-2 text-purple-600">
+          <h3 className="flex items-center gap-2 text-xl font-bold text-purple-600">
             <FaTshirt /> 5. Apparel & Packaging Design
           </h3>
           <ul className="mt-3 space-y-2 text-gray-700 list-disc list-inside">

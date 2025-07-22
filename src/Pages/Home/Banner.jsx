@@ -1,19 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export default function Banner() {
+  const navigate = useNavigate();
   return (
-    <section className="relative bg-white py-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10 relative z-10">
+    <section className="relative py-20 overflow-hidden bg-white dark:bg-black">
+      <div className="relative z-10 flex flex-col items-center gap-10 px-4 mx-auto max-w-7xl md:flex-row">
         {/* Left: Text Content */}
         <motion.div
-          className="w-full md:w-1/2 text-center space-y-6"
+          className="w-full space-y-6 text-center md:w-1/2"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <motion.h1
-            className="text-3xl md:text-4xl font-bold text-black leading-tight"
+            className="text-3xl font-bold leading-tight text-black dark:text-white md:text-4xl"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -24,7 +26,7 @@ export default function Banner() {
           </motion.h1>
 
           <motion.p
-            className="text-green-600 text-2xl"
+            className="text-2xl text-green-600"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -32,26 +34,26 @@ export default function Banner() {
             স্বপ্নের পথে, <span className="text-red-600">প্রযুক্তির সঙ্গী</span>
           </motion.p>
 
-          <motion.a
-            href="/contact"
-            className="inline-block bg-green-600 hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition"
+          <motion.button
+            onClick={() => navigate("/contact")} 
+            className="inline-block px-6 py-3 font-semibold text-white transition bg-green-600 rounded-full shadow-lg hover:bg-red-600 hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
             Get Started
-          </motion.a>
+          </motion.button>
         </motion.div>
 
         {/* Right: Video Frame */}
         <motion.div
-          className="w-full md:w-1/2 mt-10"
+          className="w-full mt-10 md:w-1/2"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
         >
           <motion.div
-            className="relative rounded-2xl overflow-hidden border-4 border-green-600 shadow-2xl aspect-video w-full"
+            className="relative w-full overflow-hidden border-4 border-green-600 shadow-2xl rounded-2xl aspect-video"
             whileHover={{ scale: 1.02 }}
             animate={{
               y: [0, -5, 0],
@@ -69,7 +71,7 @@ export default function Banner() {
               allowFullScreen
               className="w-full h-full rounded-2xl"
             />
-            <div className="absolute inset-0 ring-4 ring-green-500/20 rounded-2xl pointer-events-none animate-pulse"></div>
+            <div className="absolute inset-0 pointer-events-none ring-4 ring-green-500/20 rounded-2xl animate-pulse"></div>
           </motion.div>
         </motion.div>
       </div>

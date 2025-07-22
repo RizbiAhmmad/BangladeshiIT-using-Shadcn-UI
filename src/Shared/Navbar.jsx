@@ -1,12 +1,11 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
 import logo from "../assets/BangladeshiIT.jpg";
 import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
-import { ThemeContext } from "../provider/ThemeProvider";
-// import { FaMoon, FaSun } from "react-icons/fa";
+import ThemeChange from "../components/ThemeChange";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -45,18 +44,12 @@ export default function Navbar() {
     }
   }, [user, axiosPublic]);
 
-  const { isDarkMode, toggleDarkMode } = useContext(ThemeContext);
-
   return (
-    <header className="fixed top-0 left-0 z-50 w-full shadow-md">
-     {/* <header className={`fixed top-0 left-0 z-50 w-full ${
-       isDarkMode ? "bg-black text-blue-500" : "bg-gray-100 text-black"
-      } shadow-md`}> */}
+    <header className="fixed top-0 left-0 z-50 w-full transition-colors duration-300 bg-white shadow-md dark:bg-black">
       <div className="flex items-center justify-between px-4 py-3 mx-auto max-w-7xl">
-        {/* Logo */}
         <NavLink to="/" className="flex items-center">
           <img src={logo} alt="Logo" className="w-10 h-10 mr-2 rounded-full" />
-          <h1 className="flex items-center text-2xl font-bold">
+          <h1 className="flex items-center text-2xl font-bold dark:text-white">
             <span className="flex">
               <span className="text-green-600">Bangla</span>
               <span className="text-red-600">deshi</span>
@@ -75,7 +68,7 @@ export default function Navbar() {
                   className={`cursor-pointer font-medium flex items-center gap-1 ${
                     isServiceRoute
                       ? "text-red-600"
-                      : "text-black hover:text-green-600"
+                      : "text-black dark:text-white hover:text-green-600"
                   }`}
                 >
                   {link.name}
@@ -92,7 +85,7 @@ export default function Navbar() {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
-                      className="absolute z-50 w-56 p-3 mt-2 bg-white rounded-md shadow-lg"
+                      className="absolute z-50 w-56 p-3 mt-2 bg-white rounded-md shadow-lg dark:bg-gray-800"
                     >
                       {services.map((service) => (
                         <NavLink
@@ -103,7 +96,7 @@ export default function Navbar() {
                             `block px-3 py-2 text-sm ${
                               isActive
                                 ? "text-orange-500 font-semibold"
-                                : "text-gray-700 hover:text-orange-500"
+                                : "text-gray-700 dark:text-gray-300 hover:text-orange-500"
                             }`
                           }
                         >
@@ -122,7 +115,7 @@ export default function Navbar() {
                   `font-medium ${
                     isActive
                       ? "text-red-600"
-                      : "text-black hover:text-green-600"
+                      : "text-black dark:text-white hover:text-green-600"
                   }`
                 }
               >
@@ -131,20 +124,16 @@ export default function Navbar() {
             )
           )}
 
-          {/* Admin Dashboard Link */}
           {user && userRole === "admin" && (
             <NavLink
               to="/dashboard"
-              className="font-medium text-black hover:text-green-600"
+              className="font-medium text-black dark:text-white hover:text-green-600"
             >
               Dashboard
             </NavLink>
           )}
 
-          {/* Dark/Light Toggle Button */}
-          {/* <button onClick={toggleDarkMode} className="text-2xl cursor-pointer">
-            {isDarkMode ? <FaSun className="text-yellow-400" /> : <FaMoon />}
-          </button> */}
+          <ThemeChange />
 
           <a
             href="/contact"
@@ -157,7 +146,7 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="text-black md:hidden"
+          className="text-black dark:text-white md:hidden"
         >
           {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
         </button>
@@ -170,7 +159,7 @@ export default function Navbar() {
             initial={{ height: 0 }}
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
-            className="px-4 bg-white shadow-md md:hidden"
+            className="px-4 bg-white shadow-md dark:bg-gray-900 md:hidden"
           >
             <motion.ul
               initial="closed"
@@ -189,7 +178,7 @@ export default function Navbar() {
                   <div key={link.name}>
                     <div
                       onClick={() => setShowDropdown((prev) => !prev)}
-                      className="flex items-center justify-between font-medium text-black cursor-pointer hover:text-green-600"
+                      className="flex items-center justify-between font-medium text-black cursor-pointer dark:text-white hover:text-green-600"
                     >
                       <span>{link.name}</span>
                       <FiChevronDown
@@ -218,7 +207,7 @@ export default function Navbar() {
                                   `block text-sm ${
                                     isActive
                                       ? "text-orange-500 font-semibold"
-                                      : "text-gray-700 hover:text-orange-500"
+                                      : "text-gray-700 dark:text-gray-300 hover:text-orange-500"
                                   }`
                                 }
                               >
@@ -245,7 +234,7 @@ export default function Navbar() {
                         `block font-medium ${
                           isActive
                             ? "text-red-600"
-                            : "text-black hover:text-green-600"
+                            : "text-black dark:text-white hover:text-green-600"
                         }`
                       }
                     >
@@ -255,7 +244,6 @@ export default function Navbar() {
                 )
               )}
 
-              {/* Admin Dashboard Link in Mobile */}
               {user && userRole === "admin" && (
                 <motion.li
                   variants={{
@@ -266,7 +254,7 @@ export default function Navbar() {
                   <NavLink
                     to="/dashboard"
                     onClick={() => setIsOpen(false)}
-                    className="block font-medium text-black hover:text-green-600"
+                    className="block font-medium text-black dark:text-white hover:text-green-600"
                   >
                     Dashboard
                   </NavLink>
@@ -279,9 +267,7 @@ export default function Navbar() {
                   closed: { opacity: 0, y: -20 },
                 }}
               >
-                {/* <button onClick={toggleDarkMode} className="text-2xl cursor-pointer">
-            {isDarkMode ? <FaSun className="text-yellow-400" /> : <FaMoon />}
-          </button> */}
+                <ThemeChange />
               </motion.li>
 
               <motion.li

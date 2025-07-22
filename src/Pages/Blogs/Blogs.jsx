@@ -16,12 +16,12 @@ export default function Blogs() {
   }, []);
 
   return (
-    <section className="bg-white py-16 px-6" id="blogs">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
+    <section className="px-6 py-16 mt-4 bg-white dark:bg-black" id="blogs">
+      <div className="mx-auto text-center max-w-7xl">
+        <h2 className="mb-4 text-4xl font-extrabold text-black dark:text-white">
           Our <AuroraText>Blogs</AuroraText>
         </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto mb-12">
+        <p className="max-w-2xl mx-auto mb-12 text-gray-600">
           Our engaging articles provide valuable knowledge for professionals and
           enthusiasts alike. Stay informed, stay inspired.
         </p>
@@ -33,25 +33,25 @@ export default function Blogs() {
             {blogs.map(({ _id, title, description, image, tag }) => (
               <div
                 key={_id}
-                className="bg-white shadow-md rounded-xl overflow-hidden border border-orange-500 hover:shadow-orange-200 transition flex flex-col"
+                className="flex flex-col overflow-hidden transition bg-white border border-orange-500 shadow-md rounded-xl hover:shadow-orange-200"
               >
                 <img
                   src={image}
                   alt={title}
-                  className="w-full h-48 object-cover"
+                  className="object-cover w-full h-48"
                 />
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                <div className="flex flex-col flex-grow p-6">
+                  <h3 className="mb-2 text-lg font-semibold text-gray-800">
                     {title}
                   </h3>
-                  <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                  <p className="mb-4 text-sm text-gray-600 line-clamp-2">
                     {description}
                   </p>
 
-                  <div className="flex justify-between items-center mt-auto pt-4 border-t border-gray-100">
+                  <div className="flex items-center justify-between pt-4 mt-auto border-t border-gray-100">
                     <span
                       onClick={() => navigate(`/blogDetails/${_id}`)}
-                      className="text-orange-500 text-sm font-semibold flex items-center gap-1 hover:underline cursor-pointer"
+                      className="flex items-center gap-1 text-sm font-semibold text-orange-500 cursor-pointer hover:underline"
                     >
                       Learn more <ArrowRight size={14} />
                     </span>

@@ -47,12 +47,12 @@ const extendedReviews = [...manualReviews, ...manualReviews];
 
 export default function Testimonial() {
   return (
-    <section className="bg-white py-12 px-6" id="testimonial">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+    <section className="px-6 py-12 bg-white dark:bg-black" id="testimonial">
+      <div className="mx-auto text-center max-w-7xl">
+        <h2 className="mb-4 text-4xl font-extrabold text-black dark:text-white">
           Our Happy <AuroraText>Clients Say</AuroraText>
         </h2>
-        <p className="text-gray-600 max-w-xl mx-auto mb-14">
+        <p className="max-w-xl mx-auto text-gray-600 mb-14">
           Our valued clients share their experiences with Bangladeshi IT,
           highlighting the impact of our solutions.
         </p>
@@ -79,25 +79,25 @@ export default function Testimonial() {
                   className="pl-4 basis-full md:basis-1/2 lg:basis-1/3"
                 >
                   <div className="bg-gradient-to-br from-white to-orange-50 border border-orange-200 rounded-3xl p-8  hover:scale-[1.03] transition-transform duration-300 h-[400px] flex flex-col">
-                    <div className="text-5xl text-orange-300 mb-4 select-none">
+                    <div className="mb-4 text-5xl text-orange-300 select-none">
                       ❝
                     </div>
-                    <p className="text-gray-700 text-base mb-4 leading-relaxed font-serif italic line-clamp-5 flex-grow">
+                    <p className="flex-grow mb-4 font-serif text-base italic leading-relaxed text-gray-700 line-clamp-5">
                       {review.feedback}
                     </p>
-                    <hr className="border-orange-200 mb-6" />
+                    <hr className="mb-6 border-orange-200" />
                     <div className="flex items-center justify-between mt-auto">
                       <div className="flex items-center gap-4">
                         <img
                           src={review.image}
                           alt={review.name}
-                          className="w-14 h-14 rounded-full object-cover ring-2 ring-orange-400"
+                          className="object-cover rounded-full w-14 h-14 ring-2 ring-orange-400"
                         />
                         <div className="text-left">
-                          <h4 className="font-semibold text-gray-900 text-lg">
+                          <h4 className="text-lg font-semibold text-gray-900">
                             {review.name}
                           </h4>
-                          <p className="text-orange-500 text-sm tracking-wide">
+                          <p className="text-sm tracking-wide text-orange-500">
                             {review.role}
                           </p>
                         </div>

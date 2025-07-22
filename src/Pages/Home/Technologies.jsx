@@ -17,22 +17,22 @@ const techStack = [
 
 const Technologies = () => {
   return (
-    <section className="py-16 px-16 md:px-24 bg-white text-center">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-extrabold text-gray-800 mb-4">
+    <section className="px-16 py-16 text-center text-black bg-white md:px-24 dark:bg-black dark:text-white">
+      <div className="mb-12 text-center">
+        <h2 className="mb-4 text-4xl font-extrabold text-black bg-white dark:bg-black dark:text-white">
           We Use <AuroraText>Technologies</AuroraText>
         </h2>
-        <p className="text-gray-600 mt-4 max-w-xl mx-auto">
+        <p className="max-w-xl mx-auto mt-4 text-gray-600">
           We provide different services to kick-start your business and help to
           transform your idea into the real world.
         </p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 place-items-center">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6 place-items-center">
         {techStack.map((tech, index) => (
           <div
             key={index}
-            className="w-24 h-24 bg-white rounded-full shadow-md flex items-center justify-center hover:scale-110 transition-transform duration-300"
+            className="flex items-center justify-center w-24 h-24 transition-transform duration-300 bg-white rounded-full shadow-md hover:scale-110"
           >
             {tech.icon}
           </div>
