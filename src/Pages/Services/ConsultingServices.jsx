@@ -10,6 +10,7 @@ import {
   FaArrowRight,
   FaChartLine,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const consultingPlans = [
   {
@@ -63,6 +64,7 @@ const consultingPlans = [
 ];
 
 const ConsultingServices = () => {
+  const navigate = useNavigate();
   return (
     <section className="py-20 text-gray-800 bg-white dark:bg-black">
       <div className="mb-12 text-center">
@@ -101,7 +103,7 @@ const ConsultingServices = () => {
             </ul>
 
             <div className="px-6 pb-8 mt-auto text-center">
-              <button
+              <button onClick={() => navigate("/contact")}
                 className={`${plan.buttonColor} text-white px-6 py-3 rounded-xl w-full font-semibold text-lg flex items-center justify-center gap-2 hover:opacity-90 transition`}
               >
                 Get Started <FaArrowRight />

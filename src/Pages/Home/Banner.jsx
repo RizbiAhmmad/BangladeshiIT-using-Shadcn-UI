@@ -77,8 +77,8 @@ export default function Banner() {
       </div>
 
       {/* Optional glow background blur */}
-      <div className="absolute -top-20 -left-20 w-[300px] h-[300px] bg-green-100 rounded-full blur-[120px] opacity-40 z-0"></div>
-      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-red-100 rounded-full blur-[120px] opacity-30 z-0"></div>
+      {/* <div className="absolute -top-20 -left-20 w-[300px] h-[300px] bg-green-100 rounded-full blur-[120px] opacity-40 z-0"></div>
+      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-red-100 rounded-full blur-[120px] opacity-30 z-0"></div> */}
     </section>
   );
 }

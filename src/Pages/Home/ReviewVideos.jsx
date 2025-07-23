@@ -18,7 +18,7 @@ export default function ReviewVideos() {
         <h2 className="mb-4 text-4xl font-extrabold text-black dark:text-white">
           Client <AuroraText>Review Videos</AuroraText>
         </h2>
-        <p className="max-w-2xl mx-auto mb-12 text-gray-600">
+        <p className="max-w-2xl mx-auto mb-12 text-gray-600 dark:text-white">
           Hear directly from our clients about their experiences with BangladeshiIT. Real stories, real impact.
         </p>
 

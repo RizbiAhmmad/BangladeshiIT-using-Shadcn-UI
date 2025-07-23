@@ -2,9 +2,12 @@ import { motion } from "framer-motion";
 import { FaPhoneAlt, FaRocket, FaUsers, FaBullseye } from "react-icons/fa";
 import { MeetTheTeam } from "./MeetTheTeam";
 import { AuroraText } from "../../components/magicui/aurora-text";
+import { useNavigate } from "react-router-dom";
+import OurClients from "../Home/OurClients";
 
 export default function About() {
-  return (
+  const navigate = useNavigate();
+  return (  
     <section className="px-6 py-20 overflow-hidden text-black bg-white dark:bg-black">
       <div className="relative z-10 mx-auto space-y-20 max-w-7xl">
         <motion.div
@@ -16,7 +19,7 @@ export default function About() {
          <h2 className="mb-4 text-4xl font-extrabold text-black dark:text-white">
           About <AuroraText>Bangladeshi IT</AuroraText>
         </h2>
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 text-lg text-gray-600 dark:text-white">
             Discover who we are, what drives us, and why businesses trust
             BangladeshiIT for their digital journey.
           </p>
@@ -35,8 +38,7 @@ export default function About() {
               Our Mission
             </h3>
             <p className="text-gray-600">
-              To fuel Bangladesh's digital revolution by delivering cutting-edge
-              IT solutions with passion, precision, and integrity.
+              To provide innovative, reliable, and scalable digital solutions that help startups launch, grow, and thrive; while equipping Bangladeshi youth with the tools, skills, and opportunities they need to succeed in today’s digital economy.
             </p>
           </motion.div>
 
@@ -51,8 +53,7 @@ export default function About() {
               Our Vision
             </h3>
             <p className="text-gray-600">
-              To become the most trusted name in Bangladesh’s tech landscape,
-              enabling enterprises to thrive in the digital age.
+              We aim to spark growth for thousands of Bangladeshi and global startups. By revolutionizing e-commerce and driving a smarter economy, we’re committed to shaping a stronger future for Bangladesh.
             </p>
           </motion.div>
 
@@ -64,16 +65,16 @@ export default function About() {
           >
             <FaUsers className="mx-auto mb-4 text-5xl text-yellow-500" />
             <h3 className="mb-2 text-2xl font-semibold text-gray-900">
-              Why Us
+              Why Choose Us
             </h3>
             <p className="text-gray-600">
-              We blend creativity with technology to deliver digital solutions
-              that drive results and build lasting relationships.
+              We specialize in transforming online businesses to thrive in the digital age. Our focus is on increasing their customers, sales, and long-term success in today’s digital market.
             </p>
           </motion.div>
         </div>
 
         <MeetTheTeam></MeetTheTeam>
+        <OurClients></OurClients>
 
         {/* Top CTA Section */}
         <div className="grid items-center gap-10 md:grid-cols-2">
@@ -87,13 +88,13 @@ export default function About() {
               Need Best Help For <br />
               <span className="text-green-500">Digital Corporating!</span>
             </h2>
-            <p className="mb-10 leading-relaxed text-gray-600">
+            <p className="mb-10 leading-relaxed text-gray-600 dark:text-white">
               We combine creativity and technology to help your business grow.
               Our expert team delivers custom digital solutions that match your
               vision and goals.
             </p>
             <div className="flex flex-wrap gap-6">
-              <button className="px-6 py-3 font-semibold text-white transition duration-300 transform rounded-full bg-gradient-to-r from-green-500 to-red-500 hover:scale-105">
+              <button onClick={() => navigate("/contact")} className="px-6 py-3 font-semibold text-white transition duration-300 transform rounded-full bg-gradient-to-r from-green-500 to-red-500 hover:scale-105">
                 MAKE APPOINTMENT
               </button>
               <div className="flex items-center gap-4">
@@ -101,11 +102,11 @@ export default function About() {
                   <FaPhoneAlt size={24} />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-gray-500 dark:text-white">
                     GET A FREE CONSULTATION
                   </p>
                   <p className="text-2xl font-bold text-green-600">
-                    987 233 0000
+                    +8801621741799
                   </p>
                 </div>
               </div>
@@ -120,20 +121,20 @@ export default function About() {
             transition={{ duration: 1 }}
           >
             <div className="pr-4 border-r border-gray-300">
-              <h3 className="text-4xl font-bold text-cyan-600">1k+</h3>
-              <p className="mt-1 text-gray-600">Happy Customers</p>
+              <h3 className="text-4xl font-bold text-green-600">100+</h3>
+              <p className="mt-1 text-gray-600 dark:text-white">Happy Customers</p>
             </div>
             <div>
-              <h3 className="text-4xl font-bold text-cyan-600">13+</h3>
-              <p className="mt-1 text-gray-600">Award Winning</p>
+              <h3 className="text-4xl font-bold text-green-600">8+</h3>
+              <p className="mt-1 text-gray-600 dark:text-white">Award Winning</p>
             </div>
             <div className="pr-4 border-r border-gray-300">
-              <h3 className="text-4xl font-bold text-cyan-600">98%</h3>
-              <p className="mt-1 text-gray-600">Satisfaction Rate</p>
+              <h3 className="text-4xl font-bold text-green-600">99%</h3>
+              <p className="mt-1 text-gray-600 dark:text-white">Satisfaction Rate</p>
             </div>
             <div>
-              <h3 className="text-4xl font-bold text-cyan-600">250+</h3>
-              <p className="mt-1 text-gray-600">Completed Projects</p>
+              <h3 className="text-4xl font-bold text-green-600">100+</h3>
+              <p className="mt-1 text-gray-600 dark:text-white">Completed Projects</p>
             </div>
           </motion.div>
         </div>
