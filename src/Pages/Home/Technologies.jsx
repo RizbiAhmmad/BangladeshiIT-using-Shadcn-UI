@@ -22,7 +22,7 @@ const Technologies = () => {
         <h2 className="mb-4 text-4xl font-extrabold text-black bg-white dark:bg-black dark:text-white">
           We Use <AuroraText>Technologies</AuroraText>
         </h2>
-        <p className="max-w-xl mx-auto mt-4 text-gray-600">
+        <p className="max-w-xl mx-auto mt-4 text-gray-600 dark:text-white">
           We provide different services to kick-start your business and help to
           transform your idea into the real world.
         </p>

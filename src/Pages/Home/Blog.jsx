@@ -39,7 +39,7 @@ export default function Blog() {
         <h2 className="mb-4 text-4xl font-extrabold text-black dark:text-white">
           Our <AuroraText>Blogs</AuroraText>
         </h2>
-        <p className="max-w-2xl mx-auto mb-12 text-gray-600">
+        <p className="max-w-2xl mx-auto mb-12 text-gray-600 dark:text-white">
           Our engaging articles provide valuable knowledge for professionals and
           enthusiasts alike. Stay informed, stay inspired.
         </p>

@@ -12,6 +12,8 @@ import client3 from "../../assets/Upokar.jpg";
 import client4 from "../../assets/Naitengle.jpg";
 import client5 from "../../assets/Zaka.jpg";
 import client6 from "../../assets/SishuBD.jpg";
+import client7 from "../../assets/ilux.jpg";
+import client8 from "../../assets/Valoria.png";
 
 const clients = [
   {
@@ -44,16 +46,26 @@ const clients = [
     name: "SishuBD",
     logo: client6,
   },
+  {
+    id: 7,
+    name: "ilux",
+    logo: client7,
+  },
+  {
+    id: 8,
+    name: "Valoria",
+    logo: client8,
+  },
 ];
 
 export default function OurClients() {
   return (
     <section className="w-full px-6 py-12 bg-white dark:bg-black" id="clients">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-extrabold text-black dark:text-white mb-4">
+      <div className="mb-12 text-center">
+        <h2 className="mb-4 text-4xl font-extrabold text-black dark:text-white">
           Our <AuroraText>Clients</AuroraText>
         </h2>
-        <p className="text-gray-600 mt-4 max-w-xl mx-auto">
+        <p className="max-w-xl mx-auto mt-4 text-gray-600 dark:text-white">
           Dive into a gallery of impactful collaborations with our valued
           clients at Bangladeshi IT Solutions.
         </p>
@@ -79,11 +91,11 @@ export default function OurClients() {
                 key={client.id}
                 className="pl-4 basis-1/2 md:basis-1/4 lg:basis-1/6"
               >
-                <div className="bg-white hover:shadow-lg transition-all duration-300 flex items-center justify-center p-4 rounded-xl h-28">
+                <div className="flex items-center justify-center p-4 transition-all duration-300 bg-white hover:shadow-lg rounded-xl h-28">
                   <img
                     src={client.logo}
                     alt={client.name}
-                    className="max-h-full object-contain"
+                    className="object-contain max-h-full"
                   />
                 </div>
               </CarouselItem>

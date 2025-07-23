@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
 import logo from "../assets/BangladeshiIT.jpg";
@@ -32,6 +32,7 @@ export default function Navbar() {
   const location = useLocation();
   const { user } = useAuth();
   const axiosPublic = useAxiosPublic();
+  const navigate = useNavigate();
 
   const isServiceRoute = location.pathname.startsWith("/services");
 
@@ -135,12 +136,12 @@ export default function Navbar() {
 
           <ThemeChange />
 
-          <a
-            href="/contact"
+          <button
+            onClick={() => navigate("/contact")}
             className="px-4 py-2 ml-6 font-semibold text-white transition bg-orange-500 rounded-full hover:bg-orange-700"
           >
             Contact Us
-          </a>
+          </button>
         </nav>
 
         {/* Mobile Toggle */}
@@ -276,13 +277,15 @@ export default function Navbar() {
                   closed: { opacity: 0, y: -20 },
                 }}
               >
-                <a
-                  href="/contact"
-                  onClick={() => setIsOpen(false)}
+                <button
+                  onClick={() => {
+                    navigate("/contact");
+                    setIsOpen(false);
+                  }}
                   className="inline-block px-4 py-2 mt-2 font-semibold text-white transition bg-orange-500 rounded-full hover:bg-orange-700"
                 >
                   Contact Us
-                </a>
+                </button>
               </motion.li>
             </motion.ul>
           </motion.nav>

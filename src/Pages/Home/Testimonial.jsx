@@ -52,7 +52,7 @@ export default function Testimonial() {
         <h2 className="mb-4 text-4xl font-extrabold text-black dark:text-white">
           Our Happy <AuroraText>Clients Say</AuroraText>
         </h2>
-        <p className="max-w-xl mx-auto text-gray-600 mb-14">
+        <p className="max-w-xl mx-auto text-gray-600 dark:text-white mb-14">
           Our valued clients share their experiences with Bangladeshi IT,
           highlighting the impact of our solutions.
         </p>
