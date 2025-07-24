@@ -1,83 +1,28 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { AuroraText } from "../../components/magicui/aurora-text";
-
-import Member1 from "../../assets/Firoj.jpg";
-import Member2 from "../../assets/Mizan.jpg";
-import Member3 from "../../assets/Rizbi.jpg";
-import Member4 from "../../assets/Bakhtiar.jpg";
-import Member5 from "../../assets/Nasir.jpg";
-import Member6 from "../../assets/Shuvo.jpg";
-import Member8 from "../../assets/A.Samad.jpg";
-import Member9 from "../../assets/Torikul.jpg";
+import Loading from "../../Shared/Loading";
 
 export function MeetTheTeam() {
-  const members = [
-    {
-      _id: "1",
-      name: "Firoj Khan",
-      position: "Founder & CEO",
-      image: Member1,
-      facebook: "https://www.facebook.com/firojkhanliton.liton",
-      linkedin: "https://www.linkedin.com/in/firoj-khan-liton/",
-    },
-    {
-      _id: "2",
-      name: "Md Tarikul Islam",
-      position: "Project Manager",
-      image: Member9,
-      facebook: "https://www.facebook.com/tarikul.pk",
-      linkedin: "",
-    },
-    {
-      _id: "3",
-      name: "MD. Abdullah Al Mizan Khan",
-      position: "Content Writer",
-      image: Member2,
-      facebook: "https://www.facebook.com/iftikhar.mizankhan/",
-      linkedin: "",
-    },
-    {
-      _id: "4",
-      name: "Rizbi Ahmmad",
-      position: "MERN Stack Developer",
-      image: Member3,
-      facebook: "https://www.facebook.com/mdakashkhan444/",
-      linkedin: "https://www.linkedin.com/in/rizbi2001/",
-    },
-    {
-      _id: "5",
-      name: "Md Bakhtear Uddin",
-      position: "Graphics Designer",
-      image: Member4,
-      facebook: "https://www.facebook.com/Bakthear.Ctg",
-      linkedin: "",
-    },
-    {
-      _id: "6",
-      name: "Nasir Uddin",
-      position: "Google Ads Specialist",
-      image: Member5,
-      facebook: "https://www.facebook.com/md.nasirhossain.12576",
-      linkedin: "",
-    },
-    {
-      _id: "7",
-      name: "Mehedi Hasan Shuvo",
-      position: "Digital Marketing Specialist",
-      image: Member6,
-      facebook: "https://www.facebook.com/mehedshuvo",
-      linkedin: "",
-    },
-    {
-      _id: "8",
-      name: "Abdullah Al Samad",
-      position: "PHP Laravel Developer",
-      image: Member8,
-      facebook: "https://www.facebook.com/abdullahal.samad.1",
-      linkedin: "",
-    },
-  ];
+  const [members, setMembers] = useState([]);
+  const [loading, setLoading] = useState(true); 
+
+  useEffect(() => {
+    axios
+      .get("https://bangladeshiit-server-api.onrender.com/team")
+      .then((res) => {
+        setMembers(res.data);
+        setLoading(false); 
+      })
+      .catch((err) => {
+        console.error("Failed to load team members:", err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <Loading />; 
 
   return (
     <section className="py-8 text-center text-black bg-white dark:bg-black dark:text-white">
@@ -94,7 +39,7 @@ export function MeetTheTeam() {
         {members.map((member, i) => (
           <motion.div
             key={member._id}
-            className="p-4 transition duration-300 bg-white border border-orange-500 shadow-lg group rounded-xl hover:shadow-2xl"
+            className="p-4 transition duration-300 bg-white border border-orange-500 shadow-lg group rounded-xl hover:shadow-2xl dark:bg-black"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 + i * 0.2 }}
@@ -109,10 +54,10 @@ export function MeetTheTeam() {
               </div>
             </div>
             <div className="relative">
-              <h3 className="text-lg font-bold text-gray-800 transition group-hover:text-cyan-600">
+              <h3 className="text-lg font-bold text-gray-800 transition dark:text-white group-hover:text-cyan-600">
                 {member.name}
               </h3>
-              <p className="text-sm text-gray-600 group-hover:text-gray-800">
+              <p className="text-sm text-gray-600 dark:text-gray-300 group-hover:text-gray-800">
                 {member.position}
               </p>
 
@@ -127,10 +72,14 @@ export function MeetTheTeam() {
                     <FaFacebookF />
                   </a>
                 ) : (
-                  <span className="text-gray-400 cursor-not-allowed" title="No Facebook profile available">
+                  <span
+                    className="cursor-not-allowed text-cyan-400"
+                    title="No Facebook profile available"
+                  >
                     <FaFacebookF />
                   </span>
                 )}
+
                 {member.linkedin ? (
                   <a
                     href={member.linkedin}
@@ -141,7 +90,10 @@ export function MeetTheTeam() {
                     <FaLinkedinIn />
                   </a>
                 ) : (
-                  <span className="cursor-not-allowed text-cyan-600 hover:text-indigo-600" title="No LinkedIn profile available">
+                  <span
+                    className="cursor-not-allowed text-cyan-600"
+                    title="No LinkedIn profile available"
+                  >
                     <FaLinkedinIn />
                   </span>
                 )}

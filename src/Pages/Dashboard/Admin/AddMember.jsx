@@ -9,7 +9,6 @@ const AddMember = () => {
     name: "",
     position: "",
     facebook: "",
-    github: "",
     linkedin: "",
   });
   const [imageFile, setImageFile] = useState(null);
@@ -55,7 +54,7 @@ const AddMember = () => {
     console.log("📤 Payload sent to backend:", JSON.stringify(memberData, null, 2));
 
     const res = await axios.post(
-      "https://bangladeshi-it-server.vercel.app/team",
+      "https://bangladeshiit-server-api.onrender.com/team",
       JSON.stringify(memberData), // Explicitly stringify the payload
       {
         headers: {
@@ -70,7 +69,6 @@ const AddMember = () => {
         name: "",
         position: "",
         facebook: "",
-        github: "",
         linkedin: "",
       });
       setImageFile(null);
@@ -86,8 +84,8 @@ const AddMember = () => {
 };
 
   return (
-    <section className="max-w-2xl mx-auto p-6 bg-white border border-green-500 shadow-md mt-10 rounded-xl">
-      <h2 className="text-2xl font-bold mb-4 text-center">Add Team Member</h2>
+    <section className="max-w-2xl p-6 mx-auto mt-10 bg-white border border-green-500 shadow-md rounded-xl">
+      <h2 className="mb-4 text-2xl font-bold text-center">Add Team Member</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -96,7 +94,7 @@ const AddMember = () => {
           value={formData.name}
           onChange={handleChange}
           placeholder="Full Name"
-          className="w-full border px-4 py-2 rounded"
+          className="w-full px-4 py-2 border rounded"
         />
         <input
           type="text"
@@ -105,15 +103,15 @@ const AddMember = () => {
           value={formData.position}
           onChange={handleChange}
           placeholder="Position"
-          className="w-full border px-4 py-2 rounded"
+          className="w-full px-4 py-2 border rounded"
         />
 
         <div>
-          <label className="block font-medium mb-1 text-gray-700">Profile Image</label>
+          <label className="block mb-1 font-medium text-gray-700">Profile Image</label>
           <div className="flex items-center gap-4">
             <label
               htmlFor="image"
-              className="cursor-pointer bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg shadow transition"
+              className="px-4 py-2 text-white transition bg-green-500 rounded-lg shadow cursor-pointer hover:bg-green-600"
             >
               Choose File
             </label>
@@ -138,29 +136,22 @@ const AddMember = () => {
           value={formData.facebook}
           onChange={handleChange}
           placeholder="Facebook URL"
-          className="w-full border px-4 py-2 rounded"
+          className="w-full px-4 py-2 border rounded"
         />
-        <input
-          type="text"
-          name="github"
-          value={formData.github}
-          onChange={handleChange}
-          placeholder="GitHub URL"
-          className="w-full border px-4 py-2 rounded"
-        />
+  
         <input
           type="text"
           name="linkedin"
           value={formData.linkedin}
           onChange={handleChange}
           placeholder="LinkedIn URL"
-          className="w-full border px-4 py-2 rounded"
+          className="w-full px-4 py-2 border rounded"
         />
 
         <div className="text-center">
           <button
             type="submit"
-            className="bg-green-500 text-white px-6 py-2 rounded hover:bg-orange-600 disabled:opacity-50"
+            className="px-6 py-2 text-white bg-green-500 rounded hover:bg-orange-600 disabled:opacity-50"
             disabled={loading}
           >
             {loading ? "Submitting..." : "Submit Member"}

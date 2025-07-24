@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { AuroraText } from "../../components/magicui/aurora-text";
 import axios from "axios";
+import Loading from "../../Shared/Loading";
+
 
 export default function Blogs() {
   const [blogs, setBlogs] = useState([]);
-  const navigate = useNavigate(); 
+  const [loading, setLoading] = useState(true); // loading state
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("https://bangladeshi-it-server.vercel.app/blogs")
+      .get("https://bangladeshiit-server-api.onrender.com/blogs")
       .then((res) => setBlogs(res.data))
-      .catch((err) => console.error("Error fetching blogs:", err));
+      .catch((err) => console.error("Error fetching blogs:", err))
+      .finally(() => setLoading(false)); // stop loading
   }, []);
 
   return (
@@ -26,7 +30,10 @@ export default function Blogs() {
           enthusiasts alike. Stay informed, stay inspired.
         </p>
 
-        {blogs.length === 0 ? (
+        {/* 👉 Show loading spinner */}
+        {loading ? (
+          <Loading />
+        ) : blogs.length === 0 ? (
           <p className="text-gray-500">No blogs available yet.</p>
         ) : (
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
