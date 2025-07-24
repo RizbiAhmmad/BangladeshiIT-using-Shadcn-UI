@@ -1,22 +1,27 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Loading from "../../Shared/Loading";
 
 const BlogDetails = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
-      .get(`https://bangladeshi-it-server.vercel.app/blogs/${id}`)
+      .get(`https://bangladeshiit-server-api.onrender.com/blogs/${id}`)
       .then((res) => setBlog(res.data))
-      .catch((err) => console.error("Error fetching blog:", err));
+      .catch((err) => console.error("Error fetching blog:", err))
+      .finally(() => setLoading(false));
   }, [id]);
+
+  if (loading) return <Loading />;
 
   if (!blog)
     return (
       <p className="mt-10 text-center text-gray-500 dark:text-white">
-        Loading...
+        Blog not found.
       </p>
     );
 

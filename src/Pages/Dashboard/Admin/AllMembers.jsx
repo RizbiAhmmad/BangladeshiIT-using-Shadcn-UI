@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { FaEdit, FaPlus, FaTrashAlt } from "react-icons/fa";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const AllMembers = () => {
-  const axiosPublic = useAxiosPublic();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState(null);
   const navigate = useNavigate();
@@ -16,7 +15,9 @@ const AllMembers = () => {
   const { data: members = [], refetch } = useQuery({
     queryKey: ["team"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/team");
+      const res = await axios.get(
+        "https://bangladeshiit-server-api.onrender.com/team"
+      );
       return res.data;
     },
   });
@@ -38,51 +39,63 @@ const AllMembers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublic.delete(`/team/${id}`).then((res) => {
-          if (res.data.deletedCount > 0) {
-            refetch();
-            Swal.fire("Deleted!", "Team member removed.", "success");
-          }
-        });
+        axios
+          .delete(`https://bangladeshiit-server-api.onrender.com/team/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
+              refetch();
+              Swal.fire("Deleted!", "Team member removed.", "success");
+            }
+          });
       }
     });
   };
 
   const handleUpdate = async () => {
-    try {
-      const formData = new FormData();
-      formData.append("name", selectedMember.name);
-      formData.append("position", selectedMember.position);
-      formData.append("facebook", selectedMember.facebook);
-      formData.append("github", selectedMember.github);
-      formData.append("linkedin", selectedMember.linkedin);
+  try {
+    let imageUrl = selectedMember.image; // existing image URL by default
 
-      if (selectedMember.newImageFile) {
-        formData.append("image", selectedMember.newImageFile); // new uploaded image
-      } else {
-        formData.append("image", selectedMember.image); // keep old image path
-      }
+    // Upload new image if selected
+    if (selectedMember.newImageFile) {
+      const cloudinaryData = new FormData();
+      cloudinaryData.append("file", selectedMember.newImageFile);
+      cloudinaryData.append("upload_preset", "Team_member"); // your preset
 
-      const res = await axiosPublic.put(
-        `/team/${selectedMember._id}`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+      const cloudinaryRes = await axios.post(
+        "https://api.cloudinary.com/v1_1/ddqfq6irk/image/upload",
+        cloudinaryData
       );
 
-      if (res.data.modifiedCount > 0) {
-        refetch();
-        closeModal();
-        Swal.fire("Success", "Member updated successfully", "success");
-      }
-    } catch (error) {
-      console.error(error);
-      Swal.fire("Error", "Failed to update member", "error");
+      imageUrl = cloudinaryRes.data.secure_url;
     }
-  };
+
+    // Prepare update payload with image URL and other fields
+    const updatePayload = {
+      name: selectedMember.name,
+      position: selectedMember.position,
+      facebook: selectedMember.facebook,
+      linkedin: selectedMember.linkedin,
+      image: imageUrl,
+    };
+
+    // Send PUT request with JSON body
+    const res = await axios.put(
+      `https://bangladeshiit-server-api.onrender.com/team/${selectedMember._id}`,
+      updatePayload
+    );
+
+    if (res.data.modifiedCount > 0) {
+      refetch();
+      closeModal();
+      Swal.fire("Success", "Member updated successfully", "success");
+    } else {
+      Swal.fire("No changes", "Nothing was updated", "info");
+    }
+  } catch (error) {
+    console.error("Update Error:", error);
+    Swal.fire("Error", "Failed to update member", "error");
+  }
+};
 
   return (
     <div className="max-w-6xl p-6 mx-auto">
@@ -90,13 +103,13 @@ const AllMembers = () => {
         All Team Members
       </h2>
       <div className="flex justify-end mb-4">
-              <button
-                onClick={() => navigate("/dashboard/addMember")}
-                className="flex items-center gap-2 px-4 py-2 text-white bg-green-500 rounded hover:bg-orange-600"
-              >
-                <FaPlus /> Add member
-              </button>
-            </div>
+        <button
+          onClick={() => navigate("/dashboard/addMember")}
+          className="flex items-center gap-2 px-4 py-2 text-white bg-green-500 rounded hover:bg-orange-600"
+        >
+          <FaPlus /> Add member
+        </button>
+      </div>
 
       <div className="overflow-x-auto bg-white rounded-lg shadow-lg">
         <table className="w-full text-sm text-left table-auto">
@@ -118,11 +131,12 @@ const AllMembers = () => {
                 <td className="px-6 py-4">{index + 1}</td>
                 <td className="px-6 py-4">
                   <img
-                    src={`https://bangladeshi-it-server.vercel.app${member.image}`}
+                    src={member.image}
                     alt={member.name}
-                    className="w-10 h-10 border rounded-full"
+                    className="object-cover w-10 h-10 border rounded-full"
                   />
                 </td>
+
                 <td className="px-6 py-4 font-semibold text-gray-800">
                   {member.name}
                 </td>
@@ -251,19 +265,7 @@ const AllMembers = () => {
                         })
                       }
                       placeholder="Facebook URL"
-                    />
-                    <input
-                      type="text"
-                      className="w-full px-3 py-2 border rounded"
-                      value={selectedMember?.github || ""}
-                      onChange={(e) =>
-                        setSelectedMember({
-                          ...selectedMember,
-                          github: e.target.value,
-                        })
-                      }
-                      placeholder="GitHub URL"
-                    />
+                    />                   
                     <input
                       type="text"
                       className="w-full px-3 py-2 border rounded"
