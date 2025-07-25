@@ -29,6 +29,8 @@ import DigitalMarketing from "../Pages/Services/DigitalMArketing";
 import BlogDetails from "../Pages/Blogs/BlogDetails";
 import AddClient from "../Pages/Dashboard/Admin/AddClient";
 import AllClients from "../Pages/Dashboard/Admin/AllClients";
+import AddFreeCourse from "../Pages/Dashboard/Admin/AddFreeCourse";
+import AllFreeCourses from "../Pages/Dashboard/Admin/AllFreeCourses";
 
 export const router = createBrowserRouter([
   {
@@ -149,6 +151,14 @@ export const router = createBrowserRouter([
       {
         path: "allClients",
         element: <AllClients></AllClients>,
+      },
+      {
+        path: "addFreeCourse",
+        element: <AddFreeCourse></AddFreeCourse>,
+      },
+      {
+        path: "allCourses",
+        element: <AllFreeCourses></AllFreeCourses>,
       },
       {
         path: "profile",

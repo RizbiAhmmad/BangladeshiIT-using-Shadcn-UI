@@ -8,7 +8,7 @@ const AddFreeCourse = () => {
   const [course, setCourse] = useState({
     name: "",
     description: "",
-    price: 0,
+    price: "",
   });
 
   const handleChange = (e) => {
@@ -25,10 +25,10 @@ const AddFreeCourse = () => {
     };
 
     try {
-      const res = await axios.post("https://your-backend.com/free-courses", courseData);
+      const res = await axios.post("http://localhost:5000/free-courses", courseData);
       if (res.data.insertedId) {
         Swal.fire("Success", "Course added successfully", "success");
-        setCourse({ name: "", description: "", price: 0 });
+        setCourse({ name: "", description: "", price: "" });
       }
     } catch (err) {
       Swal.fire("Error", "Failed to add course", "error");
@@ -60,8 +60,9 @@ const AddFreeCourse = () => {
           name="price"
           value={course.price}
           type="number"
-          disabled
-          className="w-full p-2 bg-gray-100 border rounded cursor-not-allowed"
+          onChange={handleChange}
+          placeholder="Course Price"
+          className="w-full p-2 border rounded"
         />
         <div className="text-center">
           <button

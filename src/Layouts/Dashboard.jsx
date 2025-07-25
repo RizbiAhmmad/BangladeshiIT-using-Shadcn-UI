@@ -18,6 +18,7 @@ import { LiaUsersSolid } from "react-icons/lia";
 import { NavLink, Outlet } from "react-router-dom";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useAuth from "../Hooks/useAuth";
+import { SiCoursera } from "react-icons/si";
 
 
 const Dashboard = () => {
@@ -126,6 +127,14 @@ const Dashboard = () => {
                     className="flex items-center py-2 space-x-3"
                   >
                   <LiaUsersSolid /> <span>All Clients</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/allCourses"
+                    className="flex items-center py-2 space-x-3"
+                  >
+                  <SiCoursera /> <span>All Courses</span>
                   </NavLink>
                 </li>
                 <li>
