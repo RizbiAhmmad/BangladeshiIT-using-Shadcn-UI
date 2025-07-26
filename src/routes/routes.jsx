@@ -31,6 +31,7 @@ import AddClient from "../Pages/Dashboard/Admin/AddClient";
 import AllClients from "../Pages/Dashboard/Admin/AllClients";
 import AddFreeCourse from "../Pages/Dashboard/Admin/AddFreeCourse";
 import AllFreeCourses from "../Pages/Dashboard/Admin/AllFreeCourses";
+import Courses from "../Pages/Courses/Courses";
 
 export const router = createBrowserRouter([
   {
@@ -89,6 +90,10 @@ export const router = createBrowserRouter([
       {
         path: "services/consulting",
         element: <ConsultingServices></ConsultingServices>,
+      },
+      {
+        path: "/courses",
+        element: <Courses></Courses>
       },
       {
         path: "/blogs",
