@@ -5,10 +5,12 @@ import { FaFire } from "react-icons/fa";
 import { motion } from "framer-motion";
 import Loading from "../../Shared/Loading";
 import { AuroraText } from "../../components/magicui/aurora-text";
+import { useNavigate } from "react-router-dom";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
-  const [loading, setLoading] = useState(true); // ✅ loading state
+  const [loading, setLoading] = useState(true); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -75,7 +77,10 @@ const Courses = () => {
                       </del>
                     </h3>
 
-                    <button className="px-4 py-2 border dark:border-slate-600 dark:text-[#abc2d3] border-green-600 text-green-700 rounded-md hover:bg-green-500 hover:text-white transition">
+                    <button
+                      onClick={() => navigate(`/courses/${course._id}`)}
+                      className="px-4 py-2 border dark:border-slate-600 dark:text-[#abc2d3] border-green-600 text-green-700 rounded-md hover:bg-green-500 hover:text-white transition"
+                    >
                       Enroll Now
                     </button>
                   </div>
