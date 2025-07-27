@@ -23,7 +23,7 @@ import {
 const ecommercePlans = [
   {
     title: "Basic",
-    price: "৳15,000",
+    price: "৳30,000",
     features: [
       {
         text: "Pre-designed template website",
