@@ -32,6 +32,8 @@ import AllClients from "../Pages/Dashboard/Admin/AllClients";
 import AddFreeCourse from "../Pages/Dashboard/Admin/AddFreeCourse";
 import AllFreeCourses from "../Pages/Dashboard/Admin/AllFreeCourses";
 import Courses from "../Pages/Courses/Courses";
+import CourseDetails from "../Pages/Courses/CourseDetails";
+import EnrollForm from "../Pages/Courses/EnrollForm";
 
 export const router = createBrowserRouter([
   {
@@ -95,6 +97,15 @@ export const router = createBrowserRouter([
         path: "/courses",
         element: <Courses></Courses>
       },
+      {
+        path: "/courses/:id",
+        element: <CourseDetails />
+      },
+      {
+        path: "/enroll/:id",
+        element: <EnrollForm />
+      },
+
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
