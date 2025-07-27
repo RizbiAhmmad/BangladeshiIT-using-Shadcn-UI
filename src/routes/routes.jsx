@@ -34,6 +34,8 @@ import AllFreeCourses from "../Pages/Dashboard/Admin/AllFreeCourses";
 import Courses from "../Pages/Courses/Courses";
 import CourseDetails from "../Pages/Courses/CourseDetails";
 import EnrollForm from "../Pages/Courses/EnrollForm";
+import AllEnrollments from "../Pages/Dashboard/Admin/AllEnrollments";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -95,7 +97,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/courses",
-        element: <Courses></Courses>
+        element: <PrivateRoute> <Courses></Courses> </PrivateRoute>
       },
       {
         path: "/courses/:id",
@@ -119,7 +121,7 @@ export const router = createBrowserRouter([
 
   {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element:  <Dashboard></Dashboard>,
     children: [
       // ADMIN ROUTES
       {
@@ -175,6 +177,10 @@ export const router = createBrowserRouter([
       {
         path: "allCourses",
         element: <AllFreeCourses></AllFreeCourses>,
+      },
+      {
+        path: "enrollments",
+        element: <AllEnrollments></AllEnrollments>,
       },
       {
         path: "profile",

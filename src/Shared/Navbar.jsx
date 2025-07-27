@@ -127,7 +127,7 @@ export default function Navbar() {
             )
           )}
 
-          {user && userRole === "admin" && (
+          {user && (userRole === "admin" || userRole === "user") && (
             <NavLink
               to="/dashboard"
               className="font-medium text-black dark:text-white hover:text-green-600"

@@ -3,15 +3,11 @@ import {
   FaBlogger,
   FaComments,
   FaHome,
-  FaPlusCircle,
-  FaRegEdit,
-  FaUserPlus,
   FaUsers,
   FaVideo,
 } from "react-icons/fa";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
-import { RiVideoAddLine } from "react-icons/ri";
 import { CgProfile } from "react-icons/cg";
 import { FaUsersRectangle } from "react-icons/fa6";
 import { LiaUsersSolid } from "react-icons/lia";
@@ -19,7 +15,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useAuth from "../Hooks/useAuth";
 import { SiCoursera } from "react-icons/si";
-
+import { HiUserAdd } from "react-icons/hi";
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -139,6 +135,14 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink
+                    to="/dashboard/enrollments"
+                    className="flex items-center py-2 space-x-3"
+                  >
+                  <HiUserAdd></HiUserAdd> <span>All Enrollments</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
                     to="/dashboard/profile"
                     className="flex items-center py-2 space-x-3"
                   >
@@ -149,7 +153,7 @@ const Dashboard = () => {
               </>
             )}
             {/* User Menu */}
-            {/* {userRole === "user" && (
+            {userRole === "user" && (
               <>
                 <li>
                   <NavLink to="/" className="flex items-center py-2 space-x-3">
@@ -165,7 +169,7 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
               </>
-            )} */}
+            )}
           </ul>
         </div>
 
