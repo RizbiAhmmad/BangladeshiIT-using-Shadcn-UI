@@ -3,6 +3,7 @@ import {
   FaBlogger,
   FaComments,
   FaHome,
+  FaUserGraduate,
   FaUsers,
   FaVideo,
 } from "react-icons/fa";
@@ -166,6 +167,14 @@ const Dashboard = () => {
                     className="flex items-center py-2 space-x-3"
                   >
                     <CgProfile /> <span>Profile</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/myEnrollments"
+                    className="flex items-center py-2 space-x-3"
+                  >
+                    <FaUserGraduate /> <span>My Enrollments</span>
                   </NavLink>
                 </li>
               </>

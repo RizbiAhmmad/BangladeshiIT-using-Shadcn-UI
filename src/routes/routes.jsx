@@ -36,6 +36,7 @@ import CourseDetails from "../Pages/Courses/CourseDetails";
 import EnrollForm from "../Pages/Courses/EnrollForm";
 import AllEnrollments from "../Pages/Dashboard/Admin/AllEnrollments";
 import PrivateRoute from "./PrivateRoute";
+import MyEnrollments from "../Pages/Dashboard/Admin/MyEnrollments";
 
 export const router = createBrowserRouter([
   {
@@ -181,6 +182,10 @@ export const router = createBrowserRouter([
       {
         path: "enrollments",
         element: <AllEnrollments></AllEnrollments>,
+      },
+      {
+        path: "myEnrollments",
+        element: <MyEnrollments></MyEnrollments>,
       },
       {
         path: "profile",
