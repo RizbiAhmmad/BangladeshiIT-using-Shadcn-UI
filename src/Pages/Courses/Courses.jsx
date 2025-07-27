@@ -51,7 +51,7 @@ const Courses = () => {
                 />
 
                 {/* Header */}
-                <div className="flex items-center justify-between w-full p-4">
+                <div className="flex items-center justify-between w-full p-2">
                   <h2 className="text-xl font-semibold dark:text-[#abc2d3] text-green-700">
                     {course.name}
                   </h2>
@@ -62,14 +62,14 @@ const Courses = () => {
                 </div>
 
                 {/* Body */}
-                <div className="p-4 space-y-3">
+                <div className="p-2 space-y-3">
                   <p className="text-gray-700 dark:text-[#abc2d3]/80 text-sm">
                     {course.description.length > 120
                       ? course.description.slice(0, 120) + "..."
                       : course.description}
                   </p>
 
-                  <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+                  {/* <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
                     <h3 className="text-lg font-semibold dark:text-[#abc2d3] text-green-700">
                       ৳ {course.price || 0}
                       <del className="ml-2 text-sm font-light text-red-500">
@@ -81,9 +81,17 @@ const Courses = () => {
                       onClick={() => navigate(`/courses/${course._id}`)}
                       className="px-4 py-2 border dark:border-slate-600 dark:text-[#abc2d3] border-green-600 text-green-700 rounded-md hover:bg-green-500 hover:text-white transition"
                     >
-                      Enroll Now
+                      View Details
                     </button>
-                  </div>
+                  </div> */}
+                  <div className="p-2 text-center">
+                  <button
+                      onClick={() => navigate(`/courses/${course._id}`)}
+                      className="px-4 py-2 border dark:border-slate-600 dark:text-[#abc2d3] border-green-600 text-green-700 rounded-md hover:bg-green-500 hover:text-white transition"
+                    >
+                      View Details
+                    </button>
+                    </div>
                 </div>
               </motion.div>
             ))}
