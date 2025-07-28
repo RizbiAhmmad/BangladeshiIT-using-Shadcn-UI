@@ -163,20 +163,21 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink
-                    to="/dashboard/profile"
-                    className="flex items-center py-2 space-x-3"
-                  >
-                    <CgProfile /> <span>Profile</span>
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink
                     to="/dashboard/myEnrollments"
                     className="flex items-center py-2 space-x-3"
                   >
                     <FaUserGraduate /> <span>My Enrollments</span>
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/profile"
+                    className="flex items-center py-2 space-x-3"
+                  >
+                    <CgProfile /> <span>Profile</span>
+                  </NavLink>
+                </li>
+                
               </>
             )}
           </ul>

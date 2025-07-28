@@ -24,7 +24,7 @@ const MyEnrollments = () => {
 
   return (
     <div className="p-6 mx-auto max-w-7xl">
-      <h2 className="mb-4 text-4xl font-extrabold text-black dark:text-white">
+      <h2 className="mb-4 text-4xl font-extrabold text-center text-black dark:text-white">
         My <AuroraText>Enrollment</AuroraText>
       </h2>
 
