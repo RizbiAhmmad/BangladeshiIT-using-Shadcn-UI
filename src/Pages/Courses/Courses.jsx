@@ -16,7 +16,7 @@ const Courses = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/free-courses")
+      .get("https://bangladeshiit-server-api.onrender.com/free-courses")
       .then((res) => setCourses(res.data))
       .catch((err) => console.error("Error fetching courses:", err))
       .finally(() => setLoading(false));
@@ -35,7 +35,7 @@ const Courses = () => {
         />
 
         {/* Title */}
-        <h2 className="mt-4 mb-8 text-4xl font-extrabold text-center text-black dark:text-white">
+        <h2 className="m-4 text-4xl font-extrabold text-center text-black dark:text-white">
           আমাদের <AuroraText>কোর্সসমূহ</AuroraText>
         </h2>
 

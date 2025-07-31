@@ -7,7 +7,7 @@ export default function ReviewVideos() {
 
   useEffect(() => {
     axios
-      .get("https://bangladeshi-it-server.vercel.app/review-videos")
+      .get("https://bangladeshiit-server-api.onrender.com/review-videos")
       .then((res) => setReviewVideos(res.data))
       .catch((err) => console.error("Error fetching videos:", err));
   }, []);

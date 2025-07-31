@@ -49,11 +49,10 @@ const AddFreeCourse = () => {
         ...course,
         email: user?.email,
         image: imageUrl,
-        price: 0, // Force free course
         createdAt: new Date(),
       };
 
-      const res = await axios.post("http://localhost:5000/free-courses", courseData);
+      const res = await axios.post("https://bangladeshiit-server-api.onrender.com/free-courses", courseData);
       if (res.data.insertedId) {
         Swal.fire("Success", "Course added successfully", "success");
         setCourse({ name: "", description: "", price: "" });

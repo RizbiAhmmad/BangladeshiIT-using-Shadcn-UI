@@ -20,7 +20,7 @@ const SocialLogin = () => {
           role: 'user', // Changed 'normal user' to 'user'
           createdAt: new Date(),
         };
-        fetch('https://bangladeshi-it-server.vercel.app/users', {
+        fetch('https://bangladeshiit-server-api.onrender.com/users', {
           method: 'POST',
           headers: {
             'content-type': 'application/json',

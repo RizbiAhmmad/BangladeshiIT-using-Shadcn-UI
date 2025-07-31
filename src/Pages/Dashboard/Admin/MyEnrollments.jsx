@@ -13,7 +13,7 @@ const MyEnrollments = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`http://localhost:5000/enrollments?email=${user.email}`)
+        .get(`https://bangladeshiit-server-api.onrender.com/enrollments?email=${user.email}`)
         .then((res) => setEnrollments(res.data))
         .catch((err) => console.error("Error fetching enrollments:", err))
         .finally(() => setLoading(false));
@@ -42,7 +42,7 @@ const MyEnrollments = () => {
               <img
                 src={item.courseImage}
                 alt={item.courseName}
-                className="object-cover w-full h-40 rounded-t-lg"
+                className="object-cover w-full h-40 p-2 rounded-t-lg rounded-2xl"
               />
               <div className="p-4 space-y-2">
                 <h3 className="text-xl font-semibold text-green-700 dark:text-[#abc2d3]">
