@@ -22,7 +22,7 @@ const AddClient = () => {
   e.preventDefault();
 
   try {
-    const res = await axios.post("http://localhost:5000/clients", clientData);
+    const res = await axios.post("https://bangladeshiit-server-api.onrender.com/clients", clientData);
     if (res.data.insertedId) {
       Swal.fire("Success", "Client added successfully!", "success");
       setClientData({

@@ -1,7 +1,7 @@
 import Axios  from "axios";
 
 const axiosPublic=Axios.create({
-    baseURL: "https://bangladeshi-it-server.vercel.app",
+    baseURL: "https://bangladeshiit-server-api.onrender.com",
    
 })
 const useAxiosPublic = () => {

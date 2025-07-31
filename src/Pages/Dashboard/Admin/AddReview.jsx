@@ -26,7 +26,7 @@ const AddReview = () => {
     };
 
     try {
-      const res = await axios.post("https://bangladeshi-it-server.vercel.app/reviews", reviewData);
+      const res = await axios.post("https://bangladeshiit-server-api.onrender.com/reviews", reviewData);
       if (res.data.insertedId) {
         Swal.fire("Success", "Review submitted successfully!", "success");
         setFormData({ name: "", image: "", logo: "", role: "", feedback: "" });

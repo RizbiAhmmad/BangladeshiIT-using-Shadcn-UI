@@ -22,7 +22,7 @@ const EnrollForm = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/free-courses/${id}`)
+      .get(`https://bangladeshiit-server-api.onrender.com/free-courses/${id}`)
       .then((res) => {
         setCourse(res.data);
         setLoading(false);
@@ -49,7 +49,7 @@ const EnrollForm = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/enrollments", enrollmentData);
+      const res = await axios.post("https://bangladeshiit-server-api.onrender.com/enrollments", enrollmentData);
       if (res.data.insertedId) {
         Swal.fire("✅ Success", "Enrollment successful!", "success");
       } else {

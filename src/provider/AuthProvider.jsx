@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
   const fetchUserRole = async (email) => {
     if (email) {
       try {
-        const response = await fetch(`https://bangladeshi-it-server.vercel.app/users/${email}`);
+        const response = await fetch(`https://bangladeshiit-server-api.onrender.com/users/${email}`);
         const userData = await response.json();
         setUserRole(userData?.role || 'user'); 
       } catch (error) {

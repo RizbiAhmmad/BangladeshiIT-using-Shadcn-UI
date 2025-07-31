@@ -23,7 +23,7 @@ const AddReviewVideo = () => {
     };
 
     try {
-      const res = await axios.post("https://bangladeshi-it-server.vercel.app/review-videos", videoData);
+      const res = await axios.post("https://bangladeshiit-server-api.onrender.com/review-videos", videoData);
       if (res.data.insertedId) {
         Swal.fire("Success", "Video review added successfully!", "success");
         setFormData({ title: "", videoUrl: "" });

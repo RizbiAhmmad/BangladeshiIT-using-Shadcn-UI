@@ -10,7 +10,7 @@ const AllFreeCourses = () => {
   const { data: courses = [], refetch } = useQuery({
     queryKey: ["free-courses"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5000/free-courses");
+      const res = await axios.get("https://bangladeshiit-server-api.onrender.com/free-courses");
       return res.data;
     },
   });
@@ -26,7 +26,7 @@ const AllFreeCourses = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/free-courses/${course._id}`).then((res) => {
+        axios.delete(`https://bangladeshiit-server-api.onrender.com/free-courses/${course._id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             refetch();
             Swal.fire("Deleted!", "Course has been removed.", "success");

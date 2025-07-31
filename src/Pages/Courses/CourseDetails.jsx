@@ -12,7 +12,7 @@ const CourseDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/free-courses/${id}`)
+      .get(`https://bangladeshiit-server-api.onrender.com/free-courses/${id}`)
       .then((res) => setCourse(res.data))
       .catch((err) => console.error("Error fetching course details:", err))
       .finally(() => setLoading(false));
