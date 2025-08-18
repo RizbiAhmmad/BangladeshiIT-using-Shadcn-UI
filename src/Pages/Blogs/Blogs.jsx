@@ -40,7 +40,7 @@ export default function Blogs() {
             {blogs.map(({ _id, title, description, image, tag }) => (
               <div
                 key={_id}
-                className="flex flex-col overflow-hidden transition bg-white border border-orange-500 shadow-md rounded-xl hover:shadow-orange-200"
+                className="flex flex-col overflow-hidden transition bg-white border border-[#066938] shadow-md rounded-xl hover:shadow-red-200"
               >
                 <img
                   src={image}
@@ -58,7 +58,7 @@ export default function Blogs() {
                   <div className="flex items-center justify-between pt-4 mt-auto border-t border-gray-100">
                     <span
                       onClick={() => navigate(`/blogDetails/${_id}`)}
-                      className="flex items-center gap-1 text-sm font-semibold text-orange-500 cursor-pointer hover:underline"
+                      className="flex items-center gap-1 text-sm font-semibold text-[#eb2127] cursor-pointer hover:underline"
                     >
                       Learn more <ArrowRight size={14} />
                     </span>

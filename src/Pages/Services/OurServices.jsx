@@ -20,41 +20,48 @@ const demoServices = [
   },
   {
     id: 3,
+    title: "Software Development",
+    link: "/services/software-development",
+    description: "Custom software solutions to streamline your business processes and enhance productivity.",
+    image: "https://media.istockphoto.com/id/1803992649/vector/software-development-coding-process-concept-programming-testing-cross-platform-code-app-on.jpg?s=612x612&w=0&k=20&c=9JX_Uhk0YSIqakQEXiSjo5NutvD4C8XOGIMc1cGRhiM=",
+  },
+  {
+    id: 4,
     title: "Apps Development",
     link: "/services/apps-development",
     description: "Powerful mobile apps for Android & iOS tailored to your business needs.",
     image: "https://riseuplabs.com/wp-content/uploads/2021/07/mobile-application-development-guidelines-riseuplabs.jpg",
   },
   {
-    id: 4,
+    id: 5,
     title: "Digital Marketing",
     link: "/services/digital-marketing",
     description: "Grow your brand reach with targeted ads, email marketing, and online campaigns.",
     image: "https://static.vecteezy.com/system/resources/previews/005/732/506/non_2x/man-hand-holding-smart-phone-digital-marketing-word-with-icon-business-virtual-screen-free-photo.jpg",
   },
   {
-    id: 5,
+    id: 6,
     title: "Graphic Design",
     link: "/services/graphic-design",
     description: "Eye-catching designs for branding, social media, packaging, and more.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT49FUKA3yasjKTGrszq9058w1i1oKQ8znw7g&s",
   },
   {
-    id: 6,
+    id: 7,
     title: "Social Media Marketing",
     link: "/services/social-media-marketing",
     description: "Boost visibility and connect with your audience across all major platforms.",
     image: "https://bongiyo.com/public/medies/Feb_2025/1738609696.67a114207ee6a.png",
   },
   {
-    id: 7,
+    id: 8,
     title: "SEO & Content Writing",
     link: "/services/seo",
     description: "Improve your search rankings and drive traffic with proven SEO techniques.",
     image: "https://www.emproit.com/newimages/content-writing.png",
   },
   {
-    id: 8,
+    id: 9,
     title: "Business Consulting",
     link: "/services/consulting",
     description: "Get expert advice and strategic guidance to grow and transform your business.",
@@ -75,7 +82,7 @@ export default function OurServices() {
         {demoServices.map((service, index) => (
           <motion.div
             key={service.id}
-            className="overflow-hidden text-white transition duration-300 transform shadow-lg rounded-2xl hover:scale-105 bg-gradient-to-r from-green-500 to-red-600"
+            className="overflow-hidden text-black transition duration-300 border border-[#066938] transform bg-white shadow-lg rounded-2xl hover:scale-105"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -87,12 +94,12 @@ export default function OurServices() {
               className="object-cover w-full h-56"
             />
             <div className="p-6">
-              <h3 className="mb-2 text-2xl font-bold">{service.title}</h3>
-              <p className="text-sm text-gray-200 line-clamp-2">{service.description}</p>
+              <h3 className="mb-2 text-2xl font-bold text-[#eb2127]">{service.title}</h3>
+              <p className="text-gray-900 text-md line-clamp-2">{service.description}</p>
 
               <motion.button
                 onClick={() => navigate(service.link)}
-                className="w-full py-3 mt-5 font-semibold text-blue-600 transition duration-300 bg-white rounded-lg hover:bg-gray-200"
+                className="w-full py-3 mt-5 font-semibold text-white transition duration-300 bg-[#066938] rounded-lg hover:bg-green-800"
                 whileTap={{ scale: 0.95 }}
               >
                 Learn More 🚀

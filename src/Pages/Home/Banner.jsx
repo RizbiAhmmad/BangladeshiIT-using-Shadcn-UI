@@ -20,23 +20,23 @@ export default function Banner() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            Welcome to <span className="text-green-600">Bangla</span>
-            <span className="text-red-600">deshi</span>
-            <span className="text-green-600"> IT</span>
+            Welcome to <span className="text-[#066938]">Bangla</span>
+            <span className="text-[#eb2127]">deshi</span>
+            <span className="text-[#066938]"> IT</span>
           </motion.h1>
 
           <motion.p
-            className="text-2xl text-green-600"
+            className="text-2xl text-[#066938]"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            স্বপ্নের পথে, <span className="text-red-600">প্রযুক্তির সঙ্গী</span>
+            স্বপ্নের পথে, <span className="text-[#eb2127]">প্রযুক্তির সঙ্গী</span>
           </motion.p>
 
           <motion.button
             onClick={() => navigate("/contact")} 
-            className="inline-block px-6 py-3 font-semibold text-white transition bg-green-600 rounded-full shadow-lg hover:bg-red-600 hover:shadow-xl"
+            className="inline-block px-6 py-3 font-semibold text-white transition bg-[#066938] rounded-full shadow-lg hover:bg-[#eb2127] hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300 }}
@@ -53,7 +53,7 @@ export default function Banner() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
         >
           <motion.div
-            className="relative w-full overflow-hidden border-4 border-green-600 shadow-2xl rounded-2xl aspect-video"
+            className="relative w-full overflow-hidden border-4 border-[#066938] shadow-2xl rounded-2xl aspect-video"
             whileHover={{ scale: 1.02 }}
             animate={{
               y: [0, -5, 0],
@@ -71,7 +71,7 @@ export default function Banner() {
               allowFullScreen
               className="w-full h-full rounded-2xl"
             />
-            <div className="absolute inset-0 pointer-events-none ring-4 ring-green-500/20 rounded-2xl animate-pulse"></div>
+            <div className="absolute inset-0 pointer-events-none ring-4 ring-[#066938] rounded-2xl animate-pulse"></div>
           </motion.div>
         </motion.div>
       </div>

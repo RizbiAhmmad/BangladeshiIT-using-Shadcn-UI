@@ -11,8 +11,8 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Services", href: "/services", dropdown: true },
-  { name: "Courses", href: "/Courses" },
-  { name: "Events", href: "/events" },
+  // { name: "Courses", href: "/Courses" },
+  // { name: "Events", href: "/events" },
   { name: "Blogs", href: "/blogs" },
 ];
 
@@ -54,10 +54,10 @@ export default function Navbar() {
           <img src={logo} alt="Logo" className="w-10 h-10 mr-2 rounded-full" />
           <h1 className="flex items-center text-2xl font-bold dark:text-white">
             <span className="flex">
-              <span className="text-green-600">Bangla</span>
-              <span className="text-red-600">deshi</span>
+              <span className="text-[#066938]">Bangla</span>
+              <span className="text-[#eb2127]">deshi</span>
             </span>
-            <span className="ml-3 text-green-600">IT</span>
+            <span className="ml-3 text-[#066938]">IT</span>
           </h1>
         </NavLink>
 
@@ -70,8 +70,8 @@ export default function Navbar() {
                   onClick={() => setShowDropdown((prev) => !prev)}
                   className={`cursor-pointer font-medium flex items-center gap-1 ${
                     isServiceRoute
-                      ? "text-red-600"
-                      : "text-black dark:text-white hover:text-green-600"
+                      ? "text-[#eb2127]"
+                      : "text-black dark:text-white hover:text-[#066938]"
                   }`}
                 >
                   {link.name}
@@ -98,8 +98,8 @@ export default function Navbar() {
                           className={({ isActive }) =>
                             `block px-3 py-2 text-sm ${
                               isActive
-                                ? "text-orange-500 font-semibold"
-                                : "text-gray-700 dark:text-gray-300 hover:text-orange-500"
+                                ? "text-[#eb2127] font-semibold"
+                                : "text-gray-700 dark:text-gray-300 hover:text-red-700"
                             }`
                           }
                         >
@@ -117,8 +117,8 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `font-medium ${
                     isActive
-                      ? "text-red-600"
-                      : "text-black dark:text-white hover:text-green-600"
+                      ? "text-[#eb2127]"
+                      : "text-black dark:text-white hover:text-[#066938]"
                   }`
                 }
               >
@@ -130,7 +130,7 @@ export default function Navbar() {
           {user && (userRole === "admin" || userRole === "user") && (
             <NavLink
               to="/dashboard"
-              className="font-medium text-black dark:text-white hover:text-green-600"
+              className="font-medium text-black dark:text-white hover:text-[#066938]"
             >
               Dashboard
             </NavLink>
@@ -140,7 +140,7 @@ export default function Navbar() {
 
           <button
             onClick={() => navigate("/contact")}
-            className="px-4 py-2 ml-6 font-semibold text-white transition bg-orange-500 rounded-full hover:bg-orange-700"
+            className="px-4 py-2 ml-6 font-semibold text-white transition bg-[#eb2127] rounded-full hover:bg-red-700"
           >
             Contact Us
           </button>
@@ -181,7 +181,7 @@ export default function Navbar() {
                   <div key={link.name}>
                     <div
                       onClick={() => setShowDropdown((prev) => !prev)}
-                      className="flex items-center justify-between font-medium text-black cursor-pointer dark:text-white hover:text-green-600"
+                      className="flex items-center justify-between font-medium text-black cursor-pointer dark:text-white hover:text-green-700"
                     >
                       <span>{link.name}</span>
                       <FiChevronDown
@@ -209,8 +209,8 @@ export default function Navbar() {
                                 className={({ isActive }) =>
                                   `block text-sm ${
                                     isActive
-                                      ? "text-orange-500 font-semibold"
-                                      : "text-gray-700 dark:text-gray-300 hover:text-orange-500"
+                                      ? "text-[#eb2127] font-semibold"
+                                      : "text-gray-700 dark:text-gray-300 hover:text-red-700"
                                   }`
                                 }
                               >
@@ -236,8 +236,8 @@ export default function Navbar() {
                       className={({ isActive }) =>
                         `block font-medium ${
                           isActive
-                            ? "text-red-600"
-                            : "text-black dark:text-white hover:text-green-600"
+                            ? "text-[#eb2127]"
+                            : "text-black dark:text-white hover:text-[#066938]"
                         }`
                       }
                     >
@@ -257,7 +257,7 @@ export default function Navbar() {
                   <NavLink
                     to="/dashboard"
                     onClick={() => setIsOpen(false)}
-                    className="block font-medium text-black dark:text-white hover:text-green-600"
+                    className="block font-medium text-black dark:text-white hover:text-[#066938]"
                   >
                     Dashboard
                   </NavLink>
@@ -284,7 +284,7 @@ export default function Navbar() {
                     navigate("/contact");
                     setIsOpen(false);
                   }}
-                  className="inline-block px-4 py-2 mt-2 font-semibold text-white transition bg-orange-500 rounded-full hover:bg-orange-700"
+                  className="inline-block px-4 py-2 mt-2 font-semibold text-white transition bg-[#eb2127] rounded-full hover:bg-red-700"
                 >
                   Contact Us
                 </button>

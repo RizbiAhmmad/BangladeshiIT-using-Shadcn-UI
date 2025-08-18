@@ -86,7 +86,7 @@ export default function About() {
           >
             <h2 className="mb-6 text-4xl font-bold leading-tight md:text-5xl">
               Need Best Help For <br />
-              <span className="text-green-500">Digital Corporating!</span>
+              <span className="text-[#066938]">Digital Corporating!</span>
             </h2>
             <p className="mb-10 leading-relaxed text-gray-600 dark:text-white">
               We combine creativity and technology to help your business grow.
@@ -94,18 +94,18 @@ export default function About() {
               vision and goals.
             </p>
             <div className="flex flex-wrap gap-6">
-              <button onClick={() => navigate("/contact")} className="px-6 py-3 font-semibold text-white transition duration-300 transform rounded-full bg-gradient-to-r from-green-500 to-red-500 hover:scale-105">
+              <button onClick={() => navigate("/contact")} className="px-6 py-3 font-semibold text-white transition duration-300 transform rounded-full bg-gradient-to-r from-[#066938] to-[#eb2127] hover:scale-105">
                 MAKE APPOINTMENT
               </button>
               <div className="flex items-center gap-4">
-                <div className="p-3 text-white bg-green-500 rounded-full">
+                <div className="p-3 text-white bg-[#066938] rounded-full">
                   <FaPhoneAlt size={24} />
                 </div>
                 <div>
                   <p className="text-sm text-gray-500 dark:text-white">
                     GET A FREE CONSULTATION
                   </p>
-                  <p className="text-2xl font-bold text-green-600">
+                  <p className="text-2xl font-bold text-[#066938]">
                     +8801621741799
                   </p>
                 </div>
@@ -121,19 +121,19 @@ export default function About() {
             transition={{ duration: 1 }}
           >
             <div className="pr-4 border-r border-gray-300">
-              <h3 className="text-4xl font-bold text-green-600">100+</h3>
+              <h3 className="text-4xl font-bold text-[#066938]">100+</h3>
               <p className="mt-1 text-gray-600 dark:text-white">Happy Customers</p>
             </div>
             <div>
-              <h3 className="text-4xl font-bold text-green-600">8+</h3>
+              <h3 className="text-4xl font-bold text-[#066938]">8+</h3>
               <p className="mt-1 text-gray-600 dark:text-white">Award Winning</p>
             </div>
             <div className="pr-4 border-r border-gray-300">
-              <h3 className="text-4xl font-bold text-green-600">99%</h3>
+              <h3 className="text-4xl font-bold text-[#066938]">99%</h3>
               <p className="mt-1 text-gray-600 dark:text-white">Satisfaction Rate</p>
             </div>
             <div>
-              <h3 className="text-4xl font-bold text-green-600">100+</h3>
+              <h3 className="text-4xl font-bold text-[#066938]">100+</h3>
               <p className="mt-1 text-gray-600 dark:text-white">Completed Projects</p>
             </div>
           </motion.div>

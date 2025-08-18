@@ -48,13 +48,13 @@ export default function FloatingChatMenu() {
             className={`flex items-center gap-2 px-4 py-2 text-white rounded-full shadow-lg ${item.bg} hover:scale-105 transition`}
           >
             <span className="text-lg">{item.icon}</span>
-            <span className="font-medium text-sm hidden sm:inline">{item.label}</span>
+            <span className="hidden text-sm font-medium sm:inline">{item.label}</span>
           </a>
         ))}
 
         <button
           onClick={() => setIsOpen(false)}
-          className="p-3 rounded-full bg-red-500 text-white shadow-lg hover:rotate-90 transform transition"
+          className="p-3 rounded-full bg-[#eb2127] text-white shadow-lg hover:rotate-90 transform transition"
           aria-label="Close chat menu"
         >
           <FaTimes />
@@ -65,7 +65,7 @@ export default function FloatingChatMenu() {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="p-4 rounded-full bg-orange-500 text-white shadow-xl hover:scale-110 transition animate-pulse"
+          className="p-4 rounded-full bg-[#eb2127] text-white shadow-xl hover:scale-110 transition animate-pulse"
           aria-label="Open chat menu"
         >
           <FaCommentDots size={20} />

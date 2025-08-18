@@ -78,8 +78,8 @@ export default function Testimonial() {
                   key={index}
                   className="pl-4 basis-full md:basis-1/2 lg:basis-1/3"
                 >
-                  <div className="bg-gradient-to-br from-white to-orange-50 border border-orange-200 rounded-3xl p-8  hover:scale-[1.03] transition-transform duration-300 h-[400px] flex flex-col">
-                    <div className="mb-4 text-5xl text-orange-300 select-none">
+                  <div className="bg-gradient-to-br from-white to-orange-50 border border-[#066938] rounded-3xl p-8  hover:scale-[1.03] transition-transform duration-300 h-[400px] flex flex-col">
+                    <div className="mb-4 text-5xl text-[#eb2127] select-none">
                       ❝
                     </div>
                     <p className="flex-grow mb-4 font-serif text-base italic leading-relaxed text-gray-700 line-clamp-5">
@@ -91,13 +91,13 @@ export default function Testimonial() {
                         <img
                           src={review.image}
                           alt={review.name}
-                          className="object-cover rounded-full w-14 h-14 ring-2 ring-orange-400"
+                          className="object-cover rounded-full w-14 h-14 ring-2 ring-[#eb2127]"
                         />
                         <div className="text-left">
                           <h4 className="text-lg font-semibold text-gray-900">
                             {review.name}
                           </h4>
-                          <p className="text-sm tracking-wide text-orange-500">
+                          <p className="text-sm tracking-wide text-[#eb2127]">
                             {review.role}
                           </p>
                         </div>

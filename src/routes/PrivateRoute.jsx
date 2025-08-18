@@ -8,7 +8,7 @@ const PrivateRoute = ({children}) => {
     const location = useLocation()
 
     if(loading){
-        return <progress className="progress w-56"></progress>
+        return <progress className="w-56 progress"></progress>
     }
 
     if(user){
@@ -16,7 +16,7 @@ const PrivateRoute = ({children}) => {
     }
 
     return (
-       <Navigate to= "/signup" state ={{from:location}} replace></Navigate>
+       <Navigate to= "/login" state ={{from:location}} replace></Navigate>
     );
 };
 
