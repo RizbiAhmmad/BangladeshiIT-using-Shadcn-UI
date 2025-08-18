@@ -37,6 +37,8 @@ import EnrollForm from "../Pages/Courses/EnrollForm";
 import AllEnrollments from "../Pages/Dashboard/Admin/AllEnrollments";
 import PrivateRoute from "./PrivateRoute";
 import MyEnrollments from "../Pages/Dashboard/Admin/MyEnrollments";
+import SoftwareDevelopment from "../Pages/Services/SoftwareDevelopment";
+import KeyFeatures from "../Pages/Services/Software Development/KeyFeatures";
 
 export const router = createBrowserRouter([
   {
@@ -71,6 +73,10 @@ export const router = createBrowserRouter([
       {
         path: "services/ecommerce",
         element: <EcommerceSolutions></EcommerceSolutions>,
+      },
+      {
+        path: "services/software-development",
+        element: <SoftwareDevelopment></SoftwareDevelopment>,
       },
       {
         path: "services/apps-development",
@@ -116,6 +122,10 @@ export const router = createBrowserRouter([
       {
         path: "/blogDetails/:id",
         element: <BlogDetails></BlogDetails>
+      },
+      {
+        path: "/keyFeatures",
+        element: <KeyFeatures></KeyFeatures>
       },
     ],
   },

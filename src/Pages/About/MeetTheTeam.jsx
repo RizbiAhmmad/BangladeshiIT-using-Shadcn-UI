@@ -39,10 +39,10 @@ export function MeetTheTeam() {
         {members.map((member, i) => (
           <motion.div
             key={member._id}
-            className="p-4 transition duration-300 bg-white border border-orange-500 shadow-lg group rounded-xl hover:shadow-2xl dark:bg-black"
+            className="p-4 transition duration-300 bg-white border border-[#066938] shadow-lg group rounded-xl hover:bg-green-100 hover:shadow-2xl dark:bg-black"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 + i * 0.2 }}
+            transition={{ duration: 0.5 + i * 0.1 }}
           >
             <div className="relative flex justify-center">
               <div className="w-32 h-32 mb-4 overflow-hidden border-4 border-gray-100 rounded-full">

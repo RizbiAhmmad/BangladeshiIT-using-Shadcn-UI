@@ -32,7 +32,7 @@ const Technologies = () => {
         {techStack.map((tech, index) => (
           <div
             key={index}
-            className="flex items-center justify-center w-24 h-24 transition-transform duration-300 bg-white rounded-full shadow-md hover:scale-110"
+            className="flex border border-[#066938] items-center justify-center w-24 h-24 transition-transform duration-300 bg-white rounded-full shadow-md hover:scale-110"
           >
             {tech.icon}
           </div>
