@@ -82,7 +82,7 @@ export default function OurServices() {
         {demoServices.map((service, index) => (
           <motion.div
             key={service.id}
-            className="overflow-hidden text-black transition duration-300 border border-[#066938] transform bg-white shadow-lg rounded-2xl hover:scale-105"
+            className="overflow-hidden text-black transition duration-300 border hover:bg-green-100  border-[#066938] transform bg-white shadow-lg rounded-2xl hover:scale-105"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -99,7 +99,7 @@ export default function OurServices() {
 
               <motion.button
                 onClick={() => navigate(service.link)}
-                className="w-full py-3 mt-5 font-semibold text-white transition duration-300 bg-[#066938] rounded-lg hover:bg-green-800"
+                className="w-full py-3 mt-5 font-semibold text-white transition duration-300 bg-[#066938] rounded-xl hover:bg-green-800"
                 whileTap={{ scale: 0.95 }}
               >
                 Learn More 🚀

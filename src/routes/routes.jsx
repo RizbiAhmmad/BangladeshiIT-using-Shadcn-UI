@@ -38,7 +38,7 @@ import AllEnrollments from "../Pages/Dashboard/Admin/AllEnrollments";
 import PrivateRoute from "./PrivateRoute";
 import MyEnrollments from "../Pages/Dashboard/Admin/MyEnrollments";
 import SoftwareDevelopment from "../Pages/Services/SoftwareDevelopment";
-import KeyFeatures from "../Pages/Services/Software Development/KeyFeatures";
+import FashionPOS from "../Pages/Services/Software Development/FashionPOS";
 
 export const router = createBrowserRouter([
   {
@@ -124,8 +124,8 @@ export const router = createBrowserRouter([
         element: <BlogDetails></BlogDetails>
       },
       {
-        path: "/keyFeatures",
-        element: <KeyFeatures></KeyFeatures>
+        path: "/fashion",
+        element: <FashionPOS />
       },
     ],
   },
