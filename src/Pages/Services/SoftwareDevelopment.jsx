@@ -13,6 +13,11 @@ import pos from "../../../src/assets/pos.json";
 import KeyFeatures from "./Software Development/KeyFeatures";
 
 const services = [
+    {
+    title: "Fashion POS Software",
+    icon: <FaTshirt className="text-4xl text-purple-500" />,
+    link: "/fashion",
+  },
   {
     title: "Pharmacy Management Software",
     icon: <FaCapsules className="text-4xl text-red-500" />,
@@ -38,11 +43,7 @@ const services = [
     icon: <FaStore className="text-4xl text-pink-500" />,
     link: "#",
   },
-  {
-    title: "Apparel Store Management Software",
-    icon: <FaTshirt className="text-4xl text-purple-500" />,
-    link: "#",
-  },
+  
 ];
 
 const SoftwareDevelopment = () => {
@@ -104,7 +105,7 @@ const SoftwareDevelopment = () => {
       {/* Services Section */}
       <div className="mx-auto text-center max-w-7xl">
         <h2 className="m-4 text-3xl font-bold text-gray-900 md:text-4xl">
-          Services We Offer
+          Services We Providing
         </h2>
 
         <motion.div
@@ -136,7 +137,7 @@ const SoftwareDevelopment = () => {
               </h3>
               <a
                 href={service.link}
-                className="relative inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-white transition-all rounded-full shadow bg-gradient-to-r from-blue-500 to-purple-500 hover:shadow-lg hover:scale-105"
+                className="relative inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-white transition-all rounded-full shadow bg-gradient-to-r from-[#066938] to-[#eb2127] hover:shadow-lg hover:scale-105"
               >
                 Explore More →
               </a>
@@ -144,6 +145,7 @@ const SoftwareDevelopment = () => {
           ))}
         </motion.div>
       </div>
+      <KeyFeatures />
     </div>
   );
 };

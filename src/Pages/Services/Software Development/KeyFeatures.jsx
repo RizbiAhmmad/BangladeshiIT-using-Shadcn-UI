@@ -1,167 +1,100 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import {
-  FaStore,
-  FaTag,
-  FaBell,
-  FaReceipt,
-  FaFileInvoiceDollar,
-  FaChartLine,
-  FaMagic,
-  FaCogs,
-  FaRocket,
-} from 'react-icons/fa';
+  Layers,
+  BarChart,
+  Bell,
+  FileText,
+  Smile,
+  Cog,
+  Zap,
+} from "lucide-react";
 
 const features = [
-  {
-    title: 'Multi-Business',
-    description: 'Manage several shops and warehouses effortlessly.',
-    icon: <FaStore className="text-3xl text-purple-600" />,
-  },
-  {
-    title: 'Product Mgmt',
-    description: 'Organize products by brand, category, sub-category, and units.',
-    icon: <FaTag className="text-3xl text-pink-600" />,
-  },
-  {
-    title: 'Smart Alerts',
-    description: 'Stay informed with real-time notifications for customers, suppliers, and payments.',
-    icon: <FaBell className="text-3xl text-yellow-500" />,
-  },
-  {
-    title: 'Tax Ready',
-    description: 'Fully compatible with GST, VAT, and custom tax groups.',
-    icon: <FaReceipt className="text-3xl text-green-600" />,
-  },
-  {
-    title: 'Custom Docs',
-    description: 'Design and print invoices and product labels to match your brand.',
-    icon: <FaFileInvoiceDollar className="text-3xl text-blue-600" />,
-  },
-  {
-    title: 'Reports',
-    description: 'Make data-driven decisions with comprehensive reporting tools.',
-    icon: <FaChartLine className="text-3xl text-red-600" />,
-  },
-  {
-    title: 'User-Friendly',
-    description: 'Navigate with ease thanks to a clean, intuitive design.',
-    icon: <FaMagic className="text-3xl text-indigo-600" />,
-  },
-  {
-    title: 'Flexible Custom',
-    description: 'Tailor the system to fit your unique business workflows.',
-    icon: <FaCogs className="text-3xl text-orange-600" />,
-  },
-  {
-    title: 'Quick Setup',
-    description: 'Get started in just 3 simple steps with detailed documentation to guide you.',
-    icon: <FaRocket className="text-3xl text-teal-600" />,
-  },
+  { title: "Multi-Business & Multi-Location", icon: <Layers size={26} /> },
+  { title: "Advanced Product Management", icon: <BarChart size={26} /> },
+  { title: "Smart Alerts", icon: <Bell size={26} /> },
+  { title: "Tax Ready", icon: <FileText size={26} /> },
+  { title: "Customizable Documents", icon: <FileText size={26} /> },
+  { title: "Insightful Reports", icon: <BarChart size={26} /> },
+  { title: "User-Friendly Interface", icon: <Smile size={26} /> },
+  { title: "Flexible Customization", icon: <Cog size={26} /> },
+  { title: "Quick Setup", icon: <Zap size={26} /> },
 ];
 
-const diagramVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 100,
-    },
-  },
-};
-
-const circleVariants = {
-  hidden: { pathLength: 0 },
-  visible: {
-    pathLength: 1,
-    transition: {
-      duration: 1.5,
-      ease: 'easeInOut',
-    },
-  },
-};
-
 const KeyFeatures = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize(); // initial check
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const radius = isMobile ? 160 : 250;
+  const center = isMobile ? 150 : 250;
+  const angleIncrement = (2 * Math.PI) / features.length;
+
   return (
-    <div className="relative flex flex-col items-center py-24 bg-white">
-      <div className="text-center">
-        <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">
-          🌟 Key Features
-        </h2>
-        <p className="max-w-2xl mx-auto mt-4 text-gray-600">
-          ✅ Best Quality Guaranteed
-        </p>
-      </div>
-
-      <motion.div
-        className="relative w-full max-w-6xl mt-16"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
-        variants={diagramVariants}
+    <section className="relative py-24 bg-gray-50">
+      <div
+        className={`relative mx-auto ${
+          isMobile ? "w-[300px] h-[300px]" : "w-[500px] h-[500px]"
+        }`}
       >
-        {/* Main Circle */}
-        <motion.div
-          className="absolute inset-0 flex items-center justify-center"
-          variants={itemVariants}
-        >
-          <svg className="w-[600px] h-[600px] max-w-full" viewBox="0 0 100 100">
-            <motion.circle
-              cx="50"
-              cy="50"
-              r="40"
-              stroke="#E2E8F0"
-              strokeWidth="2"
-              fill="none"
-              variants={circleVariants}
-            />
-          </svg>
-        </motion.div>
-
-        {/* Feature Items with connections */}
-        {features.map((feature, index) => {
-          const angle = (360 / features.length) * index - 90;
-          const radius = 250; 
-          const x = 50 + radius * Math.cos((angle * Math.PI) / 180);
-          const y = 50 + radius * Math.sin((angle * Math.PI) / 180);
+        {features.map((feature, i) => {
+          const angle = i * angleIncrement;
+          const x = center + radius * Math.cos(angle) - (isMobile ? 40 : 50);
+          const y = center + radius * Math.sin(angle) - (isMobile ? 40 : 50);
 
           return (
             <motion.div
-              key={index}
-              className="absolute w-64 p-4 border border-gray-100 rounded-lg shadow-lg bg-gray-50"
-              style={{
-                top: `calc(${y}px)`,
-                left: `calc(${x}px)`,
-                transform: 'translate(-50%, -50%)',
-              }}
-              variants={itemVariants}
+              key={i}
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: i * 0.1, type: "spring", stiffness: 100 }}
+              className={`absolute hover:bg-blue-200 border border-[#066938] flex flex-col items-center justify-center bg-white rounded-full shadow-lg p-4 ${
+                isMobile ? "w-26 h-26" : "w-34 h-34"
+              }`}
+              style={{ top: y, left: x }}
             >
-              <div className="flex items-center gap-2 mb-2">
-                <div className="p-2 bg-white rounded-full shadow-md">
-                  {feature.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-gray-800">
-                  {feature.title}
-                </h3>
+              <div
+                className={`flex items-center justify-center mb-2 text-white rounded-full bg-[#066938] ${
+                  isMobile ? "w-10 h-10" : "w-12 h-12"
+                }`}
+              >
+                {feature.icon}
               </div>
-              <p className="text-sm leading-snug text-gray-600">{feature.description}</p>
+              <p
+                className={`text-center font-medium ${
+                  isMobile ? "text-xs" : "text-sm"
+                }`}
+              >
+                {feature.title}
+              </p>
             </motion.div>
           );
         })}
-      </motion.div>
-    </div>
+
+        {/* Central Circle with Text */}
+        <div
+          className={`absolute flex items-center justify-center text-white rounded-full mt-2 ml-2 border-2 border-[#eb2127] hover:bg-blue-200 bg-white-500 shadow-2xl -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 ${
+            isMobile ? "w-28 h-28" : "w-40 h-40"
+          }`}
+        >
+          <h2
+            className={`text-center font-bold text-black ${
+              isMobile ? "text-sm" : "text-2xl"
+            }`}
+          >
+            Key <br /> Features
+          </h2>
+        </div>
+      </div>
+    </section>
   );
 };
 
