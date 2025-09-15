@@ -33,7 +33,11 @@ export default function Blog() {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
@@ -47,7 +51,7 @@ export default function Blog() {
           enthusiasts alike. Stay informed, stay inspired.
         </p>
 
-        {/* ✅ Show loading while fetching */}
+        {/* Show loading while fetching */}
         {loading ? (
           <Loading />
         ) : (
@@ -100,11 +104,18 @@ export default function Blog() {
             <div className="mt-10">
               <motion.button
                 onClick={() => navigate("/blogs")}
-                whileHover={{ scale: 1.05 }}
+                className="relative px-5 py-2.5 mt-2 text-md font-semibold text-white 
+                                   rounded-full overflow-hidden group
+                                   bg-gradient-to-t from-[#006752] to-[#15C300] 
+                                   shadow-md transition-all duration-300"
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-2 text-sm font-medium text-white transition bg-[#066938] rounded-full hover:bg-[#eb2127]"
               >
-                See All
+                <span className="relative z-10 flex items-center justify-center gap-2">
+                  See All
+                </span>
+
+                {/* Hover shine effect */}
+                <span className="absolute inset-0 transition-transform duration-500 -translate-x-full bg-white opacity-20 group-hover:translate-x-0"></span>
               </motion.button>
             </div>
           </>

@@ -95,7 +95,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2">
               <FaMapMarkerAlt />
-              House#35, Road#15, Sector#14, Uttara, Dhaka-1230, Bangladesh
+              House 30, Road 10, Nikunja-2, Dhaka-1229, Bangladesh
             </li>
           </ul>
         </div>
