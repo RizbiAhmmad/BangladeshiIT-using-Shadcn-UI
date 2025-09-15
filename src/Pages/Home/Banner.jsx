@@ -1,9 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import confetti from "canvas-confetti";
 
 export default function Banner() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const end = Date.now() + 2 * 1000;
+    const colors = ["#066938", "#eb2127", "#ffacaf", "#7adeff"];
+
+    const frame = () => {
+      if (Date.now() > end) return;
+
+      confetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        startVelocity: 60,
+        origin: { x: 0, y: 0.5 },
+        colors,
+      });
+      confetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 55,
+        startVelocity: 60,
+        origin: { x: 1, y: 0.5 },
+        colors,
+      });
+
+      requestAnimationFrame(frame);
+    };
+
+    frame();
+  }, []);
+
   return (
     <section className="relative py-20 overflow-hidden bg-white dark:bg-black">
       <div className="relative z-10 flex flex-col items-center gap-10 px-4 mx-auto max-w-7xl md:flex-row">
@@ -31,17 +63,24 @@ export default function Banner() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
-            স্বপ্নের পথে, <span className="text-[#eb2127]">প্রযুক্তির সঙ্গী</span>
+            স্বপ্নের পথে,{" "}
+            <span className="text-[#eb2127]">প্রযুক্তির সঙ্গী</span>
           </motion.p>
 
           <motion.button
-            onClick={() => navigate("/contact")} 
-            className="inline-block px-6 py-3 font-semibold text-white transition bg-[#066938] rounded-full shadow-lg hover:bg-[#eb2127] hover:shadow-xl"
-            whileHover={{ scale: 1.05 }}
+            onClick={() => navigate("/contact")}
+            className="relative px-5 py-2.5 mt-2 text-lg font-semibold text-white 
+                     rounded-full overflow-hidden group
+                     bg-gradient-to-t from-[#006752] to-[#15C300] 
+                     shadow-md transition-all duration-300"
             whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300 }}
           >
-            Get Started
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              Get Started
+            </span>
+
+            {/* Hover shine effect */}
+            <span className="absolute inset-0 transition-transform duration-500 -translate-x-full bg-white opacity-20 group-hover:translate-x-0"></span>
           </motion.button>
         </motion.div>
 
@@ -71,14 +110,17 @@ export default function Banner() {
               allowFullScreen
               className="w-full h-full rounded-2xl"
             />
+
+            {/* <video
+      src="/videos/bangladeshi-it.mp4"
+      controls
+      className="w-full h-full rounded-2xl"
+    /> */}
+
             <div className="absolute inset-0 pointer-events-none ring-4 ring-[#066938] rounded-2xl animate-pulse"></div>
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Optional glow background blur */}
-      {/* <div className="absolute -top-20 -left-20 w-[300px] h-[300px] bg-green-100 rounded-full blur-[120px] opacity-40 z-0"></div>
-      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-red-100 rounded-full blur-[120px] opacity-30 z-0"></div> */}
     </section>
   );
 }

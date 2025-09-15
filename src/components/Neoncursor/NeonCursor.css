@@ -1,0 +1,48 @@
+/* === Neon Cursor Styles === */
+.neon-cursor-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* cursor UI block করবে না */
+  z-index: 9999;
+}
+
+.cursor-main {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgb(1, 164, 88);
+  border-radius: 50%;
+  background: transparent;
+  position: absolute;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.cursor-trail {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(0, 176, 3, 0.5);
+  border-radius: 50%;
+  background: transparent;
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor-glow {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(175, 255, 187, 0.3);
+  filter: blur(12px);
+  position: absolute;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* Hide default browser cursor */
+body {
+  cursor: none;
+}

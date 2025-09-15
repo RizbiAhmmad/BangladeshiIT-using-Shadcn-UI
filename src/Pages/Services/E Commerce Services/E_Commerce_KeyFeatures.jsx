@@ -22,7 +22,7 @@ const features = [
   { title: "9. Quick Setup", icon: <Zap size={26} /> },
 ];
 
-const KeyFeatures = () => {
+const E_Commerce_KeyFeatures = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const KeyFeatures = () => {
   const angleIncrement = (2 * Math.PI) / features.length;
 
   return (
-    <section className="relative py-24 bg-gray-50">
+    <section className="relative py-24 bg-white dark:bg-black">
       <div
         className={`relative mx-auto ${
           isMobile ? "w-[300px] h-[300px]" : "w-[500px] h-[500px]"
@@ -98,4 +98,4 @@ const KeyFeatures = () => {
   );
 };
 
-export default KeyFeatures;
+export default E_Commerce_KeyFeatures;

@@ -19,6 +19,7 @@ import {
   FaEnvelope,
   FaChartLine,
 } from "react-icons/fa";
+import E_commerce_Page from "./E Commerce Services/E_commerce_Page";
 
 const ecommercePlans = [
   {
@@ -149,7 +150,7 @@ const EcommerceSolutions = () => {
   return (
     <section className="py-20 text-gray-800 bg--white dark:bg-black">
       <div className="mb-12 text-center">
-        <h2 className="text-3xl font-bold tracking-wide text-red-500 uppercase">
+        {/* <h2 className="text-3xl font-bold tracking-wide text-red-500 uppercase">
           E-Commerce Solutions
         </h2>
         <p className="max-w-3xl mx-auto mt-4 text-base text-gray-700 md:text-lg dark:text-white">
@@ -157,7 +158,9 @@ const EcommerceSolutions = () => {
           deliver a smooth shopping experience. Whether you're selling 10
           products or 50,000, our platforms are built to scale, perform, and
           keep your customers engaged across all devices.
-        </p>
+        </p> */}
+
+        <E_commerce_Page></E_commerce_Page>
 
         <h3 className="mt-4 text-4xl font-extrabold text-blue-700 md:text-4xl">
           CHOOSE YOUR PLAN

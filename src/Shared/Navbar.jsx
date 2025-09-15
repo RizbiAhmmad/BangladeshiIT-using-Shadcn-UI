@@ -6,6 +6,7 @@ import logo from "../assets/BangladeshiIT.jpg";
 import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import ThemeChange from "../components/ThemeChange";
+import FancyButton from "../components/Neoncursor/FancyButton";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -19,6 +20,7 @@ const navLinks = [
 const services = [
   { name: "E-Commerce Solutions", href: "/services/ecommerce" },
   { name: "Web Development", href: "/services/web-development" },
+  { name: "Software Development", href: "/services/software-development" },
   { name: "Apps Development", href: "/services/apps-development" },
   { name: "Digital Marketing", href: "/services/digital-marketing" },
   { name: "Graphics Design", href: "/services/graphic-design" },
@@ -138,12 +140,7 @@ export default function Navbar() {
 
           <ThemeChange />
 
-          <button
-            onClick={() => navigate("/contact")}
-            className="px-4 py-2 ml-6 font-semibold text-white transition bg-[#eb2127] rounded-full hover:bg-red-700"
-          >
-            Contact Us
-          </button>
+          <FancyButton text="Contact Us" to="/contact" />
         </nav>
 
         {/* Mobile Toggle */}
@@ -279,15 +276,11 @@ export default function Navbar() {
                   closed: { opacity: 0, y: -20 },
                 }}
               >
-                <button
-                  onClick={() => {
-                    navigate("/contact");
-                    setIsOpen(false);
-                  }}
-                  className="inline-block px-4 py-2 mt-2 font-semibold text-white transition bg-[#eb2127] rounded-full hover:bg-red-700"
-                >
-                  Contact Us
-                </button>
+                <FancyButton
+                  text="Contact Us"
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                />
               </motion.li>
             </motion.ul>
           </motion.nav>

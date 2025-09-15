@@ -5,6 +5,7 @@ import Footer from "../Shared/Footer";
 import FloatingChatMenu from "../Shared/FloatingChatMenu";
 import ScrollToTop from "../Shared/ScrollToTop";
 import Loading from "../Shared/Loading";
+// import NeonCursor from "../components/Neoncursor/NeonCursor";
 // import SmokeyCursor from "../components/lightswind/smokey-cursor";
 
 const MainLayout = () => {
@@ -35,6 +36,7 @@ const MainLayout = () => {
   return (
     <div className="relative min-h-screen">
       <ScrollToTop />
+      {/* <NeonCursor /> */}
 
       {/* ✅ Smokey Cursor - Always behind all content */}
       {/* {showCursor && (

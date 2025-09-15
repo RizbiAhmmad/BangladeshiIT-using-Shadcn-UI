@@ -30,7 +30,7 @@ const FashionPOS = () => {
               Fashion Retail Management <br></br> & POS Software
             </motion.h2>
             <motion.p
-              className="max-w-3xl mx-auto mb-12 font-bold text-right text-black"
+              className="max-w-3xl mx-auto mb-12 text-[18px] text-right text-black"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
