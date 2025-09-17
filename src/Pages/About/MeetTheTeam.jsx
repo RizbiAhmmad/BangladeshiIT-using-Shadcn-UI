@@ -40,83 +40,89 @@ export function MeetTheTeam() {
       <div className="grid max-w-5xl gap-8 px-8 mx-auto md:grid-cols-2 lg:grid-cols-3">
         {members.map((member, i) => (
           <motion.div
-  key={member._id}
-  className="p-4 transition duration-300 bg-white border border-[#066938] shadow-lg group rounded-xl hover:bg-green-100 hover:shadow-2xl dark:bg-black"
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{
-    duration: 0.6,
-    delay: i * 0.1,
-    ease: "easeOut",
-  }}
-  whileHover={{ scale: 1.05, boxShadow: "0px 10px 25px rgba(0,0,0,0.15)" }}
-  viewport={{ once: true }}
->
-  {/* Profile Image with smooth pulse animation */}
-  <div className="relative flex justify-center">
-    <motion.div
-      className="w-32 h-32 mb-4 overflow-hidden border-4 border-gray-100 rounded-full"
-      animate={{ scale: [1, 1.05, 1] }}
-      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-    >
-      <img
-        src={member.image}
-        alt={`${member.name}'s profile`}
-        className="object-cover w-full h-full"
-      />
-    </motion.div>
-  </div>
+            key={member._id}
+            className="p-4 transition duration-300 bg-white border border-[#066938] shadow-lg group rounded-xl hover:bg-green-100 hover:shadow-2xl dark:bg-black"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.6,
+              delay: i * 0.1,
+              ease: "easeOut",
+            }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0px 10px 25px rgba(0,0,0,0.15)",
+            }}
+            viewport={{ once: true }}
+          >
+            {/* Profile Image with smooth pulse animation */}
+            <div className="relative flex justify-center">
+              <motion.div
+                className="w-32 h-32 mb-4 overflow-hidden border-4 border-gray-100 rounded-full"
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <img
+                  src={member.image}
+                  alt={`${member.name}'s profile`}
+                  className="object-cover w-full h-full"
+                />
+              </motion.div>
+            </div>
 
-  {/* Name + Position */}
-  <div className="relative">
-    <h3 className="text-lg font-bold text-gray-800 transition dark:text-white group-hover:text-cyan-600">
-      {member.name}
-    </h3>
-    <p className="text-sm text-gray-600 dark:text-gray-300 group-hover:text-gray-800">
-      {member.position}
-    </p>
+            {/* Name + Position */}
+            <div className="relative">
+              <h3 className="text-lg font-bold text-gray-800 transition dark:text-white group-hover:text-cyan-600">
+                {member.name}
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300 group-hover:text-gray-800">
+                {member.position}
+              </p>
 
-    {/* Social Links */}
-    <div className="flex justify-center gap-4 mt-4">
-      {member.facebook ? (
-        <a
-          href={member.facebook}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-cyan-600 hover:text-indigo-600"
-        >
-          <FaFacebookF />
-        </a>
-      ) : (
-        <span
-          className="cursor-not-allowed text-cyan-400"
-          title="No Facebook profile available"
-        >
-          <FaFacebookF />
-        </span>
-      )}
+              {/* Social Links */}
+              <div className="flex justify-center gap-4 mt-4">
+                {member.facebook ? (
+                  <a
+                    href={member.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-600 hover:text-indigo-600"
+                  >
+                    <FaFacebookF />
+                  </a>
+                ) : (
+                  <span
+                    className="cursor-not-allowed text-cyan-400"
+                    title="No Facebook profile available"
+                  >
+                    <FaFacebookF />
+                  </span>
+                )}
 
-      {member.linkedin ? (
-        <a
-          href={member.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-cyan-600 hover:text-indigo-600"
-        >
-          <FaLinkedinIn />
-        </a>
-      ) : (
-        <span
-          className="cursor-not-allowed text-cyan-600"
-          title="No LinkedIn profile available"
-        >
-          <FaLinkedinIn />
-        </span>
-      )}
-    </div>
-  </div>
-</motion.div>
-
+                {member.linkedin ? (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-600 hover:text-indigo-600"
+                  >
+                    <FaLinkedinIn />
+                  </a>
+                ) : (
+                  <span
+                    className="cursor-not-allowed text-cyan-600"
+                    title="No LinkedIn profile available"
+                  >
+                    <FaLinkedinIn />
+                  </span>
+                )}
+              </div>
+            </div>
+          </motion.div>
         ))}
       </div>
     </section>
