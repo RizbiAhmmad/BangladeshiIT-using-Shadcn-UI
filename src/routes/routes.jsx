@@ -39,6 +39,7 @@ import PrivateRoute from "./PrivateRoute";
 import MyEnrollments from "../Pages/Dashboard/Admin/MyEnrollments";
 import SoftwareDevelopment from "../Pages/Services/SoftwareDevelopment";
 import FashionPOS from "../Pages/Services/Software Development/FashionPOS";
+import Organic_Product from "../Pages/Services/E Commerce Services/React Website/Organic_Product";
 
 export const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ export const router = createBrowserRouter([
       {
         path: "services/ecommerce",
         element: <EcommerceSolutions></EcommerceSolutions>,
+      },
+      {
+        path: "/react/organic-product",
+        element: <Organic_Product />,
       },
       {
         path: "services/software-development",

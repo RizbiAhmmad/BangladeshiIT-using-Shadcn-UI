@@ -39,7 +39,7 @@ const E_Commerce_KeyFeatures = () => {
   const angleIncrement = (2 * Math.PI) / features.length;
 
   return (
-    <section className="relative py-24 bg-white dark:bg-black">
+    <section className="relative py-24 mt-4 bg-white dark:bg-black">
       <div
         className={`relative mx-auto ${
           isMobile ? "w-[300px] h-[300px]" : "w-[500px] h-[500px]"
@@ -81,7 +81,7 @@ const E_Commerce_KeyFeatures = () => {
 
         {/* Central Circle with Text */}
         <div
-          className={`absolute flex items-center justify-center text-white rounded-full mt-2 ml-2 border-2 border-[#eb2127] hover:bg-blue-200 bg-white-500 shadow-2xl -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 ${
+          className={`absolute flex items-center dark:bg-white justify-center text-white rounded-full mt-2 ml-2 border-2 border-[#eb2127] hover:bg-blue-200 bg-white-500 shadow-2xl -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 ${
             isMobile ? "w-28 h-28" : "w-40 h-40"
           }`}
         >
