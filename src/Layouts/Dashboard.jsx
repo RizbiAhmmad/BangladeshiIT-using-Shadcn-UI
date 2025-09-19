@@ -17,6 +17,7 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useAuth from "../Hooks/useAuth";
 import { SiCoursera } from "react-icons/si";
 import { HiUserAdd } from "react-icons/hi";
+import { RiContactsBook3Line } from "react-icons/ri";
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -140,6 +141,14 @@ const Dashboard = () => {
                     className="flex items-center py-2 space-x-3"
                   >
                   <HiUserAdd></HiUserAdd> <span>All Enrollments</span>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/allDemoRequests"
+                    className="flex items-center py-2 space-x-3"
+                  >
+                  <RiContactsBook3Line></RiContactsBook3Line> <span>All Demo Requests</span>
                   </NavLink>
                 </li>
                 <li>

@@ -40,6 +40,7 @@ import MyEnrollments from "../Pages/Dashboard/Admin/MyEnrollments";
 import SoftwareDevelopment from "../Pages/Services/SoftwareDevelopment";
 import FashionPOS from "../Pages/Services/Software Development/FashionPOS";
 import Organic_Product from "../Pages/Services/E Commerce Services/React Website/Organic_Product";
+import AllContacts from "../Pages/Dashboard/Admin/AllContacts";
 
 export const router = createBrowserRouter([
   {
@@ -193,6 +194,10 @@ export const router = createBrowserRouter([
       {
         path: "allCourses",
         element: <AllFreeCourses></AllFreeCourses>,
+      },
+      {
+        path: "allDemoRequests",
+        element: <AllContacts></AllContacts>
       },
       {
         path: "enrollments",

@@ -1,11 +1,7 @@
-// src/firebase/firebase.config.js
-
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";      
 import { getFirestore } from "firebase/firestore";
 
-
-// আপনার env থেকে config নিচ্ছে
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_apiKey,
   authDomain: import.meta.env.VITE_authDomain,
