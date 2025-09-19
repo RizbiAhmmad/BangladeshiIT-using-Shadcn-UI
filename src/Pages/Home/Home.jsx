@@ -1,3 +1,4 @@
+import Index from '../../Sparkles';
 import { MeetTheTeam } from '../About/MeetTheTeam';
 import Contact from '../Contact/Contact';
 import OurServices from '../Services/OurServices';
@@ -10,7 +11,8 @@ import Testimonial from './Testimonial';
 
 const Home = () => {
     return (
-        <div>
+        <div>          
+            <Index></Index>
             <Banner></Banner>
             <OurServices></OurServices>
             <Technologies></Technologies>

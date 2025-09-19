@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
-import { db } from "../../../firebase/firebase.config";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import axios from "axios"; // <-- Make sure axios is installed
 
 export default function ContactWithForm() {
-  const [category, setCategory] = useState("");
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
@@ -17,28 +15,38 @@ export default function ContactWithForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!name || !phone || !category) {
+    if (!name || !phone) {
       return Swal.fire({
         icon: "warning",
         title: "Missing Fields",
-        text: "Name, phone, and category are required.",
+        text: "Name and phone are required.",
       });
     }
 
+    const phoneRegex = /^01\d{9}$/; 
+    if (!phoneRegex.test(phone)) {
+      return Swal.fire({
+        icon: "error",
+        title: "Invalid Phone Number",
+        text: "Please enter a valid 11-digit Bangladeshi phone number starting with 01.",
+      });
+    }
+
+    setLoading(true);
+
     try {
-      setLoading(true);
-      await addDoc(collection(db, "contactRequests"), {
-        category,
+      // POST request to backend
+      await axios.post("http://localhost:5000/contactRequests", {
         name,
         company,
         phone,
         message,
-        verified: false,
-        createdAt: serverTimestamp(),
+        createdAt: new Date()
       });
+
       setLoading(false);
 
-      await Swal.fire({
+      Swal.fire({
         icon: "success",
         title: "Success!",
         text: "Form submitted successfully ✅",
@@ -47,35 +55,24 @@ export default function ContactWithForm() {
       });
 
       navigate("/thank-you");
+
     } catch (err) {
       console.error("Form submission error:", err);
       setLoading(false);
-
       Swal.fire({
         icon: "error",
         title: "Submission Failed",
-        text: err.message,
+        text: "Something went wrong. Please try again.",
       });
     }
   };
 
   return (
     <div className="max-w-xl mx-auto">
-      <h2 className="text-3xl mb-6 font-bold text-center text-black dark:text-white">Submit to Request a Demo</h2>
+      <h2 className="text-3xl mb-6 font-bold text-center text-black dark:text-white">
+        Submit to Request a Demo
+      </h2>
       <form className="space-y-4" onSubmit={handleSubmit}>
-        {/* <div>
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="w-full p-3 border rounded"
-          >
-            <option value="">Select Business Category</option>
-            <option value="it">IT</option>
-            <option value="marketing">Marketing</option>
-            <option value="design">Design</option>
-          </select>
-        </div> */}
-
         <div>
           <input
             value={name}
@@ -112,7 +109,6 @@ export default function ContactWithForm() {
           />
         </div>
 
-        {/* Centered Submit Button */}
         <div className="flex justify-center">
           <button
             type="submit"
