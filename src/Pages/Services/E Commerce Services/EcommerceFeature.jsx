@@ -57,11 +57,11 @@ const sections = [
 export default function EcommerceFeature() {
   return (
     <div className="px-6 py-16 bg-white dark:bg-black">
-      <h2 className="text-3xl font-bold text-center text-black dark:text-white mb-12">
-        🚀 Our E-Commerce Capabilities
+      <h2 className="mb-12 text-3xl font-bold text-center text-black dark:text-white">
+        🚀 E-Commerce Website Features
       </h2>
 
-      <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto">
+      <div className="grid gap-10 mx-auto md:grid-cols-2 lg:grid-cols-3 max-w-7xl">
         {sections.map((section, idx) => (
           <motion.div
             key={idx}
@@ -69,9 +69,9 @@ export default function EcommerceFeature() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: idx * 0.1 }}
-            className="relative p-6 bg-white dark:bg-gray-900 shadow-lg shadow-green-200 hover:bg-green-200 rounded-2xl border border-green-200 dark:border-gray-700 hover:shadow-2xl transition"
+            className="relative p-6 transition bg-white border border-green-200 shadow-lg dark:bg-gray-900 shadow-green-200 hover:bg-green-200 rounded-2xl dark:border-gray-700 hover:shadow-2xl"
           >
-            <div className=" items-center mb-4">
+            <div className="items-center mb-4 ">
               <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
                 {section.title}
               </h3>

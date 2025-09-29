@@ -1,56 +1,57 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import {
-  FaHospital,
-  FaCapsules,
-  FaUtensils,
-  FaShoppingBag,
-  FaStore,
+import { 
+  FaShoppingBasket,
   FaTshirt,
+  FaLaptop,
+  FaSpa,
+  FaCouch,
+  FaDumbbell
 } from "react-icons/fa";
 import KeyFeatures from "./E_Commerce_KeyFeatures";
 import ContactWithForm from "./ContactWithPhone";
 import banner from "../../../../src/assets/ecommerce-banner.jpg";
 import EcommerceFeature from "./EcommerceFeature";
-
+import { FaReact } from "react-icons/fa";
+import { SiLaravel } from "react-icons/si";
 // Services data
 const services = [
   {
     title: "Organic Product Website",
-    icon: <FaShoppingBag className="text-4xl text-blue-500" />,
+    icon: <FaShoppingBasket className="text-4xl text-green-500" />, // Basket for organic products
     reactLink: "/react/organic-product",
-    laravelLink: "/laravel/e-commerce-details",
+    laravelLink: "#",
   },
   {
     title: "Fashion Website",
-    icon: <FaTshirt className="text-4xl text-purple-500" />,
-    reactLink: "/react/fashion",
-    laravelLink: "/laravel/fashion",
+    icon: <FaTshirt className="text-4xl text-purple-500" />, // Tshirt for fashion
+    reactLink: "#",
+    laravelLink: "#",
   },
   {
-    title: "Supershop Management Website",
-    icon: <FaStore className="text-4xl text-pink-500" />,
-    reactLink: "/react/supershop",
-    laravelLink: "/laravel/supershop",
+    title: "Electronics/Gadget Website",
+    icon: <FaLaptop className="text-4xl text-blue-500" />, // Laptop for electronics
+    reactLink: "#",
+    laravelLink: "#",
   },
   {
-    title: "Pharmacy Website",
-    icon: <FaCapsules className="text-4xl text-red-500" />,
-    reactLink: "/react/pharmacy",
-    laravelLink: "/laravel/pharmacy",
+    title: "Skin Care/Beauty/Jewelary Website",
+    icon: <FaSpa className="text-4xl text-pink-500" />, // Spa/beauty related
+    reactLink: "#",
+    laravelLink: "#",
   },
   {
-    title: "VAT Management Website",
-    icon: <FaHospital className="text-4xl text-green-500" />,
-    reactLink: "/react/vat-management",
-    laravelLink: "/laravel/vat-management",
+    title: "Furniture Website",
+    icon: <FaCouch className="text-4xl text-orange-500" />, // Couch for furniture
+    reactLink: "#",
+    laravelLink: "#",
   },
   {
-    title: "Restaurant Management Website",
-    icon: <FaUtensils className="text-4xl text-yellow-500" />,
-    reactLink: "/react/restaurant",
-    laravelLink: "/laravel/restaurant",
+    title: "Sports and Fitness Website",
+    icon: <FaDumbbell className="text-4xl text-yellow-500" />, // Dumbbell for sports/fitness
+    reactLink: "#",
+    laravelLink: "#",
   },
 ];
 
@@ -60,7 +61,7 @@ const E_commerce_Page = () => {
   return (
     <div className="min-h-screen px-6 pt-6 pb-12 bg-white dark:bg-black">
       {/*  Banner Section */}
-      <section className=" w-full h-auto rounded-xl overflow-hidden mb-12">
+      <section className="w-full h-auto mb-12 overflow-hidden rounded-xl">
         <motion.img
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -78,28 +79,68 @@ const E_commerce_Page = () => {
         </h2>
 
         {/* Tabs */}
-        <div className="flex justify-center mb-8 border-b border-gray-300 dark:border-gray-600">
-          <button
-            onClick={() => setActiveTab("react")}
-            className={`px-6 py-3 font-semibold relative ${
-              activeTab === "react"
-                ? "text-[#eb2127] border-b-4 border-[#eb2127]"
-                : "text-gray-600 dark:text-gray-400"
-            }`}
-          >
-            React Websites
-          </button>
-          <button
-            onClick={() => setActiveTab("laravel")}
-            className={`px-6 py-3 font-semibold relative ${
-              activeTab === "laravel"
-                ? "text-[#066938] border-b-4 border-[#066938]"
-                : "text-gray-600 dark:text-gray-400"
-            }`}
-          >
-            Laravel Websites
-          </button>
-        </div>
+    
+<div role="tablist" aria-label="Framework tabs" className="flex justify-center gap-4 mb-8">
+  <button
+    role="tab"
+    aria-selected={activeTab === "react"}
+    onClick={() => setActiveTab("react")}
+    className={`group relative flex items-center gap-3 px-5 py-2 rounded-2xl font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#61dafb]/30 ${
+      activeTab === "react"
+        ? "bg-gradient-to-r from-[#e6f9ff] to-[#cdeeff] text-[#0366aa] shadow-[0_8px_30px_rgba(6,102,170,0.12)] scale-105"
+        : "bg-white/5 dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:scale-[1.03] hover:shadow-md"
+    }`}
+  >
+    {/* Icon circle */}
+    <span
+      className={`flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 ${
+        activeTab === "react"
+          ? "bg-white text-[#61dafb] scale-110"
+          : "bg-white/5 text-[#61dafb]/80 group-hover:bg-white/10"
+      }`}
+      aria-hidden
+    >
+      <FaReact className="w-5 h-5" />
+    </span>
+
+    {/* Label */}
+    <span className="whitespace-nowrap">React Websites</span>
+
+    {/* active pill underline */}
+    {activeTab === "react" && (
+      <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-gradient-to-r from-[#61dafb] to-[#1b6fb0] shadow-sm" />
+    )}
+  </button>
+
+  <button
+    role="tab"
+    aria-selected={activeTab === "laravel"}
+    onClick={() => setActiveTab("laravel")}
+    className={`group relative flex items-center gap-3 px-5 py-2 rounded-2xl font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#f05340]/25 ${
+      activeTab === "laravel"
+        ? "bg-gradient-to-r from-[#ffecec] to-[#ffd6d0] text-[#a42f20] shadow-[0_8px_30px_rgba(164,47,32,0.10)] scale-105"
+        : "bg-white/5 dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:scale-[1.03] hover:shadow-md"
+    }`}
+  >
+    <span
+      className={`flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 ${
+        activeTab === "laravel"
+          ? "bg-white text-[#f05340] scale-110"
+          : "bg-white/5 text-[#f05340]/80 group-hover:bg-white/10"
+      }`}
+      aria-hidden
+    >
+      <SiLaravel className="w-5 h-5" />
+    </span>
+
+    <span className="whitespace-nowrap">Laravel Websites</span>
+
+    {activeTab === "laravel" && (
+      <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-gradient-to-r from-[#f05340] to-[#c23a2a] shadow-sm" />
+    )}
+  </button>
+</div>
+
 
         {/* Service Cards */}
         <motion.div

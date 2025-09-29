@@ -5,14 +5,11 @@ import Earth from "../../components/uilayouts/globe";
 function Index() {
   return (
     <>
-      <div className="h-screen overflow-hidden py-16 md:py-18 bg-black text-white">
-        <article className="grid gap-4 text-center relative z-10 pt-10">
-          <h1 className="text-4xl lg:text-6xl font-semibold bg-gradient-to-b from-[#edeffd] to-[#7b9cda] bg-clip-text text-transparent leading-tight tracking-tighter">
-            Transform Your Business with
-            <br />
-            Smart Digital Solutions.
+      <div className="h-[620px] lg:h-[700px] py-12 overflow-hidden text-white bg-black md:py-18">
+        <article className="relative z-10 grid gap-4 pt-10 text-center">
+          <h1 className="text-3xl lg:text-6xl font-semibold bg-gradient-to-b from-[#edeffd] to-[#7b9cda] bg-clip-text text-transparent leading-tight tracking-tighter">
+            TRANSFORM YOUR BUSINESS WITH <br /> SMART DIGITAL SOLUTIONS.
           </h1>
-
           {/* <span className="inline-block text-sm border p-1 px-3 w-fit mx-auto rounded-full border-[#3273ff] bg-[#0f1c35]">
             Get Access
           </span> */}
@@ -26,7 +23,7 @@ function Index() {
             direction="top"
             opacitySpeed={2}
             color="#32A7FF"
-            className="absolute inset-x-0 bottom-0 h-full w-full "
+            className="absolute inset-x-0 bottom-0 w-full h-full "
           />
         </div>
       </div>

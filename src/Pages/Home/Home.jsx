@@ -8,12 +8,14 @@ import OurClients from './OurClients';
 // import ReviewVideos from './ReviewVideos';
 import Technologies from './Technologies';
 import Testimonial from './Testimonial';
+import VideoGallery from './VideoGallery';
 
 const Home = () => {
     return (
         <div>          
             <Index></Index>
-            <Banner></Banner>
+            {/* <Banner></Banner> */}
+            <VideoGallery></VideoGallery>
             <OurServices></OurServices>
             <Technologies></Technologies>
             <MeetTheTeam></MeetTheTeam>
