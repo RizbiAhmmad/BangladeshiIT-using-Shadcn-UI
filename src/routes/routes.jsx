@@ -41,6 +41,7 @@ import SoftwareDevelopment from "../Pages/Services/SoftwareDevelopment";
 import FashionPOS from "../Pages/Services/Software Development/FashionPOS";
 import Organic_Product from "../Pages/Services/E Commerce Services/React Website/Organic_Product";
 import AllContacts from "../Pages/Dashboard/Admin/AllContacts";
+import FashionLR from "../Pages/Services/E Commerce Services/LaravelWebsite/FashionLR";
 
 export const router = createBrowserRouter([
   {
@@ -79,6 +80,10 @@ export const router = createBrowserRouter([
       {
         path: "/react/organic-product",
         element: <Organic_Product />,
+      },
+      {
+        path: "/laravel/fashion",
+        element: <FashionLR />,
       },
       {
         path: "services/software-development",

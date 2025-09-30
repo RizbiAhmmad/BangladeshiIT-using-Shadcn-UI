@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { 
+import {
   FaShoppingBasket,
   FaTshirt,
   FaLaptop,
   FaSpa,
   FaCouch,
-  FaDumbbell
+  FaDumbbell,
 } from "react-icons/fa";
 import KeyFeatures from "./E_Commerce_KeyFeatures";
 import ContactWithForm from "./ContactWithPhone";
@@ -27,7 +27,7 @@ const services = [
     title: "Fashion Website",
     icon: <FaTshirt className="text-4xl text-purple-500" />, // Tshirt for fashion
     reactLink: "#",
-    laravelLink: "#",
+    laravelLink: "/laravel/fashion",
   },
   {
     title: "Electronics/Gadget Website",
@@ -66,7 +66,7 @@ const E_commerce_Page = () => {
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          src= {banner}
+          src={banner}
           alt="E-commerce Banner"
           className="object-cover w-full h-full"
         />
@@ -79,68 +79,71 @@ const E_commerce_Page = () => {
         </h2>
 
         {/* Tabs */}
-    
-<div role="tablist" aria-label="Framework tabs" className="flex justify-center gap-4 mb-8">
-  <button
-    role="tab"
-    aria-selected={activeTab === "react"}
-    onClick={() => setActiveTab("react")}
-    className={`group relative flex items-center gap-3 px-5 py-2 rounded-2xl font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#61dafb]/30 ${
-      activeTab === "react"
-        ? "bg-gradient-to-r from-[#e6f9ff] to-[#cdeeff] text-[#0366aa] shadow-[0_8px_30px_rgba(6,102,170,0.12)] scale-105"
-        : "bg-white/5 dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:scale-[1.03] hover:shadow-md"
-    }`}
-  >
-    {/* Icon circle */}
-    <span
-      className={`flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 ${
-        activeTab === "react"
-          ? "bg-white text-[#61dafb] scale-110"
-          : "bg-white/5 text-[#61dafb]/80 group-hover:bg-white/10"
-      }`}
-      aria-hidden
-    >
-      <FaReact className="w-5 h-5" />
-    </span>
 
-    {/* Label */}
-    <span className="whitespace-nowrap">React Websites</span>
+        <div
+          role="tablist"
+          aria-label="Framework tabs"
+          className="flex justify-center gap-4 mb-8"
+        >
+          <button
+            role="tab"
+            aria-selected={activeTab === "react"}
+            onClick={() => setActiveTab("react")}
+            className={`group relative flex items-center gap-3 px-5 py-2 rounded-2xl font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#61dafb]/30 ${
+              activeTab === "react"
+                ? "bg-gradient-to-r from-[#e6f9ff] to-[#cdeeff] text-[#0366aa] shadow-[0_8px_30px_rgba(6,102,170,0.12)] scale-105"
+                : "bg-white/5 dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:scale-[1.03] hover:shadow-md"
+            }`}
+          >
+            {/* Icon circle */}
+            <span
+              className={`flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 ${
+                activeTab === "react"
+                  ? "bg-white text-[#61dafb] scale-110"
+                  : "bg-white/5 text-[#61dafb]/80 group-hover:bg-white/10"
+              }`}
+              aria-hidden
+            >
+              <FaReact className="w-5 h-5" />
+            </span>
 
-    {/* active pill underline */}
-    {activeTab === "react" && (
-      <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-gradient-to-r from-[#61dafb] to-[#1b6fb0] shadow-sm" />
-    )}
-  </button>
+            {/* Label */}
+            <span className="whitespace-nowrap">React Websites</span>
 
-  <button
-    role="tab"
-    aria-selected={activeTab === "laravel"}
-    onClick={() => setActiveTab("laravel")}
-    className={`group relative flex items-center gap-3 px-5 py-2 rounded-2xl font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#f05340]/25 ${
-      activeTab === "laravel"
-        ? "bg-gradient-to-r from-[#ffecec] to-[#ffd6d0] text-[#a42f20] shadow-[0_8px_30px_rgba(164,47,32,0.10)] scale-105"
-        : "bg-white/5 dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:scale-[1.03] hover:shadow-md"
-    }`}
-  >
-    <span
-      className={`flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 ${
-        activeTab === "laravel"
-          ? "bg-white text-[#f05340] scale-110"
-          : "bg-white/5 text-[#f05340]/80 group-hover:bg-white/10"
-      }`}
-      aria-hidden
-    >
-      <SiLaravel className="w-5 h-5" />
-    </span>
+            {/* active pill underline */}
+            {activeTab === "react" && (
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-gradient-to-r from-[#61dafb] to-[#1b6fb0] shadow-sm" />
+            )}
+          </button>
 
-    <span className="whitespace-nowrap">Laravel Websites</span>
+          <button
+            role="tab"
+            aria-selected={activeTab === "laravel"}
+            onClick={() => setActiveTab("laravel")}
+            className={`group relative flex items-center gap-3 px-5 py-2 rounded-2xl font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#f05340]/25 ${
+              activeTab === "laravel"
+                ? "bg-gradient-to-r from-[#ffecec] to-[#ffd6d0] text-[#a42f20] shadow-[0_8px_30px_rgba(164,47,32,0.10)] scale-105"
+                : "bg-white/5 dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:scale-[1.03] hover:shadow-md"
+            }`}
+          >
+            <span
+              className={`flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 ${
+                activeTab === "laravel"
+                  ? "bg-white text-[#f05340] scale-110"
+                  : "bg-white/5 text-[#f05340]/80 group-hover:bg-white/10"
+              }`}
+              aria-hidden
+            >
+              <SiLaravel className="w-5 h-5" />
+            </span>
 
-    {activeTab === "laravel" && (
-      <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-gradient-to-r from-[#f05340] to-[#c23a2a] shadow-sm" />
-    )}
-  </button>
-</div>
+            <span className="whitespace-nowrap">Laravel Websites</span>
 
+            {activeTab === "laravel" && (
+              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-gradient-to-r from-[#f05340] to-[#c23a2a] shadow-sm" />
+            )}
+          </button>
+        </div>
 
         {/* Service Cards */}
         <motion.div
