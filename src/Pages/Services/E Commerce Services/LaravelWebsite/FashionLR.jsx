@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useState } from "react";
+import LaravelDemo from "./LaravelDemo";
 
 const FashionLR = () => {
   const [name, setName] = useState("");
@@ -13,7 +14,6 @@ const FashionLR = () => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [showLoginOptions, setShowLoginOptions] = useState(false);
 
   const navigate = useNavigate();
 
@@ -58,8 +58,8 @@ const FashionLR = () => {
         timer: 2000,
         showConfirmButton: false,
       });
-
-      setShowLoginOptions(true);
+      navigate("/laravel-demo");
+      
     } catch (err) {
       console.error("Form submission error:", err);
       setLoading(false);
@@ -175,7 +175,7 @@ const FashionLR = () => {
         </section>
       </div>
 
-      {/* <div className="max-w-xl mx-auto">
+      <div className="max-w-xl mx-auto">
         <h2 className="mb-6 text-3xl font-bold text-center text-black dark:text-white">
           Submit to Request a Demo
         </h2>
@@ -226,81 +226,9 @@ const FashionLR = () => {
             </button>
           </div>
         </form>
-      </div> */}
-      <div className="max-w-xl mx-auto">
-        <h2 className="mb-6 text-3xl font-bold text-center text-black dark:text-white">
-          Submit to Request a Demo
-        </h2>
-
-        {/* Form hide when login options show */}
-        {!showLoginOptions ? (
-          <form className="space-y-4" onSubmit={handleSubmit}>
-            <div>
-              <input
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder="Full Name"
-                className="w-full p-3 border rounded"
-              />
-            </div>
-
-            <div>
-              <input
-                value={company}
-                onChange={(e) => setCompany(e.target.value)}
-                placeholder="Company or Business Name"
-                className="w-full p-3 border rounded"
-              />
-            </div>
-
-            <div>
-              <input
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="Phone Number (e.g., 017xxxxxxxx)"
-                className="w-full p-3 border rounded"
-              />
-            </div>
-
-            <div>
-              <textarea
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Describe your requirements (optional)"
-                className="w-full p-3 border rounded"
-              />
-            </div>
-
-            <div className="flex justify-center">
-              <button
-                type="submit"
-                disabled={loading}
-                className="px-6 py-2 text-white bg-gradient-to-t from-[#006752] to-[#15C300] rounded-lg"
-              >
-                {loading ? "Submitting..." : "Submit"}
-              </button>
-            </div>
-          </form>
-        ) : (
-          <div className="flex flex-col items-center gap-4">
-            <h3 className="text-xl font-semibold text-center text-gray-800 dark:text-white">
-              Choose Login Option
-            </h3>
-            <button
-              onClick={() => navigate("/customer-login")}
-              className="w-full px-6 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
-            >
-              Customer Login
-            </button>
-            <button
-              onClick={() => navigate("/admin-login")}
-              className="w-full px-6 py-2 text-white bg-red-600 rounded-lg hover:bg-red-700"
-            >
-              Admin Login
-            </button>
-          </div>
-        )}
       </div>
+      <LaravelDemo></LaravelDemo>
+      
     </div>
   );
 };
