@@ -13,7 +13,7 @@ export default function Blog() {
 
   useEffect(() => {
     axios
-      .get("https://bangladeshiit-server-api.onrender.com/blogs")
+      .get("http://72.60.199.112:5000/blogs")
       .then((res) => setBlogs(res.data))
       .catch((err) => console.error("Error fetching blogs:", err))
       .finally(() => setLoading(false));

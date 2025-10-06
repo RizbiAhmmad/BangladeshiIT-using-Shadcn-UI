@@ -54,7 +54,7 @@ const AddMember = () => {
     console.log("📤 Payload sent to backend:", JSON.stringify(memberData, null, 2));
 
     const res = await axios.post(
-      "https://bangladeshiit-server-api.onrender.com/team",
+      "http://72.60.199.112:5000/team",
       JSON.stringify(memberData), // Explicitly stringify the payload
       {
         headers: {

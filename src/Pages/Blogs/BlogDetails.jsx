@@ -10,7 +10,7 @@ const BlogDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`https://bangladeshiit-server-api.onrender.com/blogs/${id}`)
+      .get(`http://72.60.199.112:5000/blogs/${id}`)
       .then((res) => setBlog(res.data))
       .catch((err) => console.error("Error fetching blog:", err))
       .finally(() => setLoading(false));

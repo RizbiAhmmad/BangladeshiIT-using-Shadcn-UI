@@ -41,7 +41,7 @@ const FashionLR = () => {
 
     try {
       // POST request to backend
-      await axios.post("http://localhost:5000/contactRequests", {
+      await axios.post("https://bangladeshiit-server-api.onrender.com/contactRequests", {
         name,
         company,
         phone,
@@ -201,6 +201,7 @@ const FashionLR = () => {
           <div>
             <input
               value={phone}
+              type="number"
               onChange={(e) => setPhone(e.target.value)}
               placeholder="Phone Number (e.g., 017xxxxxxxx)"
               className="w-full p-3 border rounded"

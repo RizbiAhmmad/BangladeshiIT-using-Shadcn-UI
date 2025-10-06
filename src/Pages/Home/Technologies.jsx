@@ -17,7 +17,7 @@ const techStack = [
 
 const Technologies = () => {
   return (
-    <section className="px-16 py-16 text-center text-black bg-white md:px-24 dark:bg-black dark:text-white">
+    <section className="px-16 max-w-7xl mx-auto py-12 text-center text-black bg-white md:px-24 dark:bg-black dark:text-white">
       <div className="mb-12 text-center">
         <h2 className="mb-4 text-4xl font-extrabold text-black bg-white dark:bg-black dark:text-white">
           We Use <AuroraText>Technologies</AuroraText>

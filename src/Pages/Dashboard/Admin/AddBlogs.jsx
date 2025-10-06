@@ -29,7 +29,7 @@ export default function AddBlogs() {
     };
 
     try {
-      const res = await axios.post("https://bangladeshiit-server-api.onrender.com/blogs", blogWithEmail);
+      const res = await axios.post("http://72.60.199.112:5000/blogs", blogWithEmail);
       if (res.data.insertedId) {
         Swal.fire("Success", "Blog added successfully", "success");
         setBlog({ title: "", description: "", image: "", tag: "", link: "" });

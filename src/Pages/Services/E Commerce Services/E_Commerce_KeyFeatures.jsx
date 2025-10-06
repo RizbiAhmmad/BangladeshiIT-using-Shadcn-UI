@@ -13,13 +13,13 @@ import {
 const features = [
   { title: "1. Multi-Business & Multi-Location", icon: <Layers size={26} /> },
   { title: "2. Advanced Product Management", icon: <BarChart size={26} /> },
-  { title: "3. Smart Alerts", icon: <Bell size={26} /> },
-  { title: "4. Tax Ready", icon: <FileText size={26} /> },
-  { title: "5. Customizable Documents", icon: <FileText size={26} /> },
-  { title: "6. Insightful Reports", icon: <BarChart size={26} /> },
-  { title: "7. User-Friendly Interface", icon: <Smile size={26} /> },
-  { title: "8. Flexible Customization", icon: <Cog size={26} /> },
-  { title: "9. Quick Setup", icon: <Zap size={26} /> },
+  // { title: "3. Smart Alerts", icon: <Bell size={26} /> },
+  // { title: "4. Tax Ready", icon: <FileText size={26} /> },
+  { title: "3. Customizable Documents", icon: <FileText size={26} /> },
+  { title: "4. Insightful Reports", icon: <BarChart size={26} /> },
+  { title: "5. User-Friendly Interface", icon: <Smile size={26} /> },
+  { title: "6. Flexible Customization", icon: <Cog size={26} /> },
+  { title: "7. Quick Setup", icon: <Zap size={26} /> },
 ];
 
 const E_Commerce_KeyFeatures = () => {
@@ -34,12 +34,13 @@ const E_Commerce_KeyFeatures = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const radius = isMobile ? 160 : 250;
-  const center = isMobile ? 150 : 250;
+  const radius = isMobile ? 130 : 240;
+  const center = isMobile ? 145 : 240;
+
   const angleIncrement = (2 * Math.PI) / features.length;
 
   return (
-    <section className="relative py-24 mt-4 bg-white dark:bg-black">
+    <section className="relative py-20 mt-4 bg-white dark:bg-black">
       <div
         className={`relative mx-auto ${
           isMobile ? "w-[300px] h-[300px]" : "w-[500px] h-[500px]"

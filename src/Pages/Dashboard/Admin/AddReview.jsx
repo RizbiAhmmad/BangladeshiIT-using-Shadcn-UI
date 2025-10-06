@@ -26,7 +26,7 @@ const AddReview = () => {
     };
 
     try {
-      const res = await axios.post("https://bangladeshiit-server-api.onrender.com/reviews", reviewData);
+      const res = await axios.post("http://72.60.199.112:5000/reviews", reviewData);
       if (res.data.insertedId) {
         Swal.fire("Success", "Review submitted successfully!", "success");
         setFormData({ name: "", image: "", logo: "", role: "", feedback: "" });

@@ -42,7 +42,6 @@ const manualReviews = [
   },
 ];
 
-// ✅ Duplicate items to support smooth looping
 const extendedReviews = [...manualReviews, ...manualReviews];
 
 export default function Testimonial() {

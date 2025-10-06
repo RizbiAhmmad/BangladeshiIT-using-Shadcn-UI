@@ -11,7 +11,7 @@ export function MeetTheTeam() {
 
   useEffect(() => {
     axios
-      .get("https://bangladeshiit-server-api.onrender.com/team")
+      .get("http://72.60.199.112:5000/team")
       .then((res) => {
         setMembers(res.data);
         setLoading(false);

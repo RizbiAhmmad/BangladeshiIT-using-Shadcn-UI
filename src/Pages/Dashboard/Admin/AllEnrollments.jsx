@@ -8,7 +8,7 @@ const AllEnrollments = () => {
 
   useEffect(() => {
     axios
-      .get("https://bangladeshiit-server-api.onrender.com/enrollments")
+      .get("http://72.60.199.112:5000/enrollments")
       .then((res) => setEnrollments(res.data))
       .catch((err) => console.error("Failed to fetch enrollments", err));
   }, []);
@@ -24,7 +24,7 @@ const AllEnrollments = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://bangladeshiit-server-api.onrender.com/enrollments/${id}`).then((res) => {
+        axios.delete(`http://72.60.199.112:5000/enrollments/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             setEnrollments(enrollments.filter((item) => item._id !== id));
             Swal.fire("Deleted!", "Enrollment has been removed.", "success");

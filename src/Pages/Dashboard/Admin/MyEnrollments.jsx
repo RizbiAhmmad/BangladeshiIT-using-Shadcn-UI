@@ -13,7 +13,7 @@ const MyEnrollments = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`https://bangladeshiit-server-api.onrender.com/enrollments?email=${user.email}`)
+        .get(`http://72.60.199.112:5000/enrollments?email=${user.email}`)
         .then((res) => setEnrollments(res.data))
         .catch((err) => console.error("Error fetching enrollments:", err))
         .finally(() => setLoading(false));

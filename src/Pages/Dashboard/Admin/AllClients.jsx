@@ -10,7 +10,7 @@ const AllClients = () => {
 
   useEffect(() => {
     axios
-      .get("https://bangladeshiit-server-api.onrender.com/clients")
+      .get("http://72.60.199.112:5000/clients")
       .then((res) => setClients(res.data))
       .catch((err) => console.error("Failed to fetch clients", err));
   }, []);
@@ -26,7 +26,7 @@ const AllClients = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://bangladeshiit-server-api.onrender.com/clients/${id}`).then((res) => {
+        axios.delete(`http://72.60.199.112:5000/clients/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             setClients(clients.filter((client) => client._id !== id));
             Swal.fire("Deleted!", "Client has been deleted.", "success");

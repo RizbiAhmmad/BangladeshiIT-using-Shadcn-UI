@@ -16,7 +16,7 @@ const AllMembers = () => {
     queryKey: ["team"],
     queryFn: async () => {
       const res = await axios.get(
-        "https://bangladeshiit-server-api.onrender.com/team"
+        "http://72.60.199.112:5000/team"
       );
       return res.data;
     },
@@ -40,7 +40,7 @@ const AllMembers = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://bangladeshiit-server-api.onrender.com/team/${id}`)
+          .delete(`http://72.60.199.112:5000/team/${id}`)
           .then((res) => {
             if (res.data.deletedCount > 0) {
               refetch();
@@ -80,7 +80,7 @@ const AllMembers = () => {
 
     // Send PUT request with JSON body
     const res = await axios.put(
-      `https://bangladeshiit-server-api.onrender.com/team/${selectedMember._id}`,
+      `http://72.60.199.112:5000/team/${selectedMember._id}`,
       updatePayload
     );
 

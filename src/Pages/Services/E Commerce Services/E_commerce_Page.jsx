@@ -56,12 +56,11 @@ const services = [
 ];
 
 const E_commerce_Page = () => {
-  const [activeTab, setActiveTab] = useState("react"); // default React
-
+  const [activeTab, setActiveTab] = useState("react"); 
   return (
-    <div className="min-h-screen px-6 pt-6 pb-12 bg-white dark:bg-black">
+    <div className="min-h-screen px-6 pt-6 pb-6 bg-white dark:bg-black">
       {/*  Banner Section */}
-      <section className="w-full h-auto mb-12 overflow-hidden rounded-xl">
+      <section className="w-full h-auto overflow-hidden rounded-xl">
         <motion.img
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -83,7 +82,7 @@ const E_commerce_Page = () => {
         <div
           role="tablist"
           aria-label="Framework tabs"
-          className="flex justify-center gap-4 mb-8"
+          className="flex flex-wrap justify-center gap-4 mb-8 text-center"
         >
           <button
             role="tab"
@@ -154,7 +153,7 @@ const E_commerce_Page = () => {
             hidden: {},
             visible: { transition: { staggerChildren: 0.12 } },
           }}
-          className="grid max-w-6xl grid-cols-1 gap-8 mx-auto sm:grid-cols-2 lg:grid-cols-3"
+          className="grid max-w-7xl grid-cols-1 gap-8 mx-auto sm:grid-cols-2 lg:grid-cols-3"
         >
           {services.map((service, idx) => {
             const link =
@@ -181,8 +180,8 @@ const E_commerce_Page = () => {
                   {service.title}
                 </h3>
 
-                <p className="mb-3 text-sm text-gray-500 dark:text-gray-100">
-                  Built with <span className="font-semibold">{builtWith}</span>
+                <p className="mb-3 text-sm text-cyan-500 dark:text-gray-100">
+                  Built with <span className="font-bold">{builtWith}</span>
                 </p>
 
                 <Link
