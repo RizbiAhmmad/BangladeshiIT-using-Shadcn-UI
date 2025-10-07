@@ -36,7 +36,7 @@ export default function ContactWithForm() {
 
     try {
       // POST request to backend
-      await axios.post("https://bangladeshiit-server-api.onrender.com/contactRequests", {
+      await axios.post("https://api.bangladeshiit.com/contactRequests", {
         name,
         company,
         phone,

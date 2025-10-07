@@ -11,7 +11,7 @@ export function MeetTheTeam() {
 
   useEffect(() => {
     axios
-      .get("http://72.60.199.112:5000/team")
+      .get("https://api.bangladeshiit.com/team")
       .then((res) => {
         setMembers(res.data);
         setLoading(false);

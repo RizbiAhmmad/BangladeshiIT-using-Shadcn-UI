@@ -23,7 +23,7 @@ const AddReviewVideo = () => {
     };
 
     try {
-      const res = await axios.post("http://72.60.199.112:5000/review-videos", videoData);
+      const res = await axios.post("https://api.bangladeshiit.com/review-videos", videoData);
       if (res.data.insertedId) {
         Swal.fire("Success", "Video review added successfully!", "success");
         setFormData({ title: "", videoUrl: "" });

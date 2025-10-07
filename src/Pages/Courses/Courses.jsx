@@ -16,7 +16,7 @@ const Courses = () => {
 
   useEffect(() => {
     axios
-      .get("http://72.60.199.112:5000/free-courses")
+      .get("https://api.bangladeshiit.com/free-courses")
       .then((res) => setCourses(res.data))
       .catch((err) => console.error("Error fetching courses:", err))
       .finally(() => setLoading(false));

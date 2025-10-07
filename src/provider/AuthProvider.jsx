@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
   const fetchUserRole = async (email) => {
     if (email) {
       try {
-        const response = await fetch(`http://72.60.199.112:5000/users/${email}`);
+        const response = await fetch(`https://api.bangladeshiit.com/users/${email}`);
         const userData = await response.json();
         setUserRole(userData?.role || 'user'); 
       } catch (error) {

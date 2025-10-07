@@ -7,7 +7,7 @@ export default function ReviewVideos() {
 
   useEffect(() => {
     axios
-      .get("http://72.60.199.112:5000/review-videos")
+      .get("https://api.bangladeshiit.com/review-videos")
       .then((res) => setReviewVideos(res.data))
       .catch((err) => console.error("Error fetching videos:", err));
   }, []);

@@ -1,7 +1,7 @@
 import Axios  from "axios";
 
 const axiosPublic=Axios.create({
-    baseURL: "http://72.60.199.112:5000",
+    baseURL: "https://api.bangladeshiit.com",
    
 })
 const useAxiosPublic = () => {
