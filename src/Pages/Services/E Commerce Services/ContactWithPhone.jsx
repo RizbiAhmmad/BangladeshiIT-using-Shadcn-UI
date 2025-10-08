@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+import ReactDemo from "./React Website/ReactDemo";
 
 export default function ContactWithForm() {
   const [name, setName] = useState("");
@@ -54,7 +55,7 @@ export default function ContactWithForm() {
         showConfirmButton: false,
       });
 
-      navigate("/thank-you");
+      navigate("/react-demo");
 
     } catch (err) {
       console.error("Form submission error:", err);
@@ -120,6 +121,7 @@ export default function ContactWithForm() {
             </button>
           </div>
         </form>
+        <ReactDemo></ReactDemo>
       </div>
   );
 }

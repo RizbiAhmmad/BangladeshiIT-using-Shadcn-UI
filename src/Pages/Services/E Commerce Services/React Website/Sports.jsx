@@ -8,7 +8,7 @@ import axios from "axios";
 import { useState } from "react";
 import ReactDemo from "./ReactDemo";
 
-const Organic_Product = () => {
+const Sports = () => {
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
@@ -234,4 +234,4 @@ const Organic_Product = () => {
   );
 };
 
-export default Organic_Product;
+export default Sports;

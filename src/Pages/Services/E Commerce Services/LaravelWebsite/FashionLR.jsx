@@ -87,8 +87,8 @@ const FashionLR = () => {
 
       <div>
         {/* 1. Customer Features */}
-        <section className="w-full py-20 bg-white dark:bg-black">
-          <div className="flex flex-col items-center gap-12 px-6 mx-auto max-w-7xl md:flex-row">
+        <section className="w-full py-10 bg-white dark:bg-black">
+          <div className="flex flex-col items-center max-w-6xl gap-6 px-6 mx-auto md:flex-row">
             {/* Left Side - Text */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -96,11 +96,11 @@ const FashionLR = () => {
               transition={{ duration: 1 }}
               className="flex-1 text-left"
             >
-              <h2 className="mb-6 text-3xl font-extrabold text-gray-800 dark:text-gray-100 md:text-4xl">
+              <h2 className="mb-6 text-2xl font-extrabold text-gray-800 dark:text-gray-100 md:text-4xl">
                 Customer Features
               </h2>
 
-              <ul className="pl-4 space-y-2 text-xl text-gray-700 list-disc dark:text-gray-100">
+              <ul className="pl-4 space-y-2 text-gray-700 list-disc text-md md:text-xl dark:text-gray-100">
                 <li>Cross-Platform Compatible</li>
                 <li>Fully responsive UI</li>
                 <li>Order Tracking</li>
@@ -130,8 +130,8 @@ const FashionLR = () => {
         </section>
 
         {/* 2. Admin Features */}
-        <section className="w-full py-20 bg-white dark:bg-black">
-          <div className="flex flex-col-reverse items-center gap-12 px-6 mx-auto max-w-7xl md:flex-row">
+        <section className="w-full py-10 bg-white dark:bg-black">
+          <div className="flex flex-col-reverse items-center max-w-6xl gap-6 px-6 mx-auto md:flex-row">
             {/* Left Side - Image */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
@@ -153,11 +153,11 @@ const FashionLR = () => {
               transition={{ duration: 1 }}
               className="flex-1 text-left"
             >
-              <h2 className="mb-6 text-3xl font-extrabold text-gray-800 dark:text-gray-100 md:text-4xl">
+              <h2 className="mb-6 text-2xl font-extrabold text-gray-800 dark:text-gray-100 md:text-4xl">
                 Admin Features
               </h2>
 
-              <ul className="pl-4 space-y-2 text-xl text-gray-700 list-disc dark:text-gray-100">
+              <ul className="pl-4 space-y-2 text-gray-700 list-disc text-md md:text-xl dark:text-gray-100">
                 <li>Discounts, Coupons, Tax Rate management</li>
                 <li>Flash Deals & Announcement Systems</li>
                 <li>Intuitive Dashboard</li>
@@ -176,7 +176,7 @@ const FashionLR = () => {
       </div>
 
       <div className="max-w-xl mx-auto">
-        <h2 className="mb-6 text-3xl font-bold text-center text-black dark:text-white">
+        <h2 className="mb-6 text-2xl font-bold text-center text-black md:text-3xl dark:text-white">
           Submit to Request a Demo
         </h2>
         <form className="space-y-4" onSubmit={handleSubmit}>

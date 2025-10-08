@@ -43,7 +43,7 @@ export default function Contact() {
   return (
     <div className="flex flex-col items-center min-h-screen px-6 py-16 mt-4 bg-white dark:bg-black">
       {/* Contact Card */}
-      <div className="flex flex-col w-full max-w-5xl p-8 bg-white border border-[#066938] shadow-xl rounded-xl md:flex-row md:space-x-8">
+      <div className="flex flex-col w-full max-w-6xl p-8 bg-white border border-[#066938] shadow-xl rounded-xl md:flex-row md:space-x-8">
         {/* Contact Info */}
         <div className="flex flex-col justify-center mb-10 md:w-1/2 md:mb-0">
           <h2 className="mb-4 text-4xl font-extrabold text-[#066938]">

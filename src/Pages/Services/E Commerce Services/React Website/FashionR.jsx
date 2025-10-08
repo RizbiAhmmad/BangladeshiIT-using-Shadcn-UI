@@ -8,7 +8,7 @@ import axios from "axios";
 import { useState } from "react";
 import ReactDemo from "./ReactDemo";
 
-const Organic_Product = () => {
+const FashionR = () => {
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
@@ -58,7 +58,7 @@ const Organic_Product = () => {
         timer: 2000,
         showConfirmButton: false,
       });
-      navigate("/laravel-demo");
+      navigate("/react-demo");
       
     } catch (err) {
       console.error("Form submission error:", err);
@@ -234,4 +234,4 @@ const Organic_Product = () => {
   );
 };
 
-export default Organic_Product;
+export default FashionR;

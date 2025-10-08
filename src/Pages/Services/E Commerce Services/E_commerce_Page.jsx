@@ -26,31 +26,31 @@ const services = [
   {
     title: "Fashion Website",
     icon: <FaTshirt className="text-4xl text-purple-500" />, // Tshirt for fashion
-    reactLink: "#",
+    reactLink: "/react/fashion",
     laravelLink: "/laravel/fashion",
   },
   {
     title: "Electronics/Gadget Website",
     icon: <FaLaptop className="text-4xl text-blue-500" />, // Laptop for electronics
-    reactLink: "#",
+    reactLink: "/react/electronics",
     laravelLink: "#",
   },
   {
-    title: "Skin Care/Beauty/Jewelary Website",
+    title: "Skin Care/Beauty/Jewelry Website",
     icon: <FaSpa className="text-4xl text-pink-500" />, // Spa/beauty related
-    reactLink: "#",
+    reactLink: "/react/skincare",
     laravelLink: "#",
   },
   {
     title: "Furniture Website",
     icon: <FaCouch className="text-4xl text-orange-500" />, // Couch for furniture
-    reactLink: "#",
+    reactLink: "/react/furniture",
     laravelLink: "#",
   },
   {
     title: "Sports and Fitness Website",
     icon: <FaDumbbell className="text-4xl text-yellow-500" />, // Dumbbell for sports/fitness
-    reactLink: "#",
+    reactLink: "/react/sports",
     laravelLink: "#",
   },
 ];
@@ -153,7 +153,7 @@ const E_commerce_Page = () => {
             hidden: {},
             visible: { transition: { staggerChildren: 0.12 } },
           }}
-          className="grid max-w-7xl grid-cols-1 gap-8 mx-auto sm:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-8 mx-auto max-w-7xl sm:grid-cols-2 lg:grid-cols-3"
         >
           {services.map((service, idx) => {
             const link =
@@ -172,7 +172,7 @@ const E_commerce_Page = () => {
               >
                 <div className="absolute inset-0 transition duration-500 opacity-0 rounded-2xl bg-gradient-to-tr from-blue-100 via-pink-100 to-transparent hover:opacity-60"></div>
 
-                <div className="relative flex items-center justify-center w-16 h-16 mx-auto mb-6 text-blue-600 transition-transform duration-300 rounded-full shadow-md bg-blue-50 group-hover:scale-110">
+                <div className="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 text-blue-600 transition-transform duration-300 rounded-full shadow-md bg-blue-50 group-hover:scale-110">
                   {service.icon}
                 </div>
 

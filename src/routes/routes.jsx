@@ -42,6 +42,12 @@ import FashionPOS from "../Pages/Services/Software Development/FashionPOS";
 import Organic_Product from "../Pages/Services/E Commerce Services/React Website/Organic_Product";
 import AllContacts from "../Pages/Dashboard/Admin/AllContacts";
 import FashionLR from "../Pages/Services/E Commerce Services/LaravelWebsite/FashionLR";
+import FashionR from "../Pages/Services/E Commerce Services/React Website/FashionR";
+import ElectronicsR from "../Pages/Services/E Commerce Services/React Website/ElectronicsR";
+import SkinCare from "../Pages/Services/E Commerce Services/React Website/SkinCare";
+import Furniture from "../Pages/Services/E Commerce Services/React Website/Furniture";
+import Sports from "../Pages/Services/E Commerce Services/React Website/Sports";
+import ReactDemo from "../Pages/Services/E Commerce Services/React Website/ReactDemo";
 
 export const router = createBrowserRouter([
   {
@@ -80,6 +86,30 @@ export const router = createBrowserRouter([
       {
         path: "/react/organic-product",
         element: <Organic_Product />,
+      },
+      {
+        path: "/react/fashion",
+        element: <FashionR />,
+      },
+      {
+        path: "/react/electronics",
+        element: <ElectronicsR />,
+      },
+      {
+        path: "/react/skincare",
+        element: <SkinCare />,
+      },
+      {
+        path: "/react/furniture",
+        element: <Furniture />,
+      },
+      {
+        path: "/react/sports",
+        element: <Sports />,
+      },
+      {
+        path: "/react-demo",
+        element: <ReactDemo />,
       },
       {
         path: "/laravel/fashion",
