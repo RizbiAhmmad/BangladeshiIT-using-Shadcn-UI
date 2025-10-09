@@ -1,4 +1,4 @@
-import SportsBanner from "../../../../../src/assets/Sports-banner.jpg";
+import organicBanner from "../../../../../src/assets/Organic-banner.jpg";
 import organicCustomer from "../../../../../src/assets/Organic-customer.jpg";
 import organicAdmin from "../../../../../src/assets/Organic-admin.jpg";
 import { motion } from "framer-motion";
@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { useState } from "react";
 
-const Sports = () => {
+const OrganicLR = () => {
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
@@ -57,7 +57,7 @@ const Sports = () => {
         timer: 2000,
         showConfirmButton: false,
       });
-      navigate("/react-demo?type=sports");
+      navigate("/laravel-demo?type=organic");
       
     } catch (err) {
       console.error("Form submission error:", err);
@@ -78,7 +78,7 @@ const Sports = () => {
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          src={SportsBanner}
+          src={organicBanner}
           alt="Organic Banner"
           className="object-cover w-full h-full"
         />
@@ -226,9 +226,9 @@ const Sports = () => {
             </button>
           </div>
         </form>
-      </div>      
+      </div>    
     </div>
   );
 };
 
-export default Sports;
+export default OrganicLR;

@@ -1,4 +1,4 @@
-import organicBanner from "../../../../../src/assets/Organic-banner.jpg";
+import FurnitureBanner from "../../../../../src/assets/Furniture-banner.jpg";
 import organicCustomer from "../../../../../src/assets/Organic-customer.jpg";
 import organicAdmin from "../../../../../src/assets/Organic-admin.jpg";
 import { motion } from "framer-motion";
@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useState } from "react";
-import ReactDemo from "./ReactDemo";
 
 const Furniture = () => {
   const [name, setName] = useState("");
@@ -58,7 +57,7 @@ const Furniture = () => {
         timer: 2000,
         showConfirmButton: false,
       });
-      navigate("/laravel-demo");
+      navigate("/react-demo?type=furniture");
       
     } catch (err) {
       console.error("Form submission error:", err);
@@ -79,8 +78,8 @@ const Furniture = () => {
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          src={organicBanner}
-          alt="Organic Banner"
+          src={FurnitureBanner}
+          alt="Furniture Banner"
           className="object-cover w-full h-full"
         />
       </section>
@@ -227,9 +226,7 @@ const Furniture = () => {
             </button>
           </div>
         </form>
-      </div>
-      <ReactDemo></ReactDemo>
-      
+      </div>     
     </div>
   );
 };

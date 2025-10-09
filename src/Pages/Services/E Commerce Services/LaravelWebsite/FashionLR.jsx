@@ -1,4 +1,4 @@
-import organicBanner from "../../../../../src/assets/Organic-banner.jpg";
+import FashionBanner from "../../../../../src/assets/Fashion-banner.jpg";
 import organicCustomer from "../../../../../src/assets/Organic-customer.jpg";
 import organicAdmin from "../../../../../src/assets/Organic-admin.jpg";
 import { motion } from "framer-motion";
@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useState } from "react";
-import LaravelDemo from "./LaravelDemo";
 
 const FashionLR = () => {
   const [name, setName] = useState("");
@@ -58,7 +57,7 @@ const FashionLR = () => {
         timer: 2000,
         showConfirmButton: false,
       });
-      navigate("/laravel-demo");
+      navigate("/laravel-demo?type=fashion");
       
     } catch (err) {
       console.error("Form submission error:", err);
@@ -79,8 +78,8 @@ const FashionLR = () => {
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          src={organicBanner}
-          alt="Organic Banner"
+          src={FashionBanner}
+          alt="Fashion Banner"
           className="object-cover w-full h-full"
         />
       </section>
@@ -228,8 +227,6 @@ const FashionLR = () => {
           </div>
         </form>
       </div>
-      <LaravelDemo></LaravelDemo>
-      
     </div>
   );
 };

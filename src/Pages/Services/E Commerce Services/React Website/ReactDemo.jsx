@@ -10,16 +10,17 @@ import {
   FaCouch,
   FaPlug,
 } from "react-icons/fa";
+import { useSearchParams } from "react-router-dom";
 
 const demoData = {
   organic: {
     name: "Organic Shop",
-    adminLink: "https://organic.bangladeshiit.com/admin/dashboard",
+    adminLink: "https://organic.bangladeshiit.com/login",
     customerLink: "https://organic.bangladeshiit.com",
     adminEmail: "admin@organic.com",
     customerEmail: "customer@organic.com",
-    adminPassword: "123456",
-    customerPassword: "12345",
+    adminPassword: "Admin123",
+    customerPassword: "Customer123",
     adminColor: "bg-lime-600 hover:bg-lime-700",
     customerColor: "bg-emerald-600 hover:bg-emerald-700",
     icon: <FaLeaf className="text-lime-500" />,
@@ -28,10 +29,10 @@ const demoData = {
     name: "Fashion Shop",
     adminLink: "https://fashion.bangladeshiit.com/admin/dashboard",
     customerLink: "https://fashion.bangladeshiit.com",
-    adminEmail: "admin@demo.com",
-    customerEmail: "customer@demo.com",
-    adminPassword: "123456",
-    customerPassword: "12345",
+    adminEmail: "admin@fashion.com",
+    customerEmail: "customer@fashion.com",
+    adminPassword: "Admin123",
+    customerPassword: "Customer123",
     adminColor: "bg-red-600 hover:bg-red-700",
     customerColor: "bg-green-600 hover:bg-green-700",
     icon: <FaTshirt className="text-pink-500" />,
@@ -42,8 +43,8 @@ const demoData = {
     customerLink: "https://electronics.bangladeshiit.com",
     adminEmail: "admin@electronics.com",
     customerEmail: "customer@electronics.com",
-    adminPassword: "123456",
-    customerPassword: "12345",
+    adminPassword: "Admin123",
+    customerPassword: "Customer123",
     adminColor: "bg-indigo-600 hover:bg-indigo-700",
     customerColor: "bg-cyan-600 hover:bg-cyan-700",
     icon: <FaPlug className="text-indigo-500" />,
@@ -54,8 +55,8 @@ const demoData = {
     customerLink: "https://skincare.bangladeshiit.com",
     adminEmail: "admin@skincare.com",
     customerEmail: "customer@skincare.com",
-    adminPassword: "123456",
-    customerPassword: "12345",
+    adminPassword: "Admin123",
+    customerPassword: "Customer123",
     adminColor: "bg-pink-600 hover:bg-pink-700",
     customerColor: "bg-rose-600 hover:bg-rose-700",
     icon: <FaSpa className="text-rose-500" />,
@@ -66,8 +67,8 @@ const demoData = {
     customerLink: "https://furniture.bangladeshiit.com",
     adminEmail: "admin@furniture.com",
     customerEmail: "customer@furniture.com",
-    adminPassword: "123456",
-    customerPassword: "12345",
+    adminPassword: "Admin123",
+    customerPassword: "Customer123",
     adminColor: "bg-amber-700 hover:bg-amber-800",
     customerColor: "bg-orange-600 hover:bg-orange-700",
     icon: <FaCouch className="text-amber-600" />,
@@ -78,8 +79,8 @@ const demoData = {
     customerLink: "https://sports.bangladeshiit.com",
     adminEmail: "admin@sports.com",
     customerEmail: "customer@sports.com",
-    adminPassword: "123456",
-    customerPassword: "12345",
+    adminPassword: "Admin123",
+    customerPassword: "Customer123",
     adminColor: "bg-blue-600 hover:bg-blue-700",
     customerColor: "bg-yellow-600 hover:bg-yellow-700",
     icon: <FaDumbbell className="text-blue-500" />,
@@ -87,8 +88,12 @@ const demoData = {
 };
 
 const ReactDemo = () => {
-  const [selected, setSelected] = useState("organic");
+  const [searchParams] = useSearchParams();
+  const typeFromURL = searchParams.get("type");
+  const [selected, setSelected] = useState(typeFromURL || "organic");
   const current = demoData[selected];
+
+  const showSelector = !typeFromURL; // ✅ Only show selector if no type in URL
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-white py-22 dark:bg-black">
@@ -101,30 +106,33 @@ const ReactDemo = () => {
         React E-Commerce Demo
       </motion.h1>
 
-      {/* Custom Fancy Selector */}
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="grid justify-center w-full max-w-3xl grid-cols-2 gap-4 mb-10 md:grid-cols-3"
-      >
-        {Object.entries(demoData).map(([key, data]) => (
-          <motion.button
-            key={key}
-            onClick={() => setSelected(key)}
-            whileHover={{ scale: 1.05 }}
-            className={`flex items-center justify-center gap-2 w-full sm:w-[48%] lg:w-auto px-5 py-3 rounded-xl font-medium shadow-md border-2 transition-all duration-300 ${
-              selected === key
-                ? "border-red-500 bg-white dark:bg-gray-800 text-red-600 dark:text-white"
-                : "border-gray-300 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:border-red-400"
-            }`}
-          >
-            {data.icon}
-            <span className="text-sm md:text-base">{data.name}</span>
-          </motion.button>
-        ))}
-      </motion.div>
+      {/* ✅ Show selector only if no ?type= param */}
+      {showSelector && (
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="grid justify-center w-full max-w-3xl grid-cols-2 gap-4 mb-10 md:grid-cols-3"
+        >
+          {Object.entries(demoData).map(([key, data]) => (
+            <motion.button
+              key={key}
+              onClick={() => setSelected(key)}
+              whileHover={{ scale: 1.05 }}
+              className={`flex items-center justify-center gap-2 w-full sm:w-[48%] lg:w-auto px-5 py-3 rounded-xl font-medium shadow-md border-2 transition-all duration-300 ${
+                selected === key
+                  ? "border-red-500 bg-white dark:bg-gray-800 text-red-600 dark:text-white"
+                  : "border-gray-300 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:border-red-400"
+              }`}
+            >
+              {data.icon}
+              <span className="text-sm md:text-base">{data.name}</span>
+            </motion.button>
+          ))}
+        </motion.div>
+      )}
 
+      {/* Selected demo */}
       <motion.h2
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -134,6 +142,7 @@ const ReactDemo = () => {
         {current.name}
       </motion.h2>
 
+      {/* Admin + Customer Cards */}
       <div className="grid w-full max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
         {/* Admin Card */}
         <motion.div whileHover={{ scale: 1.05 }} className="w-full">

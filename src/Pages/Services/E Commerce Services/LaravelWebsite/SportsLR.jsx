@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { useState } from "react";
 
-const Sports = () => {
+const SportsLR = () => {
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
@@ -57,7 +57,7 @@ const Sports = () => {
         timer: 2000,
         showConfirmButton: false,
       });
-      navigate("/react-demo?type=sports");
+      navigate("/laravel-demo?type=sports");
       
     } catch (err) {
       console.error("Form submission error:", err);
@@ -231,4 +231,4 @@ const Sports = () => {
   );
 };
 
-export default Sports;
+export default SportsLR;

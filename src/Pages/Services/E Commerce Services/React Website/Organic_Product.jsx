@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useState } from "react";
-import ReactDemo from "./ReactDemo";
 
 const Organic_Product = () => {
   const [name, setName] = useState("");
@@ -58,7 +57,7 @@ const Organic_Product = () => {
         timer: 2000,
         showConfirmButton: false,
       });
-      navigate("/laravel-demo");
+      navigate("/react-demo?type=organic");
       
     } catch (err) {
       console.error("Form submission error:", err);
@@ -227,9 +226,7 @@ const Organic_Product = () => {
             </button>
           </div>
         </form>
-      </div>
-      <ReactDemo></ReactDemo>
-      
+      </div>    
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import organicBanner from "../../../../../src/assets/Organic-banner.jpg";
+import SkinCareBanner from "../../../../../src/assets/SkinCare-banner.jpg";
 import organicCustomer from "../../../../../src/assets/Organic-customer.jpg";
 import organicAdmin from "../../../../../src/assets/Organic-admin.jpg";
 import { motion } from "framer-motion";
@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { useState } from "react";
-import ReactDemo from "./ReactDemo";
 
 const SkinCare = () => {
   const [name, setName] = useState("");
@@ -58,7 +57,7 @@ const SkinCare = () => {
         timer: 2000,
         showConfirmButton: false,
       });
-      navigate("/laravel-demo");
+      navigate("/react-demo?type=skincare");
       
     } catch (err) {
       console.error("Form submission error:", err);
@@ -79,8 +78,8 @@ const SkinCare = () => {
           initial={{ opacity: 0, scale: 1.1 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          src={organicBanner}
-          alt="Organic Banner"
+          src={SkinCareBanner}
+          alt="Skin Care Banner"
           className="object-cover w-full h-full"
         />
       </section>
@@ -227,9 +226,7 @@ const SkinCare = () => {
             </button>
           </div>
         </form>
-      </div>
-      <ReactDemo></ReactDemo>
-      
+      </div>      
     </div>
   );
 };

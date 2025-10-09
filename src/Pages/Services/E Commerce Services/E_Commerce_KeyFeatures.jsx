@@ -34,13 +34,13 @@ const E_Commerce_KeyFeatures = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const radius = isMobile ? 130 : 240;
+  const radius = isMobile ? 125 : 240;
   const center = isMobile ? 145 : 240;
 
   const angleIncrement = (2 * Math.PI) / features.length;
 
   return (
-    <section className="relative py-20 mt-4 bg-white dark:bg-black">
+    <section className="relative py-16 mt-4 bg-white dark:bg-black">
       <div
         className={`relative mx-auto ${
           isMobile ? "w-[300px] h-[300px]" : "w-[500px] h-[500px]"
@@ -58,7 +58,7 @@ const E_Commerce_KeyFeatures = () => {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: i * 0.1, type: "spring", stiffness: 100 }}
               className={`absolute hover:bg-blue-200 border border-[#066938] flex flex-col items-center justify-center bg-white rounded-full shadow-lg p-4 ${
-                isMobile ? "w-26 h-26" : "w-34 h-34"
+                isMobile ? "w-25 h-25" : "w-34 h-34"
               }`}
               style={{ top: y, left: x }}
             >
@@ -83,7 +83,7 @@ const E_Commerce_KeyFeatures = () => {
         {/* Central Circle with Text */}
         <div
           className={`absolute flex items-center dark:bg-white justify-center text-white rounded-full mt-2 ml-2 border-2 border-[#eb2127] hover:bg-blue-200 bg-white-500 shadow-2xl -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 ${
-            isMobile ? "w-28 h-28" : "w-40 h-40"
+            isMobile ? "w-26 h-26" : "w-40 h-40"
           }`}
         >
           <h2
