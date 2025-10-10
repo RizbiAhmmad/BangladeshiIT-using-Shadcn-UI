@@ -5,7 +5,7 @@ import confetti from "canvas-confetti";
 function Index() {
 
     useEffect(() => {
-      const end = Date.now() + 3 * 1000;
+      const end = Date.now() + 2 * 1000;
       const colors = ["#066938", "#eb2127", "#ffacaf", "#7adeff"];
   
       const frame = () => {

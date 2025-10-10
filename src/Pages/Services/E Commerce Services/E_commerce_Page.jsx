@@ -20,8 +20,8 @@ const services = [
   {
     title: "Organic Product Website",
     icon: <FaShoppingBasket className="text-4xl text-green-500" />, // Basket for organic products
-    reactLink: "/react/organic-product",
-    laravelLink: "#",
+    reactLink: "/react/organic",
+    laravelLink: "/laravel/organic",
   },
   {
     title: "Fashion Website",
@@ -33,30 +33,30 @@ const services = [
     title: "Electronics/Gadget Website",
     icon: <FaLaptop className="text-4xl text-blue-500" />, // Laptop for electronics
     reactLink: "/react/electronics",
-    laravelLink: "#",
+    laravelLink: "/laravel/electronics",
   },
   {
     title: "Skin Care/Beauty/Jewelry Website",
     icon: <FaSpa className="text-4xl text-pink-500" />, // Spa/beauty related
     reactLink: "/react/skincare",
-    laravelLink: "#",
+    laravelLink: "/laravel/skincare",
   },
   {
     title: "Furniture Website",
     icon: <FaCouch className="text-4xl text-orange-500" />, // Couch for furniture
     reactLink: "/react/furniture",
-    laravelLink: "#",
+    laravelLink: "/laravel/furniture",
   },
   {
     title: "Sports and Fitness Website",
     icon: <FaDumbbell className="text-4xl text-yellow-500" />, // Dumbbell for sports/fitness
     reactLink: "/react/sports",
-    laravelLink: "#",
+    laravelLink: "/laravel/sports",
   },
 ];
 
 const E_commerce_Page = () => {
-  const [activeTab, setActiveTab] = useState("react"); 
+  const [activeTab, setActiveTab] = useState("react");
   return (
     <div className="min-h-screen px-6 pt-6 pb-6 bg-white dark:bg-black">
       {/*  Banner Section */}
@@ -168,27 +168,29 @@ const E_commerce_Page = () => {
                   visible: { opacity: 1, y: 0, scale: 1 },
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="relative p-8 text-center transition-all duration-300 border border-gray-200 shadow-lg rounded-2xl bg-gradient-to-br from-white/70 to-white/30 backdrop-blur-lg hover:shadow-2xl hover:border-blue-300 hover:bg-blue-400"
               >
-                <div className="absolute inset-0 transition duration-500 opacity-0 rounded-2xl bg-gradient-to-tr from-blue-100 via-pink-100 to-transparent hover:opacity-60"></div>
-
-                <div className="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 text-blue-600 transition-transform duration-300 rounded-full shadow-md bg-blue-50 group-hover:scale-110">
-                  {service.icon}
-                </div>
-
-                <h3 className="relative mb-3 text-xl font-bold text-gray-800">
-                  {service.title}
-                </h3>
-
-                <p className="mb-3 text-sm text-cyan-500 dark:text-gray-100">
-                  Built with <span className="font-bold">{builtWith}</span>
-                </p>
-
+                {/* পুরো card টা এখন clickable */}
                 <Link
                   to={link}
-                  className="relative inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-white transition-all rounded-full shadow bg-gradient-to-t from-[#006752] to-[#15C300] hover:shadow-lg hover:scale-105"
+                  className="relative block p-8 text-center transition-all duration-300 border border-gray-200 shadow-lg group rounded-2xl bg-gradient-to-br from-white/70 to-white/30 backdrop-blur-lg hover:shadow-2xl hover:border-blue-300 hover:bg-blue-400"
                 >
-                  Explore More →
+                  <div className="absolute inset-0 transition duration-500 opacity-0 rounded-2xl bg-gradient-to-tr from-blue-100 via-pink-100 to-transparent group-hover:opacity-60"></div>
+
+                  <div className="relative flex items-center justify-center w-20 h-20 mx-auto mb-4 text-blue-600 transition-transform duration-300 rounded-full shadow-md bg-blue-50 group-hover:scale-110">
+                    {service.icon}
+                  </div>
+
+                  <h3 className="relative mb-3 text-xl font-bold text-gray-800">
+                    {service.title}
+                  </h3>
+
+                  <p className="mb-3 text-sm text-cyan-500 dark:text-gray-100">
+                    Built with <span className="font-bold">{builtWith}</span>
+                  </p>
+
+                  <span className="relative inline-flex items-center gap-1 px-4 py-2 text-sm font-medium text-white transition-all rounded-full shadow bg-gradient-to-t from-[#006752] to-[#15C300] hover:shadow-lg hover:scale-105">
+                    Explore More →
+                  </span>
                 </Link>
               </motion.div>
             );
@@ -198,7 +200,7 @@ const E_commerce_Page = () => {
 
       <KeyFeatures />
       <EcommerceFeature></EcommerceFeature>
-      <ContactWithForm></ContactWithForm>
+      <ContactWithForm activeTab={activeTab}></ContactWithForm>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-export default function ContactWithForm() {
+export default function ContactWithForm({ activeTab }) {
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
@@ -54,7 +54,11 @@ export default function ContactWithForm() {
         showConfirmButton: false,
       });
 
-      navigate("/react-demo");
+      if (activeTab === "laravel") {
+        navigate("/laravel-demo");
+      } else {
+        navigate("/react-demo");
+      }
 
     } catch (err) {
       console.error("Form submission error:", err);

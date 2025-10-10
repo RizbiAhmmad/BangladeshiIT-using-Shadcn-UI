@@ -1,11 +1,4 @@
 import { motion } from "framer-motion";
-import {
-  FaShoppingCart,
-  FaCreditCard,
-  FaBoxOpen,
-  FaChartLine,
-  FaUsers,
-} from "react-icons/fa";
 
 const sections = [
   {

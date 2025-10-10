@@ -162,7 +162,7 @@ const EcommerceSolutions = () => {
 
         <E_commerce_Page></E_commerce_Page>
 
-        <h3 className="mt-4 text-4xl font-extrabold text-blue-700 md:text-4xl">
+        <h3 className="mt-4 text-2xl font-extrabold text-blue-700 md:text-4xl">
           CHOOSE YOUR PLAN
         </h3>
       </div>

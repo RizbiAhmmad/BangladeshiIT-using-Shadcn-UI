@@ -44,6 +44,7 @@ const VideoGallery = () => {
               <video
                 src={vid.src}
                 controls
+                preload="none"
                 poster={vid.poster}
                 className="w-full rounded-t-xl"
               />

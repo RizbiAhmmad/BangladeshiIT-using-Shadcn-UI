@@ -48,6 +48,12 @@ import SkinCare from "../Pages/Services/E Commerce Services/React Website/SkinCa
 import Furniture from "../Pages/Services/E Commerce Services/React Website/Furniture";
 import Sports from "../Pages/Services/E Commerce Services/React Website/Sports";
 import ReactDemo from "../Pages/Services/E Commerce Services/React Website/ReactDemo";
+import ElectronicsLR from "../Pages/Services/E Commerce Services/LaravelWebsite/ElectronicsLR";
+import SkinCareLR from "../Pages/Services/E Commerce Services/LaravelWebsite/SkinCareLR";
+import FurnitureLR from "../Pages/Services/E Commerce Services/LaravelWebsite/FurnitureLR";
+import SportsLR from "../Pages/Services/E Commerce Services/LaravelWebsite/SportsLR";
+import OrganicLR from "../Pages/Services/E Commerce Services/LaravelWebsite/OrganicLR";
+import LaravelDemo from "../Pages/Services/E Commerce Services/LaravelWebsite/LaravelDemo";
 
 export const router = createBrowserRouter([
   {
@@ -84,7 +90,7 @@ export const router = createBrowserRouter([
         element: <EcommerceSolutions></EcommerceSolutions>,
       },
       {
-        path: "/react/organic-product",
+        path: "/react/organic",
         element: <Organic_Product />,
       },
       {
@@ -112,9 +118,34 @@ export const router = createBrowserRouter([
         element: <ReactDemo />,
       },
       {
+        path: "/laravel/organic",
+        element: <OrganicLR />,
+      },
+      {
         path: "/laravel/fashion",
         element: <FashionLR />,
       },
+      {
+        path: "/laravel/electronics",
+        element: <ElectronicsLR />,
+      },
+      {
+        path: "/laravel/skincare",
+        element: <SkinCareLR />,
+      },
+      {
+        path: "/laravel/furniture",
+        element: <FurnitureLR />,
+      },
+      {
+        path: "/laravel/sports",
+        element: <SportsLR />,
+      },
+      {
+        path: "/laravel-demo",
+        element: <LaravelDemo />,
+      },
+
       {
         path: "services/software-development",
         element: <SoftwareDevelopment></SoftwareDevelopment>,
