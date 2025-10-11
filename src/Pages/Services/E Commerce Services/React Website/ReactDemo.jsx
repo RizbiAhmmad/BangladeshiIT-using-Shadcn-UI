@@ -93,7 +93,7 @@ const ReactDemo = () => {
   const [selected, setSelected] = useState(typeFromURL || "organic");
   const current = demoData[selected];
 
-  const showSelector = !typeFromURL; // ✅ Only show selector if no type in URL
+  const showSelector = !typeFromURL;
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-white py-22 dark:bg-black">
@@ -106,7 +106,6 @@ const ReactDemo = () => {
         React E-Commerce Demo
       </motion.h1>
 
-      {/* ✅ Show selector only if no ?type= param */}
       {showSelector && (
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
