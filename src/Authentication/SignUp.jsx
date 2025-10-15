@@ -17,7 +17,7 @@ const SignUp = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/"; // ✅ আগের পেজ বা fallback "/"
+  const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
     createUser(data.email, data.password)
@@ -32,7 +32,7 @@ const SignUp = () => {
               role: "user",
               createdAt: new Date(),
             };
-            fetch("http://localhost:5000/users", {
+            fetch("https://api.bangladeshiit.com/users", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -41,26 +41,21 @@ const SignUp = () => {
             })
               .then((res) => res.json())
               .then((data) => {
-                if (
-                  data.insertedId ||
-                  data.message === "User already exists"
-                ) {
+                if (data.insertedId || data.message === "User already exists") {
                   reset();
                   Swal.fire({
                     title: "User created successfully",
                     icon: "success",
                     draggable: true,
                   });
-                  navigate(from, { replace: true }); // ✅ এখন সরাসরি আগের পেজে যাবে
+                  navigate(from, { replace: true });
                 }
               })
               .catch((error) =>
                 console.log("Error saving user to MongoDB:", error)
               );
           })
-          .catch((error) =>
-            console.log("Error updating user profile:", error)
-          );
+          .catch((error) => console.log("Error updating user profile:", error));
       })
       .catch((error) => console.log("Error creating user:", error));
   };
@@ -74,8 +69,6 @@ const SignUp = () => {
       }}
     >
       <div className="w-full max-w-md p-6 shadow-xl bg-white/20 backdrop-blur-lg rounded-xl sm:p-8">
-
-        {/* ✅ Back Button in normal flow */}
         <div className="mb-4">
           <Link
             to="/"
@@ -149,9 +142,7 @@ const SignUp = () => {
               className="w-full px-4 py-2 mt-1 text-white border rounded-lg bg-white/20 backdrop-blur-md border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-300"
             />
             {errors.password?.type === "required" && (
-              <span className="text-sm text-red-400">
-                Password is required
-              </span>
+              <span className="text-sm text-red-400">Password is required</span>
             )}
             {errors.password?.type === "minLength" && (
               <span className="text-sm text-red-400">
@@ -159,9 +150,7 @@ const SignUp = () => {
               </span>
             )}
             {errors.password?.type === "maxLength" && (
-              <span className="text-sm text-red-400">
-                Max 20 characters
-              </span>
+              <span className="text-sm text-red-400">Max 20 characters</span>
             )}
             {errors.password?.type === "pattern" && (
               <span className="text-sm text-red-400">

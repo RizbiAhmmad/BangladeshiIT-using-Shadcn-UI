@@ -3,40 +3,70 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 
-
 export default function AddBlogs() {
-  const { user } = useAuth(); //  user info
+  const { user } = useAuth(); // user info
   const [blog, setBlog] = useState({
     title: "",
     description: "",
-    image: "",
     tag: "",
-    link: "",
   });
+  const [imageFile, setImageFile] = useState(null);
+  const [loading, setLoading] = useState(false);
 
+  // handle text field changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setBlog((prev) => ({ ...prev, [name]: value }));
   };
 
+  // handle image select
+  const handleImageChange = (e) => {
+    setImageFile(e.target.files[0]);
+  };
+
+  // handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const blogWithEmail = {
-      ...blog,
-      email: user?.email,
-      createdAt: new Date(),
-    };
+    if (!imageFile) {
+      return Swal.fire("Error", "Please select an image", "error");
+    }
+
+    setLoading(true);
 
     try {
+      const cloudinaryData = new FormData();
+      cloudinaryData.append("file", imageFile);
+      cloudinaryData.append("upload_preset", "eCommerce"); // same preset as before
+
+      const cloudinaryRes = await axios.post(
+        "https://api.cloudinary.com/v1_1/dt3bgis04/image/upload",
+        cloudinaryData
+      );
+
+      const imageUrl = cloudinaryRes.data.secure_url;
+
+      const blogWithEmail = {
+        ...blog,
+        image: imageUrl,
+        email: user?.email,
+        createdAt: new Date(),
+      };
+
       const res = await axios.post("https://api.bangladeshiit.com/blogs", blogWithEmail);
+
       if (res.data.insertedId) {
         Swal.fire("Success", "Blog added successfully", "success");
-        setBlog({ title: "", description: "", image: "", tag: "", link: "" });
+        setBlog({ title: "", description: "", tag: "", link: "" });
+        setImageFile(null);
+      } else {
+        Swal.fire("Error", "Failed to add blog", "error");
       }
     } catch (error) {
-      console.error("Error adding blog:", error);
-      Swal.fire("Error", "Failed to add blog", "error");
+      console.error("❌ Error adding blog:", error);
+      Swal.fire("Error", "Something went wrong", "error");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -45,7 +75,9 @@ export default function AddBlogs() {
       <h2 className="text-2xl font-bold mb-4 text-center text-green-700">
         Add a New Blog
       </h2>
+
       <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Title */}
         <input
           name="title"
           value={blog.title}
@@ -54,6 +86,8 @@ export default function AddBlogs() {
           className="w-full border p-2 rounded"
           required
         />
+
+        {/* Description */}
         <textarea
           name="description"
           value={blog.description}
@@ -63,14 +97,33 @@ export default function AddBlogs() {
           className="w-full border p-2 rounded"
           required
         />
-        <input
-          name="image"
-          value={blog.image}
-          onChange={handleChange}
-          placeholder="Image URL"
-          className="w-full border p-2 rounded"
-          required
-        />
+
+        {/* Image Upload */}
+        <div>
+          <label className="block mb-1 font-semibold">Blog Image</label>
+          <div className="flex items-center gap-4">
+            <label
+              htmlFor="image"
+              className="px-4 py-2 text-white transition bg-green-500 rounded-lg shadow cursor-pointer hover:bg-green-600"
+            >
+              Choose File
+            </label>
+            <span className="text-sm text-gray-600">
+              {imageFile ? imageFile.name : "No file chosen"}
+            </span>
+          </div>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            onChange={handleImageChange}
+            accept="image/*"
+            required
+            className="hidden"
+          />
+        </div>
+
+        {/* Tag */}
         <input
           name="tag"
           value={blog.tag}
@@ -78,20 +131,15 @@ export default function AddBlogs() {
           placeholder="Tag (e.g. SEO, Branding)"
           className="w-full border p-2 rounded"
         />
-        <input
-          name="link"
-          value={blog.link}
-          onChange={handleChange}
-          placeholder="External link (optional)"
-          className="w-full border p-2 rounded"
-        />
 
-         <div className="text-center">
+        {/* Submit */}
+        <div className="text-center">
           <button
             type="submit"
-            className="bg-green-500 text-white px-6 py-2 rounded hover:bg-orange-600"
+            disabled={loading}
+            className="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600"
           >
-            Add Blog
+            {loading ? "Uploading..." : "Add Blog"}
           </button>
         </div>
       </form>

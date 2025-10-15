@@ -27,7 +27,7 @@ const demoData = {
   },
   fashion: {
     name: "Fashion Shop",
-    adminLink: "https://fashion.bangladeshiit.com/admin/dashboard",
+    adminLink: "https://fashion.bangladeshiit.com/login",
     customerLink: "https://fashion.bangladeshiit.com",
     adminEmail: "admin@fashion.com",
     customerEmail: "customer@fashion.com",
@@ -39,7 +39,7 @@ const demoData = {
   },
   electronics: {
     name: "Electronics Store",
-    adminLink: "https://electronics.bangladeshiit.com/admin/dashboard",
+    adminLink: "https://electronics.bangladeshiit.com/login",
     customerLink: "https://electronics.bangladeshiit.com",
     adminEmail: "admin@electronics.com",
     customerEmail: "customer@electronics.com",
@@ -51,7 +51,7 @@ const demoData = {
   },
   skincare: {
     name: "Skincare Store",
-    adminLink: "https://skincare.bangladeshiit.com/admin/dashboard",
+    adminLink: "https://skincare.bangladeshiit.com/login",
     customerLink: "https://skincare.bangladeshiit.com",
     adminEmail: "admin@skincare.com",
     customerEmail: "customer@skincare.com",
@@ -63,7 +63,7 @@ const demoData = {
   },
   furniture: {
     name: "Furniture Shop",
-    adminLink: "https://furniture.bangladeshiit.com/admin/dashboard",
+    adminLink: "https://furniture.bangladeshiit.com/login",
     customerLink: "https://furniture.bangladeshiit.com",
     adminEmail: "admin@furniture.com",
     customerEmail: "customer@furniture.com",
@@ -75,7 +75,7 @@ const demoData = {
   },
   sports: {
     name: "Sports Store",
-    adminLink: "https://sports.bangladeshiit.com/admin/dashboard",
+    adminLink: "https://sports.bangladeshiit.com/login",
     customerLink: "https://sports.bangladeshiit.com",
     adminEmail: "admin@sports.com",
     customerEmail: "customer@sports.com",
@@ -143,34 +143,6 @@ const ReactDemo = () => {
 
       {/* Admin + Customer Cards */}
       <div className="grid w-full max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
-        {/* Admin Card */}
-        <motion.div whileHover={{ scale: 1.05 }} className="w-full">
-          <div className="p-6 text-center border shadow-md bg-blue-50 dark:bg-gray-800 rounded-xl backdrop-blur-md">
-            <FaUserShield className="mx-auto mb-4 text-5xl text-red-500" />
-            <h3 className="mb-4 text-2xl font-semibold text-gray-800 dark:text-white">
-              Admin Demo
-            </h3>
-            <p className="mb-2 text-gray-700 dark:text-gray-300">
-              <strong>Link:</strong>{" "}
-              <a href={current.adminLink} className="text-blue-600 underline">
-                Admin Login
-              </a>
-            </p>
-            <p className="mb-2 text-gray-700 dark:text-gray-300">
-              <strong>Email:</strong> {current.adminEmail}
-            </p>
-            <p className="mb-6 text-gray-700 dark:text-gray-300">
-              <strong>Password:</strong> {current.adminPassword}
-            </p>
-            <button
-              onClick={() => (window.location.href = current.adminLink)}
-              className={`px-5 py-2 text-white rounded-lg ${current.adminColor}`}
-            >
-              Go to Admin Login
-            </button>
-          </div>
-        </motion.div>
-
         {/* Customer Card */}
         <motion.div whileHover={{ scale: 1.05 }} className="w-full">
           <div className="p-6 text-center border shadow-md bg-blue-50 dark:bg-gray-800 rounded-xl backdrop-blur-md">
@@ -198,6 +170,34 @@ const ReactDemo = () => {
               className={`px-5 py-2 text-white rounded-lg ${current.customerColor}`}
             >
               Go to Customer Login
+            </button>
+          </div>
+        </motion.div>
+
+        {/* Admin Card */}
+        <motion.div whileHover={{ scale: 1.05 }} className="w-full">
+          <div className="p-6 text-center border shadow-md bg-blue-50 dark:bg-gray-800 rounded-xl backdrop-blur-md">
+            <FaUserShield className="mx-auto mb-4 text-5xl text-red-500" />
+            <h3 className="mb-4 text-2xl font-semibold text-gray-800 dark:text-white">
+              Admin Demo
+            </h3>
+            <p className="mb-2 text-gray-700 dark:text-gray-300">
+              <strong>Link:</strong>{" "}
+              <a href={current.adminLink} className="text-blue-600 underline">
+                Admin Login
+              </a>
+            </p>
+            <p className="mb-2 text-gray-700 dark:text-gray-300">
+              <strong>Email:</strong> {current.adminEmail}
+            </p>
+            <p className="mb-6 text-gray-700 dark:text-gray-300">
+              <strong>Password:</strong> {current.adminPassword}
+            </p>
+            <button
+              onClick={() => (window.location.href = current.adminLink)}
+              className={`px-5 py-2 text-white rounded-lg ${current.adminColor}`}
+            >
+              Go to Admin Login
             </button>
           </div>
         </motion.div>

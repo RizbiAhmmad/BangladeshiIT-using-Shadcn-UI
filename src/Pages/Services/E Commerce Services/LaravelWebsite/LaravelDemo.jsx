@@ -17,7 +17,7 @@ const demoData = {
     name: "Organic Shop",
     adminLink: "https://organiclr.bangladeshiit.com/admin/dashboard",
     customerLink: "https://organiclr.bangladeshiit.com",
-    adminEmail: "01621-741799",
+    adminEmail: "01621741799",
     customerEmail: "",
     adminPassword: "management@organic",
     customerPassword: "",
@@ -29,7 +29,7 @@ const demoData = {
     name: "Fashion Shop",
     adminLink: "https://fashionlr.bangladeshiit.com/admin/dashboard",
     customerLink: "https://fashionlr.bangladeshiit.com",
-    adminEmail: "01621-741799",
+    adminEmail: "01621741799",
     customerEmail: "",
     adminPassword: "management@fashion",
     customerPassword: "",
@@ -41,7 +41,7 @@ const demoData = {
     name: "Electronics Store",
     adminLink: "https://electronicslr.bangladeshiit.com/admin/dashboard",
     customerLink: "https://electronicslr.bangladeshiit.com",
-    adminEmail: "01621-741799",
+    adminEmail: "01621741799",
     customerEmail: "",
     adminPassword: "management@electronics",
     customerPassword: "",
@@ -53,7 +53,7 @@ const demoData = {
     name: "Skincare Store",
     adminLink: "https://skincarelr.bangladeshiit.com/admin/dashboard",
     customerLink: "https://skincarelr.bangladeshiit.com",
-    adminEmail: "01621-741799",
+    adminEmail: "01621741799",
     customerEmail: "",
     adminPassword: "management@skincare",
     customerPassword: "",
@@ -65,7 +65,7 @@ const demoData = {
     name: "Furniture Shop",
     adminLink: "https://furniturelr.bangladeshiit.com/admin/dashboard",
     customerLink: "https://furniturelr.bangladeshiit.com",
-    adminEmail: "01621-741799",
+    adminEmail: "01621741799",
     customerEmail: "",
     adminPassword: "management@furniture",
     customerPassword: "",
@@ -77,7 +77,7 @@ const demoData = {
     name: "Sports Store",
     adminLink: "https://sportslr.bangladeshiit.com/admin/dashboard",
     customerLink: "https://sportslr.bangladeshiit.com",
-    adminEmail: "01621-741799",
+    adminEmail: "01621741799",
     customerEmail: "",
     adminPassword: "management@sports",
     customerPassword: "",
@@ -93,7 +93,7 @@ const LaravelDemo = () => {
   const [selected, setSelected] = useState(typeFromURL || "organic");
   const current = demoData[selected];
 
-  const showSelector = !typeFromURL; 
+  const showSelector = !typeFromURL;
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-white py-22 dark:bg-black">
@@ -144,6 +144,37 @@ const LaravelDemo = () => {
 
       {/* Admin + Customer Cards */}
       <div className="grid w-full max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
+        {/* Customer Card */}
+        <motion.div whileHover={{ scale: 1.05 }} className="w-full">
+          <div className="p-6 text-center border shadow-md bg-blue-50 dark:bg-gray-800 rounded-xl backdrop-blur-md">
+            <FaUser className="mx-auto mb-4 text-5xl text-green-500" />
+            <h3 className="mb-4 text-2xl font-semibold text-gray-800 dark:text-white">
+              Customer Demo
+            </h3>
+            <p className="mb-2 text-gray-700 dark:text-gray-300">
+              <strong>Link:</strong>{" "}
+              <a
+                href={current.customerLink}
+                className="text-blue-600 underline"
+              >
+                Customer Login
+              </a>
+            </p>
+            <p className="mb-2 text-gray-700 dark:text-gray-300">
+              <strong>Email:</strong> {current.customerEmail}
+            </p>
+            <p className="mb-6 text-gray-700 dark:text-gray-300">
+              <strong>Password:</strong> {current.customerPassword}
+            </p>
+            <button
+              onClick={() => (window.location.href = current.customerLink)}
+              className={`px-5 py-2 text-white rounded-lg ${current.customerColor}`}
+            >
+              Go to Customer Login
+            </button>
+          </div>
+        </motion.div>
+
         {/* Admin Card */}
         <motion.div whileHover={{ scale: 1.05 }} className="w-full">
           <div className="p-6 text-center border shadow-md bg-blue-50 dark:bg-gray-800 rounded-xl backdrop-blur-md">
@@ -168,34 +199,6 @@ const LaravelDemo = () => {
               className={`px-5 py-2 text-white rounded-lg ${current.adminColor}`}
             >
               Go to Admin Login
-            </button>
-          </div>
-        </motion.div>
-
-        {/* Customer Card */}
-        <motion.div whileHover={{ scale: 1.05 }} className="w-full">
-          <div className="p-6 text-center border shadow-md bg-blue-50 dark:bg-gray-800 rounded-xl backdrop-blur-md">
-            <FaUser className="mx-auto mb-4 text-5xl text-green-500" />
-            <h3 className="mb-4 text-2xl font-semibold text-gray-800 dark:text-white">
-              Customer Demo
-            </h3>
-            <p className="mb-2 text-gray-700 dark:text-gray-300">
-              <strong>Link:</strong>{" "}
-              <a href={current.customerLink} className="text-blue-600 underline">
-                Customer Login
-              </a>
-            </p>
-            <p className="mb-2 text-gray-700 dark:text-gray-300">
-              <strong>Email:</strong> {current.customerEmail}
-            </p>
-            <p className="mb-6 text-gray-700 dark:text-gray-300">
-              <strong>Password:</strong> {current.customerPassword}
-            </p>
-            <button
-              onClick={() => (window.location.href = current.customerLink)}
-              className={`px-5 py-2 text-white rounded-lg ${current.customerColor}`}
-            >
-              Go to Customer Login
             </button>
           </div>
         </motion.div>

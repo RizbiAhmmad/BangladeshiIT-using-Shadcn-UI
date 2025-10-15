@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   FaShoppingBasket,
   FaTshirt,
@@ -8,58 +8,71 @@ import {
   FaSpa,
   FaCouch,
   FaDumbbell,
+  FaReact,
 } from "react-icons/fa";
+import { SiLaravel } from "react-icons/si";
 import KeyFeatures from "./E_Commerce_KeyFeatures";
 import ContactWithForm from "./ContactWithPhone";
-import banner from "../../../../src/assets/ecommerce-banner.jpg";
 import EcommerceFeature from "./EcommerceFeature";
-import { FaReact } from "react-icons/fa";
-import { SiLaravel } from "react-icons/si";
+import banner from "../../../../src/assets/ecommerce-banner.jpg";
+
 // Services data
 const services = [
   {
     title: "Organic Product Website",
-    icon: <FaShoppingBasket className="text-4xl text-green-500" />, // Basket for organic products
+    icon: <FaShoppingBasket className="text-4xl text-green-500" />,
     reactLink: "/react/organic",
     laravelLink: "/laravel/organic",
   },
   {
     title: "Fashion Website",
-    icon: <FaTshirt className="text-4xl text-purple-500" />, // Tshirt for fashion
+    icon: <FaTshirt className="text-4xl text-purple-500" />,
     reactLink: "/react/fashion",
     laravelLink: "/laravel/fashion",
   },
   {
     title: "Electronics/Gadget Website",
-    icon: <FaLaptop className="text-4xl text-blue-500" />, // Laptop for electronics
+    icon: <FaLaptop className="text-4xl text-blue-500" />,
     reactLink: "/react/electronics",
     laravelLink: "/laravel/electronics",
   },
   {
     title: "Skin Care/Beauty/Jewelry Website",
-    icon: <FaSpa className="text-4xl text-pink-500" />, // Spa/beauty related
+    icon: <FaSpa className="text-4xl text-pink-500" />,
     reactLink: "/react/skincare",
     laravelLink: "/laravel/skincare",
   },
   {
     title: "Furniture Website",
-    icon: <FaCouch className="text-4xl text-orange-500" />, // Couch for furniture
+    icon: <FaCouch className="text-4xl text-orange-500" />,
     reactLink: "/react/furniture",
     laravelLink: "/laravel/furniture",
   },
   {
     title: "Sports and Fitness Website",
-    icon: <FaDumbbell className="text-4xl text-yellow-500" />, // Dumbbell for sports/fitness
+    icon: <FaDumbbell className="text-4xl text-yellow-500" />,
     reactLink: "/react/sports",
     laravelLink: "/laravel/sports",
   },
 ];
 
 const E_commerce_Page = () => {
-  const [activeTab, setActiveTab] = useState("react");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const params = new URLSearchParams(location.search);
+  const initialTab = params.get("tab") || "react";
+
+  const [activeTab, setActiveTab] = useState(initialTab);
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    navigate(`?tab=${tab}`, { replace: true });
+  };
+
   return (
     <div className="min-h-screen px-6 pt-6 pb-6 bg-white dark:bg-black">
-      {/*  Banner Section */}
+      {/* Banner Section */}
       <section className="w-full h-auto overflow-hidden rounded-xl">
         <motion.img
           initial={{ opacity: 0, scale: 1.1 }}
@@ -73,28 +86,27 @@ const E_commerce_Page = () => {
 
       {/* Services Section */}
       <div className="mx-auto text-center max-w-7xl">
-        <h2 className="m-4 text-3xl font-bold text-black dark:text-white md:text-4xl">
-          Services We Provide
+        <h2 className="m-4 text-2xl font-bold text-black dark:text-white md:text-4xl">
+          Choose Your Website
         </h2>
 
         {/* Tabs */}
-
         <div
           role="tablist"
           aria-label="Framework tabs"
           className="flex flex-wrap justify-center gap-4 mb-8 text-center"
         >
+          {/* React Tab */}
           <button
             role="tab"
             aria-selected={activeTab === "react"}
-            onClick={() => setActiveTab("react")}
-            className={`group relative flex items-center gap-3 px-5 py-2 rounded-2xl font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#61dafb]/30 ${
+            onClick={() => handleTabChange("react")}
+            className={`group relative flex items-center gap-3 px-5 py-2 rounded-2xl font-semibold transition-all duration-300 ${
               activeTab === "react"
                 ? "bg-gradient-to-r from-[#e6f9ff] to-[#cdeeff] text-[#0366aa] shadow-[0_8px_30px_rgba(6,102,170,0.12)] scale-105"
                 : "bg-white/5 dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:scale-[1.03] hover:shadow-md"
             }`}
           >
-            {/* Icon circle */}
             <span
               className={`flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 ${
                 activeTab === "react"
@@ -105,21 +117,18 @@ const E_commerce_Page = () => {
             >
               <FaReact className="w-5 h-5" />
             </span>
-
-            {/* Label */}
             <span className="whitespace-nowrap">React Websites</span>
-
-            {/* active pill underline */}
             {activeTab === "react" && (
               <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-gradient-to-r from-[#61dafb] to-[#1b6fb0] shadow-sm" />
             )}
           </button>
 
+          {/* Laravel Tab */}
           <button
             role="tab"
             aria-selected={activeTab === "laravel"}
-            onClick={() => setActiveTab("laravel")}
-            className={`group relative flex items-center gap-3 px-5 py-2 rounded-2xl font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#f05340]/25 ${
+            onClick={() => handleTabChange("laravel")}
+            className={`group relative flex items-center gap-3 px-5 py-2 rounded-2xl font-semibold transition-all duration-300 ${
               activeTab === "laravel"
                 ? "bg-gradient-to-r from-[#ffecec] to-[#ffd6d0] text-[#a42f20] shadow-[0_8px_30px_rgba(164,47,32,0.10)] scale-105"
                 : "bg-white/5 dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:scale-[1.03] hover:shadow-md"
@@ -135,9 +144,7 @@ const E_commerce_Page = () => {
             >
               <SiLaravel className="w-5 h-5" />
             </span>
-
             <span className="whitespace-nowrap">Laravel Websites</span>
-
             {activeTab === "laravel" && (
               <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-gradient-to-r from-[#f05340] to-[#c23a2a] shadow-sm" />
             )}
@@ -169,7 +176,6 @@ const E_commerce_Page = () => {
                 }}
                 whileTap={{ scale: 0.98 }}
               >
-                {/* পুরো card টা এখন clickable */}
                 <Link
                   to={link}
                   className="relative block p-8 text-center transition-all duration-300 border border-gray-200 shadow-lg group rounded-2xl bg-gradient-to-br from-white/70 to-white/30 backdrop-blur-lg hover:shadow-2xl hover:border-blue-300 hover:bg-blue-400"
@@ -199,8 +205,8 @@ const E_commerce_Page = () => {
       </div>
 
       <KeyFeatures />
-      <EcommerceFeature></EcommerceFeature>
-      <ContactWithForm activeTab={activeTab}></ContactWithForm>
+      <EcommerceFeature />
+      <ContactWithForm activeTab={activeTab} />
     </div>
   );
 };

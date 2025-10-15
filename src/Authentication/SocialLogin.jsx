@@ -22,7 +22,7 @@ const SocialLogin = () => {
           createdAt: new Date(),
         };
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://api.bangladeshiit.com/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

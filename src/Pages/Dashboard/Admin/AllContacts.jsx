@@ -52,17 +52,31 @@ const AllContacts = () => {
               <th className="px-6 py-3">Company</th>
               <th className="px-6 py-3">Phone</th>
               <th className="px-6 py-3">Message</th>
+              <th className="px-6 py-3">Date & Time</th>
               <th className="px-6 py-3">Action</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
             {contacts.map((contact, index) => (
-              <tr key={contact._id} className="transition duration-200 hover:bg-gray-50">
-                <td className="px-6 py-4 font-medium text-gray-800">{index + 1}</td>
+              <tr
+                key={contact._id}
+                className="transition duration-200 hover:bg-gray-50"
+              >
+                <td className="px-6 py-4 font-medium text-gray-800">
+                  {index + 1}
+                </td>
                 <td className="px-6 py-4">{contact.name}</td>
                 <td className="px-6 py-4">{contact.company || "-"}</td>
                 <td className="px-6 py-4">{contact.phone}</td>
                 <td className="px-6 py-4">{contact.message || "-"}</td>
+                <td className="px-6 py-4">
+                  {contact.createdAt
+                    ? new Date(contact.createdAt).toLocaleString("en-BD", {
+                        dateStyle: "medium",
+                        timeStyle: "short",
+                      })
+                    : "-"}
+                </td>
                 <td className="px-6 py-4">
                   <button
                     onClick={() => handleDeleteContact(contact)}

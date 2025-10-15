@@ -50,7 +50,7 @@ export function MeetTheTeam() {
               ease: "easeOut",
             }}
             whileHover={{
-              scale: 1.05,
+              // scale: 1.05,
               boxShadow: "0px 10px 25px rgba(0,0,0,0.15)",
             }}
             viewport={{ once: true }}
