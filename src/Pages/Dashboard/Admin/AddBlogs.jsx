@@ -71,8 +71,8 @@ export default function AddBlogs() {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 mt-10 bg-white border border-green-500 shadow rounded-lg">
-      <h2 className="text-2xl font-bold mb-4 text-center text-green-700">
+    <div className="max-w-xl p-6 mx-auto mt-10 bg-white border border-green-500 rounded-lg shadow">
+      <h2 className="mb-4 text-2xl font-bold text-center text-green-700">
         Add a New Blog
       </h2>
 
@@ -83,7 +83,7 @@ export default function AddBlogs() {
           value={blog.title}
           onChange={handleChange}
           placeholder="Blog Title"
-          className="w-full border p-2 rounded"
+          className="w-full p-2 border rounded"
           required
         />
 
@@ -94,7 +94,7 @@ export default function AddBlogs() {
           onChange={handleChange}
           placeholder="Blog Description"
           rows={4}
-          className="w-full border p-2 rounded"
+          className="w-full p-2 border rounded"
           required
         />
 
@@ -129,7 +129,7 @@ export default function AddBlogs() {
           value={blog.tag}
           onChange={handleChange}
           placeholder="Tag (e.g. SEO, Branding)"
-          className="w-full border p-2 rounded"
+          className="w-full p-2 border rounded"
         />
 
         {/* Submit */}
@@ -137,7 +137,7 @@ export default function AddBlogs() {
           <button
             type="submit"
             disabled={loading}
-            className="bg-green-500 text-white px-6 py-2 rounded hover:bg-green-600"
+            className="px-6 py-2 text-white bg-green-500 rounded hover:bg-green-600"
           >
             {loading ? "Uploading..." : "Add Blog"}
           </button>

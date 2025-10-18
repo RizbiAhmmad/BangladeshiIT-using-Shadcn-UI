@@ -3,36 +3,35 @@ import { Sparkles } from "./Sparkles";
 import Earth from "../../components/uilayouts/globe";
 import confetti from "canvas-confetti";
 function Index() {
+  useEffect(() => {
+    const end = Date.now() + 2 * 1000;
+    const colors = ["#066938", "#eb2127", "#ffacaf", "#7adeff"];
 
-    useEffect(() => {
-      const end = Date.now() + 2 * 1000;
-      const colors = ["#066938", "#eb2127", "#ffacaf", "#7adeff"];
-  
-      const frame = () => {
-        if (Date.now() > end) return;
-  
-        confetti({
-          particleCount: 2,
-          angle: 60,
-          spread: 55,
-          startVelocity: 60,
-          origin: { x: 0, y: 0.5 },
-          colors,
-        });
-        confetti({
-          particleCount: 2,
-          angle: 120,
-          spread: 55,
-          startVelocity: 60,
-          origin: { x: 1, y: 0.5 },
-          colors,
-        });
-  
-        requestAnimationFrame(frame);
-      };
-  
-      frame();
-    }, []);
+    const frame = () => {
+      if (Date.now() > end) return;
+
+      confetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        startVelocity: 60,
+        origin: { x: 0, y: 0.5 },
+        colors,
+      });
+      confetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 55,
+        startVelocity: 60,
+        origin: { x: 1, y: 0.5 },
+        colors,
+      });
+
+      requestAnimationFrame(frame);
+    };
+
+    frame();
+  }, []);
 
   return (
     <>

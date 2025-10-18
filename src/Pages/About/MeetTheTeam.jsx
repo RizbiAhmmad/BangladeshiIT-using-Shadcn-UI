@@ -4,14 +4,16 @@ import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { AuroraText } from "../../components/magicui/aurora-text";
 import Loading from "../../Shared/Loading";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 export function MeetTheTeam() {
   const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const axiosPublic = useAxiosPublic()
 
   useEffect(() => {
-    axios
-      .get("https://api.bangladeshiit.com/team")
+    axiosPublic
+      .get("/team")
       .then((res) => {
         setMembers(res.data);
         setLoading(false);

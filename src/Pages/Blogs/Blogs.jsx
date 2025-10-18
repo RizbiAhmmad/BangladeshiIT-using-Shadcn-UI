@@ -2,21 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { AuroraText } from "../../components/magicui/aurora-text";
-import axios from "axios";
 import Loading from "../../Shared/Loading";
-
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 export default function Blogs() {
   const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true); // loading state
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic();
 
   useEffect(() => {
-    axios
-      .get("https://api.bangladeshiit.com/blogs")
+    axiosPublic
+      .get("/blogs")
       .then((res) => setBlogs(res.data))
       .catch((err) => console.error("Error fetching blogs:", err))
-      .finally(() => setLoading(false)); // stop loading
+      .finally(() => setLoading(false));
   }, []);
 
   return (
@@ -30,7 +30,6 @@ export default function Blogs() {
           enthusiasts alike. Stay informed, stay inspired.
         </p>
 
-        {/* 👉 Show loading spinner */}
         {loading ? (
           <Loading />
         ) : blogs.length === 0 ? (

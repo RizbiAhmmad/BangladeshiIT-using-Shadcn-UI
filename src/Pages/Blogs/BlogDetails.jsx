@@ -1,16 +1,17 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Loading from "../../Shared/Loading";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const BlogDetails = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
+  const axiosPublic = useAxiosPublic();
 
   useEffect(() => {
-    axios
-      .get(`https://api.bangladeshiit.com/blogs/${id}`)
+    axiosPublic
+      .get(`/blogs/${id}`)
       .then((res) => setBlog(res.data))
       .catch((err) => console.error("Error fetching blog:", err))
       .finally(() => setLoading(false));

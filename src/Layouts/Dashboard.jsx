@@ -103,14 +103,14 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
                 
-                <li>
+                {/* <li>
                   <NavLink
                     to="/dashboard/allReviewVideos"
                     className="flex items-center py-2 space-x-3"
                   >
                     <FaVideo /><span>All Review Videos</span>
                   </NavLink>
-                </li>
+                </li> */}
                 <li>
                   <NavLink
                     to="/dashboard/allMembers"

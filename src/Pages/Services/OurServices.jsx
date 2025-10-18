@@ -2,6 +2,11 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { AuroraText } from "../../components/magicui/aurora-text";
+import consultingImage from "../../../src/assets/Consulting.jpg";
+import ecommerceImage from "../../../src/assets/ECOMMERCE-SOLUTION.jpg";
+import webdevelopmentImage from "../../../src/assets/web-devlopment.jpg";
+import appdevelopmentImage from "../../../src/assets/app-development.jpg";
+import digitalMarketingImage from "../../../src/assets/Digital-marketing.jpg";
 
 const demoServices = [
   {
@@ -10,8 +15,7 @@ const demoServices = [
     link: "/services/ecommerce",
     description:
       "Launch your online store with secure, scalable, and user-friendly e-commerce solutions.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiRl_M4pg8bGaEkBba2bCPhtou7GX9XCn4xw&s",
+    image: ecommerceImage
   },
   {
     id: 2,
@@ -19,8 +23,7 @@ const demoServices = [
     link: "/services/web-development",
     description:
       "Fast, responsive websites built with cutting-edge technologies and user experience in mind.",
-    image:
-      "https://5.imimg.com/data5/SELLER/Default/2023/8/332112112/KO/OT/LM/2672556/web-development-programming-resized.jpg",
+    image:webdevelopmentImage
   },
   {
     id: 3,
@@ -37,8 +40,7 @@ const demoServices = [
     link: "/services/apps-development",
     description:
       "Powerful mobile apps for Android & iOS tailored to your business needs.",
-    image:
-      "https://riseuplabs.com/wp-content/uploads/2021/07/mobile-application-development-guidelines-riseuplabs.jpg",
+    image:appdevelopmentImage
   },
   {
     id: 5,
@@ -46,8 +48,7 @@ const demoServices = [
     link: "/services/digital-marketing",
     description:
       "Grow your brand reach with targeted ads, email marketing, and online campaigns.",
-    image:
-      "https://static.vecteezy.com/system/resources/previews/005/732/506/non_2x/man-hand-holding-smart-phone-digital-marketing-word-with-icon-business-virtual-screen-free-photo.jpg",
+    image:digitalMarketingImage
   },
   {
     id: 6,
@@ -81,8 +82,7 @@ const demoServices = [
     link: "/services/consulting",
     description:
       "Get expert advice and strategic guidance to grow and transform your business.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZRhm1bMpkMABn4WLgvgfdhjYYXSZ3Mpv6BA&s",
+    image: consultingImage,
   },
 ];
 

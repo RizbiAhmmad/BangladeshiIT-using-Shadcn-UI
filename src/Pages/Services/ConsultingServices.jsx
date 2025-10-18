@@ -1,10 +1,7 @@
-import React from "react";
 import {
   FaUserTie,
   FaLightbulb,
   FaClipboardList,
-  FaSync,
-  FaClock,
   FaCheck,
   FaTimes,
   FaArrowRight,
@@ -14,8 +11,8 @@ import { useNavigate } from "react-router-dom";
 
 const consultingPlans = [
   {
-    title: "Starter",
-    price: "$299",
+    title: "Basic",
+    price: "৳ 5,000",
     features: [
       { text: "1-on-1 Strategy Session (1 Hour)", icon: <FaUserTie />, included: true },
       { text: "Business Goal Assessment", icon: <FaLightbulb />, included: true },
@@ -23,40 +20,33 @@ const consultingPlans = [
       { text: "Follow-up Email Support (3 Days)", icon: <FaCheck />, included: true },
       { text: "Team Training Materials", icon: <FaTimes />, included: false },
       { text: "Ongoing Consulting", icon: <FaTimes />, included: false },
-      { text: "Revisions: 1", icon: <FaSync />, included: true },
-      { text: "Delivery Time: 3 Days", icon: <FaClock />, included: true },
     ],
-    buttonColor: "bg-gradient-to-r from-blue-600 to-black",
-    headerColor: "bg-gradient-to-r from-blue-500 to-blue-700",
+    buttonColor: "bg-gradient-to-r from-green-500 to-teal-600",
+    headerColor: "bg-gradient-to-r from-green-600 to-emerald-700",
   },
   {
-    title: "Professional",
-    price: "$599",
+    title: "Standard",
+    price: "৳ 10,000",
     features: [
-      { text: "3 Strategy Sessions (1 Hour Each)", icon: <FaUserTie />, included: true },
+      { text: "2 Strategy Sessions (1 Hour Each)", icon: <FaUserTie />, included: true },
       { text: "Detailed Business Audit Report", icon: <FaChartLine />, included: true },
       { text: "Custom Growth Roadmap", icon: <FaClipboardList />, included: true },
       { text: "Follow-up Support (7 Days)", icon: <FaCheck />, included: true },
       { text: "Team Training Materials", icon: <FaCheck />, included: true },
       { text: "Ongoing Consulting (1 Week)", icon: <FaCheck />, included: true },
-      { text: "Revisions: 3", icon: <FaSync />, included: true },
-      { text: "Delivery Time: 7 Days", icon: <FaClock />, included: true },
     ],
-    buttonColor: "bg-gradient-to-r from-orange-500 to-pink-600",
+     buttonColor: "bg-gradient-to-r from-orange-500 to-pink-600",
     headerColor: "bg-gradient-to-r from-orange-500 to-red-500",
   },
   {
-    title: "Enterprise",
-    price: "$1199",
+    title: "Premium",
+    price: "৳ 20,000",
     features: [
-      { text: "Full Business Strategy Consulting (1 Month)", icon: <FaUserTie />, included: true },
+      { text: "Full Business Strategy Consulting (6 Hour)", icon: <FaUserTie />, included: true },
       { text: "In-depth Industry Research", icon: <FaChartLine />, included: true },
-      { text: "Custom Reports & Dashboards", icon: <FaClipboardList />, included: true },
       { text: "Ongoing Support & Adjustments", icon: <FaCheck />, included: true },
       { text: "Workshops & Team Training", icon: <FaCheck />, included: true },
       { text: "Unlimited Support & Reporting", icon: <FaCheck />, included: true },
-      { text: "Revisions: Unlimited", icon: <FaSync />, included: true },
-      { text: "Delivery Time: 15 Days", icon: <FaClock />, included: true },
     ],
     buttonColor: "bg-gradient-to-r from-black to-gray-800",
     headerColor: "bg-gradient-to-r from-purple-600 to-indigo-700",
@@ -68,7 +58,7 @@ const ConsultingServices = () => {
   return (
     <section className="py-20 text-gray-800 bg-white dark:bg-black">
       <div className="mb-12 text-center">
-        <h2 className="text-3xl font-bold tracking-wide text-orange-500 uppercase">
+        <h2 className="text-3xl font-bold tracking-wide text-[#eb2127] uppercase">
           Business Consulting
         </h2>
         <h3 className="mt-2 text-4xl font-extrabold text-blue-700 md:text-4xl">

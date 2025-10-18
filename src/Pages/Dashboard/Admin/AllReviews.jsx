@@ -44,10 +44,10 @@ const AllReviews = () => {
       </h2>
       <div className="flex justify-end mb-4">
         <button
-          onClick={() => navigate("/dashboard/addReviewVideo")}
+          onClick={() => navigate("/dashboard/addReviews")}
           className="flex items-center gap-2 px-4 py-2 text-white bg-green-500 rounded hover:bg-orange-600"
         >
-          <FaPlus /> Add Review Video
+          <FaPlus /> Add Review
         </button>
       </div>
       <div className="overflow-x-auto bg-white rounded-lg shadow-lg">
