@@ -1,6 +1,6 @@
 import FashionBanner from "../../../../../src/assets/Fashion-banner.jpg";
-import organicCustomer from "../../../../../src/assets/Organic-customer.jpg";
-import organicAdmin from "../../../../../src/assets/Organic-admin.jpg";
+import organicCustomer from "../../../../../src/assets/Fashion-C.jpg";
+import organicAdmin from "../../../../../src/assets/Fashion-A.png";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";

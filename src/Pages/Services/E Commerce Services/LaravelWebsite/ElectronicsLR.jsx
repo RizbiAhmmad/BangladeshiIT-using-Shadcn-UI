@@ -1,6 +1,6 @@
 import ElectronicsBanner from "../../../../../src/assets/Electronics-banner.jpg";
-import organicCustomer from "../../../../../src/assets/Organic-customer.jpg";
-import organicAdmin from "../../../../../src/assets/Organic-admin.jpg";
+import organicCustomer from "../../../../../src/assets/Electronic-C.jpg";
+import organicAdmin from "../../../../../src/assets/Electronic-A.jpg";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";

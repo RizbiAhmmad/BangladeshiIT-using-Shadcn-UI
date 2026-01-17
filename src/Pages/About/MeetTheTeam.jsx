@@ -35,11 +35,11 @@ export function MeetTheTeam() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Meet Our <AuroraText>Team</AuroraText>
+        Meet Our <AuroraText>Team Leaders</AuroraText>
       </motion.h2>
 
       {/* Cards */}
-      <div className="grid max-w-5xl gap-8 px-8 mx-auto md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid max-w-5xl gap-8 px-8 mx-auto md:grid-cols-4 ">
         {members.map((member, i) => (
           <motion.div
             key={member._id}

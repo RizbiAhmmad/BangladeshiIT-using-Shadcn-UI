@@ -14,6 +14,12 @@ import client5 from "../../assets/Zaka.jpg";
 import client6 from "../../assets/SishuBD.jpg";
 import client7 from "../../assets/ilux.jpg";
 import client8 from "../../assets/Valoria.png";
+import client9 from "../../assets/mahenur.jpg";
+import client10 from "../../assets/aasaf.jpg";
+import client11 from "../../assets/Anjumane.jpeg";
+import client12 from "../../assets/Sunniya.jpeg";
+import client13 from "../../assets/BlackEye.jpg";
+import client14 from "../../assets/CoralBeach.jpg";
 
 const clients = [
   {
@@ -56,6 +62,36 @@ const clients = [
     name: "Valoria",
     logo: client8,
   },
+  {
+    id: 9,
+    name: "Mahenur",
+    logo: client9,
+  },
+  {
+    id: 10,
+    name: "AASAF",
+    logo: client10,
+  },
+  {
+    id: 11,
+    name: "Anjumane",
+    logo: client11,
+  },
+  {
+    id: 12,
+    name: "Sunniya",
+    logo: client12,
+  },
+  {
+    id: 13,
+    name: "BlackEye",
+    logo: client13,
+  },
+  {
+    id: 14,
+    name: "CoralBeach",
+    logo: client14,
+  },
 ];
 
 export default function OurClients() {
@@ -91,7 +127,7 @@ export default function OurClients() {
                 key={client.id}
                 className="pl-4 basis-1/2 md:basis-1/4 lg:basis-1/6"
               >
-                <div className="flex items-center justify-center p-4 transition-all duration-300 bg-white hover:shadow-lg rounded-xl h-28">
+                <div className="flex items-center justify-center p-2 transition-all duration-300 bg-white hover:shadow-lg rounded-xl h-28">
                   <img
                     src={client.logo}
                     alt={client.name}

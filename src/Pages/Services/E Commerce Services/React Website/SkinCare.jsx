@@ -1,6 +1,6 @@
 import SkinCareBanner from "../../../../../src/assets/SkinCare-banner.jpg";
-import organicCustomer from "../../../../../src/assets/Organic-customer.jpg";
-import organicAdmin from "../../../../../src/assets/Organic-admin.jpg";
+import organicCustomer from "../../../../../src/assets/Cosmetics-C.jpg";
+import organicAdmin from "../../../../../src/assets/Cosmetics-A.jpg";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";

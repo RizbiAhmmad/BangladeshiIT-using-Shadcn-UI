@@ -61,7 +61,7 @@ const E_commerce_Page = () => {
   const navigate = useNavigate();
 
   const params = new URLSearchParams(location.search);
-  const initialTab = params.get("tab") || "react";
+  const initialTab = params.get("tab") || "laravel";
 
   const [activeTab, setActiveTab] = useState(initialTab);
 

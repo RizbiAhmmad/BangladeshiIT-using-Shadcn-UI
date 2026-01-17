@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import { TbHttpPost } from "react-icons/tb";
 import {
   FaArrowRight,
   FaShoppingCart,
@@ -67,6 +67,11 @@ const ecommercePlans = [
         included: true,
       },
       { text: "Admin Dashboard", icon: <FaCogs />, included: true },
+      {
+        text: "Integrated POS System",
+        icon: <TbHttpPost />,
+        included: true,
+      },
       {
         text: "Advanced SEO Optimization",
         icon: <FaChartLine />,

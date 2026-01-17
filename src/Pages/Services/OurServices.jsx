@@ -7,6 +7,8 @@ import ecommerceImage from "../../../src/assets/ECOMMERCE-SOLUTION.jpg";
 import webdevelopmentImage from "../../../src/assets/web-devlopment.jpg";
 import appdevelopmentImage from "../../../src/assets/app-development.jpg";
 import digitalMarketingImage from "../../../src/assets/Digital-marketing.jpg";
+import graphicImage from "../../../src/assets/Graphics-Design.jpg";
+import seoImage from "../../../src/assets/SEO.jpg";
 
 const demoServices = [
   {
@@ -15,7 +17,7 @@ const demoServices = [
     link: "/services/ecommerce",
     description:
       "Launch your online store with secure, scalable, and user-friendly e-commerce solutions.",
-    image: ecommerceImage
+    image: ecommerceImage,
   },
   {
     id: 2,
@@ -23,7 +25,7 @@ const demoServices = [
     link: "/services/web-development",
     description:
       "Fast, responsive websites built with cutting-edge technologies and user experience in mind.",
-    image:webdevelopmentImage
+    image: webdevelopmentImage,
   },
   {
     id: 3,
@@ -40,7 +42,7 @@ const demoServices = [
     link: "/services/apps-development",
     description:
       "Powerful mobile apps for Android & iOS tailored to your business needs.",
-    image:appdevelopmentImage
+    image: appdevelopmentImage,
   },
   {
     id: 5,
@@ -48,7 +50,7 @@ const demoServices = [
     link: "/services/digital-marketing",
     description:
       "Grow your brand reach with targeted ads, email marketing, and online campaigns.",
-    image:digitalMarketingImage
+    image: digitalMarketingImage,
   },
   {
     id: 6,
@@ -56,8 +58,7 @@ const demoServices = [
     link: "/services/graphic-design",
     description:
       "Eye-catching designs for branding, social media, packaging, and more.",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT49FUKA3yasjKTGrszq9058w1i1oKQ8znw7g&s",
+    image: graphicImage,
   },
   {
     id: 7,
@@ -74,7 +75,7 @@ const demoServices = [
     link: "/services/seo",
     description:
       "Improve your search rankings and drive traffic with proven SEO techniques.",
-    image: "https://content.jdmagicbox.com/v2/comp/bhubaneshwar/t4/0674px674.x674.240619111857.s5t4/catalogue/magicscript-digital-pvt-ltd-hansapal-bhubaneshwar-digital-marketing-services-a64olw7g1z.jpg",
+    image: seoImage,
   },
   {
     id: 9,
@@ -102,7 +103,8 @@ export default function OurServices() {
         {demoServices.map((service, index) => (
           <motion.div
             key={service.id}
-            className="overflow-hidden text-black transition duration-300 border hover:bg-green-100  border-[#066938] transform bg-white shadow-lg rounded-2xl hover:scale-105"
+            onClick={() => navigate(service.link)}
+            className="overflow-hidden cursor-pointer text-black transition duration-300 border hover:bg-green-100  border-[#066938] transform bg-white shadow-lg rounded-2xl hover:scale-105"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -123,7 +125,7 @@ export default function OurServices() {
 
               <motion.button
                 onClick={() => navigate(service.link)}
-                className="relative w-full px-5 py-2.5 mt-5 text-md font-semibold text-white 
+                className="relative cursor-pointer w-full px-5 py-2.5 mt-5 text-md font-semibold text-white 
              rounded-full overflow-hidden group
              bg-gradient-to-t from-[#006752] to-[#15C300] 
              shadow-md transition-all duration-300"

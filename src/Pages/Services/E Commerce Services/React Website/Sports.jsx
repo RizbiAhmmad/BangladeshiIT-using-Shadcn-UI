@@ -1,6 +1,6 @@
 import SportsBanner from "../../../../../src/assets/Sports-banner.jpg";
-import organicCustomer from "../../../../../src/assets/Organic-customer.jpg";
-import organicAdmin from "../../../../../src/assets/Organic-admin.jpg";
+import organicCustomer from "../../../../../src/assets/Sports-C.jpg";
+import organicAdmin from "../../../../../src/assets/Sports-A.jpg";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
