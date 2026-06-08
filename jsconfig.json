@@ -1,12 +1,11 @@
 {
-  "files": [],
-  "references": [
-    
-  ],
+  "include": ["src"],
+  "references": [],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "ignoreDeprecations": "6.0"
   }
 }
