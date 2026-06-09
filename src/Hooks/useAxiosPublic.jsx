@@ -1,11 +1,11 @@
-import Axios  from "axios";
+import Axios from "axios";
+import { API_BASE_URL } from "../config/apiConfig";
 
-const axiosPublic=Axios.create({
-    baseURL: "https://api.bangladeshiit.com",
-   
-})
+const axiosPublic = Axios.create({
+  baseURL: API_BASE_URL,
+});
 const useAxiosPublic = () => {
-    return axiosPublic;
+  return axiosPublic;
 };
 
 export default useAxiosPublic;

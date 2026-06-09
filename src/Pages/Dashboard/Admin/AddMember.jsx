@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { API_BASE_URL } from "../../../config/apiConfig";
 
 const AddMember = () => {
   const { user } = useContext(AuthContext);
@@ -54,7 +55,7 @@ const AddMember = () => {
     console.log("📤 Payload sent to backend:", JSON.stringify(memberData, null, 2));
 
     const res = await axios.post(
-      "https://api.bangladeshiit.com/team",
+      `${API_BASE_URL}/team`,
       JSON.stringify(memberData), // Explicitly stringify the payload
       {
         headers: {

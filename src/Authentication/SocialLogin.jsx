@@ -1,5 +1,6 @@
 import { AuthContext } from "@/provider/AuthProvider";
 import React, { useContext } from "react";
+import { API_BASE_URL } from "../config/apiConfig";
 import { FaGoogle } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -22,7 +23,7 @@ const SocialLogin = () => {
           createdAt: new Date(),
         };
 
-        fetch("https://api.bangladeshiit.com/users", {
+        fetch(`${API_BASE_URL}/users`, {
           method: "POST",
           headers: {
             "content-type": "application/json",

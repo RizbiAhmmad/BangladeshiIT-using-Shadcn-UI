@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { API_BASE_URL } from "../../../config/apiConfig";
 
 const AddReviewVideo = () => {
   const { user } = useContext(AuthContext);
@@ -23,7 +24,7 @@ const AddReviewVideo = () => {
     };
 
     try {
-      const res = await axios.post("https://api.bangladeshiit.com/review-videos", videoData);
+      const res = await axios.post(`${API_BASE_URL}/review-videos`, videoData);
       if (res.data.insertedId) {
         Swal.fire("Success", "Video review added successfully!", "success");
         setFormData({ title: "", videoUrl: "" });

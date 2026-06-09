@@ -3,6 +3,7 @@ import { FaPlus, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from "../../../config/apiConfig";
 
 const AllFreeCourses = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const AllFreeCourses = () => {
   const { data: courses = [], refetch } = useQuery({
     queryKey: ["free-courses"],
     queryFn: async () => {
-      const res = await axios.get("https://api.bangladeshiit.com/free-courses");
+      const res = await axios.get(`${API_BASE_URL}/free-courses`);
       return res.data;
     },
   });
@@ -26,7 +27,7 @@ const AllFreeCourses = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://api.bangladeshiit.com/free-courses/${course._id}`).then((res) => {
+        axios.delete(`${API_BASE_URL}/free-courses/${course._id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             refetch();
             Swal.fire("Deleted!", "Course has been removed.", "success");

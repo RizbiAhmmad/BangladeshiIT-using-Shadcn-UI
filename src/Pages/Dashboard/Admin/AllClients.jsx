@@ -3,6 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { FaPlus, FaTrashAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../../config/apiConfig";
 
 const AllClients = () => {
   const [clients, setClients] = useState([]);
@@ -10,7 +11,7 @@ const AllClients = () => {
 
   useEffect(() => {
     axios
-      .get("https://api.bangladeshiit.com/clients")
+      .get(`${API_BASE_URL}/clients`)
       .then((res) => setClients(res.data))
       .catch((err) => console.error("Failed to fetch clients", err));
   }, []);
@@ -26,7 +27,7 @@ const AllClients = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://api.bangladeshiit.com/clients/${id}`).then((res) => {
+        axios.delete(`${API_BASE_URL}/clients/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             setClients(clients.filter((client) => client._id !== id));
             Swal.fire("Deleted!", "Client has been deleted.", "success");

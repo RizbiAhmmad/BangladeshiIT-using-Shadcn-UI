@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { AuroraText } from "../../components/magicui/aurora-text";
 import axios from "axios";
 import Loading from "../../Shared/Loading";
+import { API_BASE_URL } from "../../config/apiConfig";
 
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
@@ -13,7 +14,7 @@ export default function Blog() {
 
   useEffect(() => {
     axios
-      .get("https://api.bangladeshiit.com/blogs")
+      .get(`${API_BASE_URL}/blogs`)
       .then((res) => setBlogs(res.data))
       .catch((err) => console.error("Error fetching blogs:", err))
       .finally(() => setLoading(false));

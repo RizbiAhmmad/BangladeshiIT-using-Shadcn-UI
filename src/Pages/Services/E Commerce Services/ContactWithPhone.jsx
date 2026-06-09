@@ -36,7 +36,7 @@ export default function ContactWithForm({ activeTab }) {
 
     try {
       // POST request to backend
-      await axios.post("https://api.bangladeshiit.com/contactRequests", {
+      await axios.post(`${API_BASE_URL}/contactRequests`, {
         name,
         company,
         phone,

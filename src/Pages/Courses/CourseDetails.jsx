@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import Loading from "../../Shared/Loading";
+import { API_BASE_URL } from "../../config/apiConfig";
 
 const CourseDetails = () => {
   const { id } = useParams();
@@ -12,7 +13,7 @@ const CourseDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`https://api.bangladeshiit.com/free-courses/${id}`)
+      .get(`${API_BASE_URL}/free-courses/${id}`)
       .then((res) => setCourse(res.data))
       .catch((err) => console.error("Error fetching course details:", err))
       .finally(() => setLoading(false));

@@ -4,8 +4,11 @@ import { MeetTheTeam } from "./MeetTheTeam";
 import { AuroraText } from "../../components/magicui/aurora-text";
 import { useNavigate } from "react-router-dom";
 import OurClients from "../Home/OurClients";
+import useSEO from "../../hooks/useSEO";
+import { seoConfig } from "../../config/seoConfig";
 
 export default function About() {
+  useSEO(seoConfig.about);
   const navigate = useNavigate();
   return (
     <section className="px-6 py-20 overflow-hidden text-black bg-white dark:bg-black">

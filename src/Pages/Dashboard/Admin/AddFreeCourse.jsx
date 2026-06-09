@@ -52,7 +52,7 @@ const AddFreeCourse = () => {
         createdAt: new Date(),
       };
 
-      const res = await axios.post("https://api.bangladeshiit.com/free-courses", courseData);
+      const res = await axios.post(`${API_BASE_URL}/free-courses`, courseData);
       if (res.data.insertedId) {
         Swal.fire("Success", "Course added successfully", "success");
         setCourse({ name: "", description: "", price: "" });

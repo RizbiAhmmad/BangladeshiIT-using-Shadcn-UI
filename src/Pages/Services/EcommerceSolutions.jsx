@@ -20,6 +20,8 @@ import {
   FaChartLine,
 } from "react-icons/fa";
 import E_commerce_Page from "./E Commerce Services/E_commerce_Page";
+import useSEO from "../../hooks/useSEO";
+import { getServiceSEO } from "../../config/seoConfig";
 
 const ecommercePlans = [
   {
@@ -151,6 +153,7 @@ const ecommercePlans = [
 ];
 
 const EcommerceSolutions = () => {
+  useSEO(getServiceSEO("ecommerce"));
   const navigate = useNavigate();
   return (
     <section className="py-20 text-gray-800 bg--white dark:bg-black">

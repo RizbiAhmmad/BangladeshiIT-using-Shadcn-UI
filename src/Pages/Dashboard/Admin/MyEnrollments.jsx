@@ -4,6 +4,7 @@ import { FaUserGraduate } from "react-icons/fa";
 import useAuth from "../../../Hooks/useAuth";
 import Loading from "../../../Shared/Loading";
 import { AuroraText } from "../../../components/magicui/aurora-text";
+import { API_BASE_URL } from "../../../config/apiConfig";
 
 const MyEnrollments = () => {
   const { user } = useAuth();
@@ -13,7 +14,7 @@ const MyEnrollments = () => {
   useEffect(() => {
     if (user?.email) {
       axios
-        .get(`https://api.bangladeshiit.com/enrollments?email=${user.email}`)
+        .get(`${API_BASE_URL}/enrollments?email=${user.email}`)
         .then((res) => setEnrollments(res.data))
         .catch((err) => console.error("Error fetching enrollments:", err))
         .finally(() => setLoading(false));

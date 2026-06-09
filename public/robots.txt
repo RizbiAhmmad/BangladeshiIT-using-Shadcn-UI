@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /*.json$
+
+Sitemap: https://bangladeshiit.com/sitemap.xml
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /

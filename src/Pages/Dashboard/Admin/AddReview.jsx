@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { API_BASE_URL } from "../../../config/apiConfig";
 
 const AddReview = () => {
   const { user } = useContext(AuthContext);
@@ -75,7 +76,7 @@ const AddReview = () => {
 
       // Send to backend
       const res = await axios.post(
-        "https://api.bangladeshiit.com/reviews",
+        `${API_BASE_URL}/reviews`,
         reviewData
       );
 

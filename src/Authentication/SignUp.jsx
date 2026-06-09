@@ -32,7 +32,7 @@ const SignUp = () => {
               role: "user",
               createdAt: new Date(),
             };
-            fetch("https://api.bangladeshiit.com/users", {
+            fetch(`${API_BASE_URL}/users`, {
               method: "POST",
               headers: {
                 "content-type": "application/json",

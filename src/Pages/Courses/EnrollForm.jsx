@@ -4,6 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 import Loading from "../../Shared/Loading"; // ✅ Adjust path if needed
+import { API_BASE_URL } from "../../config/apiConfig";
 
 const EnrollForm = () => {
   const { id } = useParams();
@@ -22,7 +23,7 @@ const EnrollForm = () => {
 
   useEffect(() => {
     axios
-      .get(`https://api.bangladeshiit.com/free-courses/${id}`)
+      .get(`${API_BASE_URL}/free-courses/${id}`)
       .then((res) => {
         setCourse(res.data);
         setLoading(false);
@@ -49,7 +50,7 @@ const EnrollForm = () => {
     };
 
     try {
-      const res = await axios.post("https://api.bangladeshiit.com/enrollments", enrollmentData);
+      const res = await axios.post(`${API_BASE_URL}/enrollments`, enrollmentData);
       if (res.data.insertedId) {
         Swal.fire("✅ Success", "Enrollment successful!", "success");
       } else {

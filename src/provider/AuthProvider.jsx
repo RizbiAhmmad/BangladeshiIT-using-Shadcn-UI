@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import { API_BASE_URL } from "../config/apiConfig";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -52,7 +53,7 @@ const AuthProvider = ({ children }) => {
   const fetchUserRole = async (email) => {
     if (email) {
       try {
-        const response = await fetch(`https://api.bangladeshiit.com/users/${email}`);
+        const response = await fetch(`${API_BASE_URL}/users/${email}`);
         const userData = await response.json();
         setUserRole(userData?.role || 'user'); 
       } catch (error) {

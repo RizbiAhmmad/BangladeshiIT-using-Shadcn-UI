@@ -6,6 +6,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from "../../../config/apiConfig";
 
 const AllMembers = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +17,7 @@ const AllMembers = () => {
     queryKey: ["team"],
     queryFn: async () => {
       const res = await axios.get(
-        "https://api.bangladeshiit.com/team"
+        `${API_BASE_URL}/team`
       );
       return res.data;
     },
@@ -40,7 +41,7 @@ const AllMembers = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://api.bangladeshiit.com/team/${id}`)
+          .delete(`${API_BASE_URL}/team/${id}`)
           .then((res) => {
             if (res.data.deletedCount > 0) {
               refetch();
@@ -80,7 +81,7 @@ const AllMembers = () => {
 
     // Send PUT request with JSON body
     const res = await axios.put(
-      `https://api.bangladeshiit.com/team/${selectedMember._id}`,
+      `${API_BASE_URL}/team/${selectedMember._id}`,
       updatePayload
     );
 

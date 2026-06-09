@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
+import { API_BASE_URL } from "../../../config/apiConfig";
 
 export default function AddBlogs() {
   const { user } = useAuth(); // user info
@@ -53,7 +54,7 @@ export default function AddBlogs() {
         createdAt: new Date(),
       };
 
-      const res = await axios.post("https://api.bangladeshiit.com/blogs", blogWithEmail);
+      const res = await axios.post(`${API_BASE_URL}/blogs`, blogWithEmail);
 
       if (res.data.insertedId) {
         Swal.fire("Success", "Blog added successfully", "success");

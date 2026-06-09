@@ -19,6 +19,8 @@ import {
   FaChartLine,
 } from "react-icons/fa";
 import Technologies from "../Home/Technologies";
+import useSEO from "../../hooks/useSEO";
+import { getServiceSEO } from "../../config/seoConfig";
 
 const plans = [
   {
@@ -145,6 +147,7 @@ const plans = [
 ];
 
 const WebDevelopment = () => {
+  useSEO(getServiceSEO("web-development"));
   const navigate = useNavigate();
   return (
     <section className="pt-20 text-gray-800 bg-white dark:bg-black">

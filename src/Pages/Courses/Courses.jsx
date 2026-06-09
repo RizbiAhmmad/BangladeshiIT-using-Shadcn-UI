@@ -7,6 +7,7 @@ import Loading from "../../Shared/Loading";
 import { AuroraText } from "../../components/magicui/aurora-text";
 import LandingPage from "./LandingPage";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../config/apiConfig";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
@@ -16,7 +17,7 @@ const Courses = () => {
 
   useEffect(() => {
     axios
-      .get("https://api.bangladeshiit.com/free-courses")
+      .get(`${API_BASE_URL}/free-courses`)
       .then((res) => setCourses(res.data))
       .catch((err) => console.error("Error fetching courses:", err))
       .finally(() => setLoading(false));

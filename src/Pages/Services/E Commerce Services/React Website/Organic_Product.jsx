@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { API_BASE_URL } from "../../../../config/apiConfig";
 import { useState } from "react";
 
 const Organic_Product = () => {
@@ -40,7 +41,7 @@ const Organic_Product = () => {
 
     try {
       // POST request to backend
-      await axios.post("https://api.bangladeshiit.com/contactRequests", {
+      await axios.post(`${API_BASE_URL}/contactRequests`, {
         name,
         company,
         phone,

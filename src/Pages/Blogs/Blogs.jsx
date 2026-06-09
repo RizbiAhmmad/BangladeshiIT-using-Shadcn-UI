@@ -4,8 +4,11 @@ import { ArrowRight } from "lucide-react";
 import { AuroraText } from "../../components/magicui/aurora-text";
 import Loading from "../../Shared/Loading";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { seoConfig } from "../../config/seoConfig";
+import useSEO from "@/Hooks/useSEO";
 
 export default function Blogs() {
+  useSEO(seoConfig.blogs);
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();

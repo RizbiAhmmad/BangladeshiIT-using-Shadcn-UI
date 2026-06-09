@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { AuroraText } from "../../components/magicui/aurora-text";
+import { API_BASE_URL } from "../../config/apiConfig";
 
 export default function ReviewVideos() {
   const [reviewVideos, setReviewVideos] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://api.bangladeshiit.com/review-videos")
+      .get(`${API_BASE_URL}/review-videos`)
       .then((res) => setReviewVideos(res.data))
       .catch((err) => console.error("Error fetching videos:", err));
   }, []);

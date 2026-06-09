@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { FaTrashAlt } from "react-icons/fa";
+import { API_BASE_URL } from "../../../config/apiConfig";
 
 const AllEnrollments = () => {
   const [enrollments, setEnrollments] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://api.bangladeshiit.com/enrollments")
+      .get(`${API_BASE_URL}/enrollments`)
       .then((res) => setEnrollments(res.data))
       .catch((err) => console.error("Failed to fetch enrollments", err));
   }, []);
@@ -24,7 +25,7 @@ const AllEnrollments = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://api.bangladeshiit.com/enrollments/${id}`).then((res) => {
+        axios.delete(`${API_BASE_URL}/enrollments/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             setEnrollments(enrollments.filter((item) => item._id !== id));
             Swal.fire("Deleted!", "Enrollment has been removed.", "success");

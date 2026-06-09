@@ -3,8 +3,11 @@ import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import emailjs from "emailjs-com"; // Import EmailJS
 import { AuroraText } from "../../components/magicui/aurora-text";
 import { motion } from "framer-motion";
+import useSEO from "../../hooks/useSEO";
+import { seoConfig } from "../../config/seoConfig";
 
 export default function Contact() {
+  useSEO(seoConfig.contact);
   const [form, setForm] = useState({
     name: "",
     email: "",
