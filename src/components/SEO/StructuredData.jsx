@@ -13,8 +13,8 @@ export const structuredData = {
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "Customer Support",
-      "telephone": "+880-XXX-XXXX",
-      "email": "contact@bangladeshiit.com"
+      "telephone": "+8801621741799",
+      "email": "info@bangladeshiit.com"
     },
     "address": {
       "@type": "PostalAddress",
@@ -30,12 +30,12 @@ export const structuredData = {
     "name": "Bangladeshi IT",
     "image": "https://bangladeshiit.com/logo.png",
     "description": "Web development and e-commerce services",
-    "telephone": "+880-XXX-XXXX",
-    "email": "contact@bangladeshiit.com",
+    "telephone": "+8801621741799",
+    "email": "info@bangladeshiit.com",
     "url": "https://bangladeshiit.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Your Address Here",
+      "streetAddress": "Uttara, Dhaka",
       "addressLocality": "Dhaka",
       "addressRegion": "Dhaka",
       "postalCode": "1000",
