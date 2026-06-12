@@ -37,23 +37,33 @@ const VideoGallery = () => {
         {/* Responsive Grid */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {videos.map((vid, index) => (
-            <div
+            <motion.div
               key={index}
-              className="overflow-hidden bg-white shadow-lg rounded-xl dark:bg-gray-900"
+              className="relative group overflow-hidden bg-white/80 backdrop-blur-md shadow-sm border border-gray-200/50 rounded-3xl dark:bg-zinc-900/80 dark:border-zinc-800 transition-all duration-300 hover:shadow-2xl hover:shadow-[#eb2127]/20"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+              whileHover={{ y: -8 }}
             >
-              <video
-                src={vid.src}
-                controls
-                preload="none"
-                poster={vid.poster}
-                className="w-full rounded-t-xl"
-              />
-              <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-200">
+              {/* Premium Glow effect behind video */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 pointer-events-none rounded-t-3xl"></div>
+              
+              <div className="relative overflow-hidden rounded-t-3xl border-b border-gray-100 dark:border-zinc-800">
+                <video
+                  src={vid.src}
+                  controls
+                  preload="none"
+                  poster={vid.poster}
+                  className="w-full transition-transform duration-700 group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="p-6 relative z-20 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-sm">
+                <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-800 to-gray-600 dark:from-gray-100 dark:to-gray-300 group-hover:from-[#eb2127] group-hover:to-[#ff512f] transition-all duration-300">
                   {vid.title}
                 </h3>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

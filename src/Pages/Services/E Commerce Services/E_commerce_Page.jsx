@@ -90,65 +90,57 @@ const E_commerce_Page = () => {
           Choose Your Website
         </h2>
 
-        {/* Tabs */}
-        <div
-          role="tablist"
-          aria-label="Framework tabs"
-          className="flex flex-wrap justify-center gap-4 mb-8 text-center"
-        >
-          {/* React Tab */}
-          <button
-            role="tab"
-            aria-selected={activeTab === "react"}
-            onClick={() => handleTabChange("react")}
-            className={`group relative flex items-center gap-3 px-5 py-2 rounded-2xl font-semibold transition-all duration-300 ${
-              activeTab === "react"
-                ? "bg-gradient-to-r from-[#e6f9ff] to-[#cdeeff] text-[#0366aa] shadow-[0_8px_30px_rgba(6,102,170,0.12)] scale-105"
-                : "bg-white/5 dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:scale-[1.03] hover:shadow-md"
-            }`}
-          >
-            <span
-              className={`flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 ${
-                activeTab === "react"
-                  ? "bg-white text-[#61dafb] scale-110"
-                  : "bg-white/5 text-[#61dafb]/80 group-hover:bg-white/10"
-              }`}
-              aria-hidden
-            >
-              <FaReact className="w-5 h-5" />
-            </span>
-            <span className="whitespace-nowrap">React Websites</span>
-            {activeTab === "react" && (
-              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-gradient-to-r from-[#61dafb] to-[#1b6fb0] shadow-sm" />
-            )}
-          </button>
+        <div className="flex flex-col items-center mb-12">
+          <p className="max-w-2xl mx-auto mb-8 text-gray-600 dark:text-gray-300 leading-relaxed">
+            We offer tailored e-commerce solutions built on your preferred technology stack.
+            Choose between the dynamic, lightning-fast performance of <span className="font-semibold text-cyan-600 dark:text-cyan-400">React</span> or the robust, scalable architecture of <span className="font-semibold text-red-600 dark:text-red-400">Laravel</span>.
+          </p>
 
-          {/* Laravel Tab */}
-          <button
-            role="tab"
-            aria-selected={activeTab === "laravel"}
-            onClick={() => handleTabChange("laravel")}
-            className={`group relative flex items-center gap-3 px-5 py-2 rounded-2xl font-semibold transition-all duration-300 ${
-              activeTab === "laravel"
-                ? "bg-gradient-to-r from-[#ffecec] to-[#ffd6d0] text-[#a42f20] shadow-[0_8px_30px_rgba(164,47,32,0.10)] scale-105"
-                : "bg-white/5 dark:bg-gray-800/50 text-gray-600 dark:text-gray-300 hover:scale-[1.03] hover:shadow-md"
-            }`}
-          >
-            <span
-              className={`flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 ${
-                activeTab === "laravel"
-                  ? "bg-white text-[#f05340] scale-110"
-                  : "bg-white/5 text-[#f05340]/80 group-hover:bg-white/10"
-              }`}
-              aria-hidden
+          {/* Modern Segmented Tabs */}
+          <div className="relative flex items-center p-1.5 bg-gray-100/80 dark:bg-zinc-900/80 backdrop-blur-md rounded-full shadow-inner border border-gray-200/50 dark:border-zinc-800/50 w-full max-w-md mx-auto">
+
+            {/* React Tab */}
+            <button
+              role="tab"
+              aria-selected={activeTab === "react"}
+              onClick={() => handleTabChange("react")}
+              className={`relative z-10 flex-1 flex items-center justify-center gap-2 py-3.5 px-6 rounded-full text-sm sm:text-base font-bold transition-colors duration-300 ${activeTab === "react" ? "text-white" : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                }`}
             >
-              <SiLaravel className="w-5 h-5" />
-            </span>
-            <span className="whitespace-nowrap">Laravel Websites</span>
-            {activeTab === "laravel" && (
-              <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-12 h-1 rounded-full bg-gradient-to-r from-[#f05340] to-[#c23a2a] shadow-sm" />
-            )}
-          </button>
+              {activeTab === "react" && (
+                <motion.div
+                  layoutId="active-ecommerce-tab"
+                  className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full shadow-lg shadow-cyan-500/30"
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                />
+              )}
+              <span className="relative z-20 flex items-center gap-2">
+                <FaReact className={`w-5 h-5 ${activeTab === "react" ? "text-white animate-[spin_10s_linear_infinite]" : "text-cyan-500"}`} />
+                React Demo
+              </span>
+            </button>
+
+            {/* Laravel Tab */}
+            <button
+              role="tab"
+              aria-selected={activeTab === "laravel"}
+              onClick={() => handleTabChange("laravel")}
+              className={`relative z-10 flex-1 flex items-center justify-center gap-2 py-3.5 px-6 rounded-full text-sm sm:text-base font-bold transition-colors duration-300 ${activeTab === "laravel" ? "text-white" : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                }`}
+            >
+              {activeTab === "laravel" && (
+                <motion.div
+                  layoutId="active-ecommerce-tab"
+                  className="absolute inset-0 bg-gradient-to-r from-[#ff2d20] to-[#c22116] rounded-full shadow-lg shadow-red-500/30"
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                />
+              )}
+              <span className="relative z-20 flex items-center gap-2">
+                <SiLaravel className={`w-5 h-5 ${activeTab === "laravel" ? "text-white" : "text-[#ff2d20]"}`} />
+                Laravel Demo
+              </span>
+            </button>
+          </div>
         </div>
 
         {/* Service Cards */}

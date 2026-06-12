@@ -104,39 +104,44 @@ export default function OurServices() {
           <motion.div
             key={service.id}
             onClick={() => navigate(service.link)}
-            className="overflow-hidden cursor-pointer text-black transition duration-300 border hover:bg-green-100  border-[#066938] transform bg-white shadow-lg rounded-2xl hover:scale-105"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            // whileHover={{ scale: 1.05 }}
+            className="group overflow-hidden cursor-pointer text-black border border-gray-200/50 hover:border-[#066938]/40 bg-white/70 backdrop-blur-md shadow-sm hover:shadow-2xl hover:shadow-[#066938]/10 rounded-3xl dark:bg-zinc-900/70 dark:border-zinc-800 dark:text-white dark:hover:border-green-500/40 transition-colors transition-shadow duration-300"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "0px" }}
+            transition={{ type: "spring", stiffness: 80, damping: 15, delay: index * 0.1 }}
+            whileHover={{ y: -8 }}
           >
-            <img
-              src={service.image}
-              alt={service.title}
-              className="object-cover w-full h-56"
-            />
-            <div className="p-6">
-              <h3 className="mb-2 text-2xl font-bold text-[#eb2127]">
+            <div className="overflow-hidden">
+              <motion.img
+                src={service.image}
+                alt={service.title}
+                className="object-cover w-full h-56 transition-transform duration-700 group-hover:scale-110"
+              />
+            </div>
+            <div className="p-8">
+              <h3 className="mb-3 text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#eb2127] to-[#ff512f]">
                 {service.title}
               </h3>
-              <p className="text-gray-900 text-md line-clamp-2">
+              <p className="text-gray-600 dark:text-gray-300 text-md line-clamp-2 leading-relaxed">
                 {service.description}
               </p>
 
               <motion.button
-                onClick={() => navigate(service.link)}
-                className="relative cursor-pointer w-full px-5 py-2.5 mt-5 text-md font-semibold text-white 
-             rounded-full overflow-hidden group
-             bg-gradient-to-t from-[#006752] to-[#15C300] 
-             shadow-md transition-all duration-300"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate(service.link);
+                }}
+                className="relative cursor-pointer w-full px-5 py-3 mt-6 text-md font-semibold text-white 
+             rounded-2xl overflow-hidden group/btn
+             bg-gradient-to-r from-[#006752] to-[#15C300] 
+             shadow-md shadow-green-500/30 transition-all duration-300 hover:shadow-green-500/50"
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
-                  Learn More 🚀
+                  Learn More <span className="transition-transform duration-300 group-hover/btn:translate-x-1">🚀</span>
                 </span>
-
                 {/* Hover shine effect */}
-                <span className="absolute inset-0 transition-transform duration-500 -translate-x-full bg-white opacity-20 group-hover:translate-x-0"></span>
+                <span className="absolute inset-0 transition-transform duration-500 -translate-x-full bg-white opacity-20 group-hover/btn:translate-x-0"></span>
               </motion.button>
             </div>
           </motion.div>

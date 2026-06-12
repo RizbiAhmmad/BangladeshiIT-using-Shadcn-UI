@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import popupimage from "../../src/assets/Popup_image.png";
 
 const PopupOnLoad = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,7 @@ const PopupOnLoad = () => {
 
         <div className="flex items-center justify-center bg-gray-900">
           <img
-            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"
+            src={popupimage}
             alt="Featured"
             className="h-[55vh] w-full object-cover sm:h-[60vh]"
           />
