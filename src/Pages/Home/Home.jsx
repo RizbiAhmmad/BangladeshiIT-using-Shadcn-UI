@@ -10,6 +10,7 @@ import Technologies from './Technologies';
 import Testimonial from './Testimonial';
 import VideoGallery from './VideoGallery';
 import PopupOnLoad from '../../components/PopupOnLoad';
+import ScrollToTop from '../../components/ScrollToTop';
 import { updateMetaTags } from '../../utils/seoUtils';
 
 const Home = () => {
@@ -30,6 +31,7 @@ const Home = () => {
   return (
     <div>
       {showPopup && <PopupOnLoad />}
+      <ScrollToTop />
       <SparklesIndex />
       {/* <Banner></Banner> */}
       <VideoGallery></VideoGallery>

@@ -27,7 +27,7 @@ const PopupOnLoad = () => {
           <img
             src={popupimage}
             alt="Featured"
-            className="h-[55vh] w-full object-cover sm:h-[60vh]"
+            className="h-[55vh] w-full object-cover sm:h-[65vh]"
           />
         </div>
 

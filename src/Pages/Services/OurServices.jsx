@@ -138,7 +138,7 @@ export default function OurServices() {
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
-                  Learn More <span className="transition-transform duration-300 group-hover/btn:translate-x-1">🚀</span>
+                  Learn More <span className="transition-transform duration-300 group-hover/btn:translate-x-1"></span>
                 </span>
                 {/* Hover shine effect */}
                 <span className="absolute inset-0 transition-transform duration-500 -translate-x-full bg-white opacity-20 group-hover/btn:translate-x-0"></span>
