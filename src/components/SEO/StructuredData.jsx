@@ -35,10 +35,10 @@ export const structuredData = {
     "url": "https://bangladeshiit.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Uttara, Dhaka",
+      "streetAddress": "House 4, Road 7/B, Uttara 9 No. Sector, Dhaka-1230, Bangladesh",
       "addressLocality": "Dhaka",
       "addressRegion": "Dhaka",
-      "postalCode": "1000",
+      "postalCode": "1230",
       "addressCountry": "BD"
     },
     "geo": {
@@ -48,7 +48,7 @@ export const structuredData = {
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
       "opens": "09:00",
       "closes": "18:00"
     }

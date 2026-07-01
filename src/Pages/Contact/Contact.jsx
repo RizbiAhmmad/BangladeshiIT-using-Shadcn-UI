@@ -3,7 +3,6 @@ import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import emailjs from "emailjs-com"; // Import EmailJS
 import { AuroraText } from "../../components/magicui/aurora-text";
 import { motion } from "framer-motion";
-import useSEO from "../../hooks/useSEO";
 import { seoConfig } from "../../config/seoConfig";
 
 export default function Contact() {
@@ -68,7 +67,7 @@ export default function Contact() {
             </div>
             <div className="flex items-center space-x-3">
               <FaMapMarkerAlt className="w-5 h-5 text-[#066938]" />
-              <span>House 30, Road 10, Nikunja-2, Dhaka-1229, Bangladesh</span>
+              <span>House 4, Road 7/B, Uttara 9 No. Sector, Dhaka-1230, Bangladesh</span>
             </div>
           </div>
         </div>
