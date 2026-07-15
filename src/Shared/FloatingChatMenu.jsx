@@ -21,13 +21,13 @@ export default function FloatingChatMenu() {
       icon: <FaWhatsapp />,
       label: 'WhatsApp',
       bg: 'bg-green-500',
-      link: 'https://wa.me/+8801560023160',
+      link: 'https://wa.me/+8801843430269',
     },
     {
       icon: <FaPhone />,
       label: 'Call Us',
       bg: 'bg-green-400',
-      link: 'tel:+8801560023160',
+      link: 'tel:+8801843430269',
     },
   ];
 

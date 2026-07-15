@@ -39,11 +39,11 @@ export function MeetTheTeam() {
       </motion.h2>
 
       {/* Cards */}
-      <div className="grid max-w-5xl gap-8 px-8 mx-auto md:grid-cols-4 ">
+      <div className="flex flex-wrap justify-center max-w-5xl gap-8 px-8 mx-auto">
         {members.map((member, i) => (
           <motion.div
             key={member._id}
-            className="p-4 transition duration-300 bg-white border border-[#066938] shadow-lg group rounded-xl hover:bg-green-100 hover:shadow-2xl dark:bg-black"
+            className="p-4 w-full sm:w-[45%] md:w-[calc(25%-1.5rem)] transition duration-300 bg-white border border-[#066938] shadow-lg group rounded-xl hover:bg-green-100 hover:shadow-2xl dark:bg-black"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{

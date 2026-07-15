@@ -4,8 +4,8 @@ import { MeetTheTeam } from "./MeetTheTeam";
 import { AuroraText } from "../../components/magicui/aurora-text";
 import { useNavigate } from "react-router-dom";
 import OurClients from "../Home/OurClients";
-import useSEO from "../../hooks/useSEO";
 import { seoConfig } from "../../config/seoConfig";
+import useSEO from "@/Hooks/useSEO";
 
 export default function About() {
   useSEO(seoConfig.about);
@@ -120,7 +120,7 @@ export default function About() {
                     GET A FREE CONSULTATION
                   </p>
                   <p className="text-2xl font-bold text-[#066938]">
-                    +8801621741799
+                    +880 1843 430269
                   </p>
                 </div>
               </div>

@@ -88,14 +88,14 @@ export default function Footer() {
           <h3 className="mb-4 text-lg font-semibold text-white">Contact</h3>
           <ul className="space-y-3 text-sm text-gray-400">
             <li className="flex items-center gap-2">
-              <FaPhone /> +8801621741799
+              <FaPhone /> +880 1843 430269
             </li>
             <li className="flex items-center gap-2">
               <FaEnvelope /> info@bangladeshiit.com
             </li>
             <li className="flex items-center gap-2">
               <FaMapMarkerAlt />
-              House 4, Road 7/B, Uttara 9 No. Sector, Dhaka-1230, Bangladesh
+              House 4/B, Road 7/B, Sector 9, Uttara, Dhaka-1230, Bangladesh
             </li>
           </ul>
         </div>

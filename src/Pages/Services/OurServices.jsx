@@ -104,25 +104,25 @@ export default function OurServices() {
           <motion.div
             key={service.id}
             onClick={() => navigate(service.link)}
-            className="group overflow-hidden cursor-pointer text-black border border-gray-200/50 hover:border-[#066938]/40 bg-white/70 backdrop-blur-md shadow-sm hover:shadow-2xl hover:shadow-[#066938]/10 rounded-3xl dark:bg-zinc-900/70 dark:border-zinc-800 dark:text-white dark:hover:border-green-500/40 transition-colors transition-shadow duration-300"
-            initial={{ opacity: 0, y: 30 }}
+            className="group overflow-hidden cursor-pointer text-black border border-gray-200/50 hover:border-[#066938]/40 bg-white/70 backdrop-blur-md shadow-sm hover:shadow-2xl hover:shadow-[#066938]/10 rounded-3xl dark:bg-zinc-900/70 dark:border-zinc-800 dark:text-white dark:hover:border-green-500/40 transition-shadow duration-300"
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "0px" }}
-            transition={{ type: "spring", stiffness: 80, damping: 15, delay: index * 0.1 }}
-            whileHover={{ y: -8 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.12 }}
+            whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.2, ease: "easeOut" } }}
           >
             <div className="overflow-hidden">
               <motion.img
                 src={service.image}
                 alt={service.title}
-                className="object-cover w-full h-56 transition-transform duration-700 group-hover:scale-110"
+                className="object-cover w-full h-56 transition-transform duration-500 group-hover:scale-110"
               />
             </div>
             <div className="p-8">
               <h3 className="mb-3 text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#eb2127] to-[#ff512f]">
                 {service.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 text-md line-clamp-2 leading-relaxed">
+              <p className="leading-relaxed text-gray-600 dark:text-gray-300 text-md line-clamp-2">
                 {service.description}
               </p>
 

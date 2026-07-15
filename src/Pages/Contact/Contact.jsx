@@ -4,6 +4,7 @@ import emailjs from "emailjs-com"; // Import EmailJS
 import { AuroraText } from "../../components/magicui/aurora-text";
 import { motion } from "framer-motion";
 import { seoConfig } from "../../config/seoConfig";
+import useSEO from "@/Hooks/useSEO";
 
 export default function Contact() {
   useSEO(seoConfig.contact);
@@ -63,11 +64,11 @@ export default function Contact() {
             </div>
             <div className="flex items-center space-x-3">
               <FaPhoneAlt className="w-5 h-5 text-[#066938]" />
-              <span>+8801621741799</span>
+              <span>+880 1843 430269</span>
             </div>
             <div className="flex items-center space-x-3">
               <FaMapMarkerAlt className="w-5 h-5 text-[#066938]" />
-              <span>House 4, Road 7/B, Uttara 9 No. Sector, Dhaka-1230, Bangladesh</span>
+              <span>House 4/B, Road 7/B, Sector 9, Dhaka-1230, Bangladesh</span>
             </div>
           </div>
         </div>
@@ -170,7 +171,7 @@ export default function Contact() {
       {/* Map */}
       <div className="w-full max-w-6xl mt-12 overflow-hidden border border-[#066938] shadow-xl rounded-xl">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d228.10161948546374!2d90.41657317561678!3d23.831897998132586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c65e7ab0e28b%3A0xb470272c941b35ee!2sHouse%2030%20Rd%20No.%2010%2C%20Dhaka%201229!5e0!3m2!1sen!2sbd!4v1756565411114!5m2!1sen!2sbd"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7296.658143517282!2d90.39951621428158!3d23.87794707909012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1784133411603!5m2!1sen!2sbd"
           className="w-full h-[300px] md:h-[450px]"
           allowFullScreen=""
           loading="lazy"
